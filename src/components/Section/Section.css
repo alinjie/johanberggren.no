@@ -1,3 +1,5 @@
+/* Global variable */
+/* Header */
 .section {
   padding: 20px 80px;
   display: -webkit-box;
@@ -11,5 +13,5 @@
       -ms-flex-align: center;
           align-items: center;
   min-height: 200px;
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid #f0f0f0;
 }

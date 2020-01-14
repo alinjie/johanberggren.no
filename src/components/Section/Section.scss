@@ -1,8 +1,10 @@
+@import "../../sass/variables";
+
 .section {
   padding: 20px 80px;
   display: flex;
   flex-direction: column;
   align-items: center;
   min-height: 200px;
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid $borderColor;
 }

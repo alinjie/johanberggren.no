@@ -1,0 +1,11 @@
+.album-cover {
+  margin-bottom: 1em;
+  width: 100%;
+  &__image {
+    margin-bottom: 0.5em;
+  }
+  &__caption {
+    opacity: 0.5;
+    font-style: italic;
+  }
+}

@@ -1,0 +1,9 @@
+.album-text {
+  &__title {
+    text-transform: uppercase;
+  }
+  &__paragraph {
+    opacity: 0.5;
+    font-style: italic;
+  }
+}

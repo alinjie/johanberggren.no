@@ -1,0 +1,23 @@
+@import "../../../sass/variables";
+
+.album-links {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  &__title {
+    text-transform: uppercase;
+    margin-bottom: 1em;
+  }
+
+  &__icon-wrapper {
+    display: flex;
+  }
+
+  &__link {
+    i {
+      color: $black;
+      margin-right: 0.5em;
+      font-size: 2rem;
+    }
+  }
+}

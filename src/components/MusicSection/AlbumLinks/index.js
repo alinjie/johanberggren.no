@@ -10,6 +10,7 @@ const AlbumLinks = () => {
         {icons.map(icon => (
           <a
             href={icon.link}
+            target="_blank"
             rel="noreferrer noopener"
             className="album-links__link"
           >

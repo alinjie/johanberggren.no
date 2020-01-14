@@ -1,0 +1,15 @@
+@import "../../sass/variables";
+
+.menu {
+  font-size: $headerElementFontSize;
+  &__list {
+    display: flex;
+  }
+
+  &__list-item {
+    color: $white;
+    margin-left: 0.5rem;
+    text-transform: uppercase;
+    font-weight: $headerElementFontWeigth;
+  }
+}

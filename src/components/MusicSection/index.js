@@ -4,11 +4,12 @@ import "./MusicSection.css"
 import AlbumText from "./AlbumText"
 import AlbumCover from "./AlbumCover"
 import AlbumLinks from "./AlbumLinks"
+import SectionTitle from "../SectionTitle"
 
 const MusicSection = () => {
   return (
     <Section className="music-section" id="Musikk">
-      <h1>Musikk</h1>
+      <SectionTitle>Musikk</SectionTitle>
       <AlbumCover />
       <AlbumText />
       <AlbumLinks />

@@ -6,6 +6,9 @@ const Section = ({ children, className, ...props }) => {
   return (
     <section className={classes} {...props}>
       {children}
+      <span className="section__to-top" onClick={() => window.scroll(0, 0)}>
+        Til toppen
+      </span>
     </section>
   )
 }

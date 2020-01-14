@@ -4,8 +4,8 @@ export const menuItems = [
     sectionId: "#Musikk",
   },
   {
-    name: "Bilder",
-    sectionId: "#Bilder",
+    name: "Galleri",
+    sectionId: "#Galleri",
   },
   {
     name: "Konsert",

@@ -1,9 +1,9 @@
 import React from "react"
-import Section from "../Section"
+import Section from "components/Section"
 import AlbumText from "./AlbumText"
 import AlbumCover from "./AlbumCover"
 import AlbumLinks from "./AlbumLinks"
-import SectionTitle from "../SectionTitle"
+import SectionTitle from "components/SectionTitle"
 
 const MusicSection = () => {
   return (

@@ -1,14 +1,14 @@
 import React from "react"
-import "./Section.css"
+import "./Section.scss"
 
 const Section = ({ children, className, ...props }) => {
   const classes = "section" + (className ? ` ${className}` : "")
   return (
     <section className={classes} {...props}>
       {children}
-      <span className="section__to-top" onClick={() => window.scroll(0, 0)}>
+      <button className="section__to-top" onClick={() => window.scroll(0, 0)}>
         Til toppen
-      </span>
+      </button>
     </section>
   )
 }

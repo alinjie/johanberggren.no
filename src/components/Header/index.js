@@ -1,7 +1,7 @@
 import React from "react"
 import Logo from "../Logo"
 import Menu from "../Menu"
-import "./Header.css"
+import "./Header.scss"
 
 const Header = () => {
   return (

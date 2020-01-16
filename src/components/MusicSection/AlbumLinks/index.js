@@ -1,6 +1,6 @@
 import React from "react"
 import { icons } from "./icons"
-import "./AlbumLinks.css"
+import "./AlbumLinks.scss"
 
 const AlbumLinks = () => {
   return (

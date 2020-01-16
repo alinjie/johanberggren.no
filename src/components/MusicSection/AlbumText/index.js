@@ -1,5 +1,5 @@
 import React from "react"
-import "./AlbumText.css"
+import "./AlbumText.scss"
 
 const AlbumText = () => {
   return (

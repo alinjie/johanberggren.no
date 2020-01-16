@@ -1,6 +1,6 @@
 import React from "react"
 import Helmet from "react-helmet"
-import "./Layout.css"
+import "./Layout.scss"
 import Header from "../Header"
 import Footer from "../Footer"
 

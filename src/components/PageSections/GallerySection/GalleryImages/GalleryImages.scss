@@ -1,0 +1,19 @@
+@import "../../../../sass/variables";
+
+.gallery-images {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  @media (min-width: $mainBreakPoint) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  &__image {
+    margin-bottom: 1.5em;
+    @media (min-width: $mainBreakPoint) {
+      width: 30%;
+    }
+  }
+}

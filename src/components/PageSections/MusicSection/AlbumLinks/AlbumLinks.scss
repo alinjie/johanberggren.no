@@ -1,4 +1,4 @@
-@import "../../../sass/variables";
+@import "../../../../sass/variables";
 
 .album-links {
   width: 100%;
@@ -17,8 +17,8 @@
   &__link {
     i {
       color: $black;
-      margin-right: 0.5em;
-      font-size: 2rem;
+      margin-right: 0.8em;
+      font-size: 1.6rem;
     }
   }
 }

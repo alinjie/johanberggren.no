@@ -11,9 +11,6 @@ const AlbumCover = () => {
         sourceInstanceName: { eq: "music-images" }
       ) {
         childImageSharp {
-          fixed {
-            ...GatsbyImageSharpFixed
-          }
           fluid {
             ...GatsbyImageSharpFluid
           }

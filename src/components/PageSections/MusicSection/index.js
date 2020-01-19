@@ -3,15 +3,16 @@ import Section from "components/Section"
 import AlbumText from "./AlbumText"
 import AlbumCover from "./AlbumCover"
 import AlbumLinks from "./AlbumLinks"
-import SectionTitle from "components/SectionTitle"
+import "./MusicSection.scss"
 
 const MusicSection = () => {
   return (
-    <Section className="music-section" id="Musikk">
-      <SectionTitle>Musikk</SectionTitle>
+    <Section className="music-section" title="Musikk" id="Musikk">
       <AlbumCover />
-      <AlbumText />
-      <AlbumLinks />
+      <div className="music-section__main-wrapper">
+        <AlbumText />
+        <AlbumLinks />
+      </div>
     </Section>
   )
 }

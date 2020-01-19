@@ -1,12 +1,26 @@
-@import "../../sass/variables";
+@import "../../sass/variables", "../../sass/mixins";
 
 .section {
-  padding: 20px 80px;
+  min-height: 200px;
+  border-bottom: 1px solid $borderColor;
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 200px;
-  border-bottom: 1px solid $borderColor;
+  @include sectionPadding;
+  max-width: 600px;
+  margin: 0 auto;
+
+  @media (min-width: $mainBreakPoint) {
+    max-width: 900px;
+  }
+
+  &__content-wrapper {
+    width: 100%;
+    margin: 0 auto;
+    @media (min-width: $mainBreakPoint) {
+      display: flex;
+    }
+  }
 
   &__to-top {
     margin: 1em 0;

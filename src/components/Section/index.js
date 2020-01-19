@@ -1,14 +1,16 @@
 import React from "react"
+import SectionTitle from "components/SectionTitle"
 import "./Section.scss"
 
-const Section = ({ children, className, ...props }) => {
+const Section = ({ title, children, className, ...props }) => {
   const classes = "section" + (className ? ` ${className}` : "")
   return (
     <section className={classes} {...props}>
-      {children}
-      <button className="section__to-top" onClick={() => window.scroll(0, 0)}>
-        Til toppen
-      </button>
+      <SectionTitle>{title}</SectionTitle>
+      <div className="section__content-wrapper">{children}</div>
+      <a href="#top">
+        <button className="section__to-top">Til toppen</button>
+      </a>
     </section>
   )
 }

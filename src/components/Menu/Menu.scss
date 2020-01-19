@@ -3,14 +3,17 @@
 .menu {
   font-size: $headerElementFontSize;
   width: 100%;
+  flex: 1;
   &__list {
     display: flex;
     justify-content: space-between;
   }
 
   &__list-item {
-    color: $white;
     text-transform: uppercase;
     font-weight: $headerElementFontWeigth;
+    a {
+      color: $black;
+    }
   }
 }

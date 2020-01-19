@@ -1,8 +1,10 @@
 @import "../../sass/variables.scss";
 
 .logo {
-  color: $white;
+  color: $black;
   text-transform: uppercase;
   font-size: $headerElementFontSize;
   font-weight: $headerElementFontWeigth;
+  flex: 2;
+  user-select: none;
 }

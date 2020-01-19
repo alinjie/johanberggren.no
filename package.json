@@ -1,7 +1,7 @@
 {
-  "name": "gatsby-starter-hello-world",
+  "name": "johan-berggren",
   "private": true,
-  "description": "A simplified bare-bones starter for Gatsby",
+  "description": "Official website for Johan Berggren",
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
@@ -15,12 +15,14 @@
   },
   "dependencies": {
     "gatsby": "^2.18.12",
+    "gatsby-background-image": "^0.9.12",
     "gatsby-image": "^2.2.38",
     "gatsby-plugin-react-helmet": "^3.1.21",
     "gatsby-plugin-sass": "^2.1.27",
     "gatsby-plugin-sharp": "^2.3.13",
     "gatsby-source-filesystem": "^2.1.46",
     "gatsby-transformer-sharp": "^2.3.12",
+    "intersection-observer": "^0.7.0",
     "node-sass": "^4.13.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
@@ -31,9 +33,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-hello-world"
+    "url": "https://gitlab.com/alinjie/johan-berggren"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://gitlab.com/alinjie/johan-berggren/issues"
   }
 }

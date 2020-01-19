@@ -1,0 +1,8 @@
+@import "../sass/variables";
+
+@mixin sectionPadding {
+  padding: 20px 80px;
+  @media (min-width: $mainBreakPoint) {
+    padding: 70px 225px;
+  }
+}

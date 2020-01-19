@@ -26,5 +26,19 @@ module.exports = {
         path: path.join(__dirname, `src`, `assets`, "img", "gallery"),
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `general-images`,
+        path: path.join(__dirname, `src`, `assets`, "img"),
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `about-images`,
+        path: path.join(__dirname, `src`, `assets`, "img", "about"),
+      },
+    },
   ],
 }

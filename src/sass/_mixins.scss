@@ -6,3 +6,11 @@
     padding: 70px 225px;
   }
 }
+
+/* Header padding follows section padding, without padding top and bottom*/
+@mixin headerPadding {
+  padding: 0 80px;
+  @media (min-width: $mainBreakPoint) {
+    padding: 0 225px;
+  }
+}

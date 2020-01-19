@@ -1,14 +1,15 @@
+@import "../../sass/mixins";
+
 .header {
   width: 100%;
-  height: 100vh;
-  background-image: url(../../assets/img/header-background.png);
-  background-position: center;
-  background-size: cover;
+  display: flex;
+  justify-content: center;
 
   &__container {
-    padding: 15px;
+    @include sectionPadding;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
   }
 }

@@ -4,6 +4,9 @@
   font-size: $headerElementFontSize;
   width: 100%;
   flex: 1;
+
+  @media (min-width: $mainBreakPoint) {
+  }
   &__list {
     display: flex;
     justify-content: space-between;

@@ -2,13 +2,14 @@
 
 .menu {
   font-size: $headerElementFontSize;
+  width: 100%;
   &__list {
     display: flex;
+    justify-content: space-between;
   }
 
   &__list-item {
     color: $white;
-    margin-left: 0.5rem;
     text-transform: uppercase;
     font-weight: $headerElementFontWeigth;
   }

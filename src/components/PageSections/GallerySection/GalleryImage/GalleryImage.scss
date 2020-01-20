@@ -1,0 +1,8 @@
+@import "../../../../sass/variables";
+
+.gallery-image {
+  margin-bottom: 1em;
+  @media (min-width: $mainBreakPoint) {
+    width: 30%;
+  }
+}

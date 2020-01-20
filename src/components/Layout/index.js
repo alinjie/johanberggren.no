@@ -12,6 +12,11 @@ const Layout = ({ children }) => {
           href="https://fonts.googleapis.com/css?family=Public+Sans:100,400,700&display=swap"
           rel="stylesheet"
         />
+        <title>Johan Berggren</title>
+        <meta
+          name="description"
+          content="Offisiell nettside for Johan Berggren"
+        />
         <script
           src="https://kit.fontawesome.com/c96ed127ec.js"
           crossorigin="anonymous"

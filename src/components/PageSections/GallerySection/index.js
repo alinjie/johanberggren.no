@@ -41,7 +41,7 @@ const ImageSection = () => {
         >
           <GalleryImage
             style={{ width: "100%" }}
-            fluid={{ ...image.childImageSharp.fluid, aspectRatio: 1.2 }}
+            fluid={{ ...image.childImageSharp.fluid }}
           />
         </div>
       ))}

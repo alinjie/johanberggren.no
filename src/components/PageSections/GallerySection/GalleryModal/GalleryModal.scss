@@ -19,14 +19,8 @@ $maxWidth: 1000px;
     max-width: $maxWidth;
   }
 
-  &__image-container {
-    @media (min-width: $mainBreakPoint) {
-      min-height: 850px;
-    }
-  }
   &__image {
     min-height: 300px;
-    max-width: $maxWidth;
     margin: 2em auto;
   }
 

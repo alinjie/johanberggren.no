@@ -33,11 +33,11 @@ const ImageSection = () => {
 
   return (
     <Section title="Galleri" id="Galleri" className="gallery">
-      {data.galleryImages.nodes.map(image => (
+      {data.galleryImages.nodes.map((image, index) => (
         <div
           className="gallery__image-wrapper"
           onClick={() => handleImageClick(image)}
-          key={image.src}
+          key={index}
         >
           <GalleryImage
             style={{ width: "100%" }}

@@ -25,7 +25,7 @@ const AlbumCover = () => {
         alt="Lilyhamericana Album Cover"
         className="album-cover__image"
       />
-      <caption className="album-cover__caption">03.01.2020</caption>
+      <span className="album-cover__caption">03.01.2020</span>
     </div>
   )
 }

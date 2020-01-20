@@ -1,4 +1,4 @@
-import React, { useState, useRef, useMemo } from "react"
+import React, { useRef } from "react"
 import ReactDOM from "react-dom"
 import Img from "gatsby-image"
 import Cyclers from "./Cyclers"

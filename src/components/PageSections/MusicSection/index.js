@@ -7,7 +7,7 @@ import "./MusicSection.scss"
 
 const MusicSection = () => {
   return (
-    <Section className="music-section" title="Musikk" id="Musikk">
+    <Section title="Musikk" id="Musikk">
       <AlbumCover />
       <div className="music-section__main-wrapper">
         <AlbumText />

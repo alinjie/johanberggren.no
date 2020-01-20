@@ -2,6 +2,7 @@
 
 .gallery-image {
   margin-bottom: 1em;
+  cursor: pointer;
   @media (min-width: $mainBreakPoint) {
     width: 30%;
   }

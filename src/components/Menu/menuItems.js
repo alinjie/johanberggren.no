@@ -7,10 +7,7 @@ export const menuItems = [
     name: "Galleri",
     sectionId: "#Galleri",
   },
-  {
-    name: "Konsert",
-    sectionId: "#Konsert",
-  },
+
   {
     name: "Om",
     sectionId: "#Om",

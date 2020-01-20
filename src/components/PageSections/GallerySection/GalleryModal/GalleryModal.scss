@@ -5,6 +5,7 @@ $maxWidth: 1000px;
 .gallery-modal {
   position: fixed;
   background-color: rgba($color: #000000, $alpha: 0.8);
+  animation: fadeIn 0.2s ease-in;
 
   top: 0;
   height: 100%;
@@ -17,19 +18,30 @@ $maxWidth: 1000px;
     padding: 2.5em;
     max-width: $maxWidth;
   }
+
+  &__image-container {
+    @media (min-width: $mainBreakPoint) {
+      min-height: 850px;
+    }
+  }
   &__image {
     min-height: 300px;
     max-width: $maxWidth;
     margin: 2em auto;
-
-    @media (min-width: $mainBreakPoint) {
-      min-height: 900px;
-    }
   }
 
   &__close-icon {
     color: $white;
     font-size: 2rem;
     cursor: pointer;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }

@@ -39,10 +39,12 @@ const GalleryModal = ({
             className="fas fa-times gallery-modal__close-icon"
             onClick={() => closeModal()}
           />
-          <Img
-            className="gallery-modal__image"
-            fluid={activeImage.childImageSharp.fluid}
-          />
+          <div className="gallery-modal__image-container">
+            <Img
+              className="gallery-modal__image"
+              fluid={activeImage.childImageSharp.fluid}
+            />
+          </div>
           <Cyclers
             onNext={() => handleCycle("next")}
             onPrevious={() => handleCycle("previous")}

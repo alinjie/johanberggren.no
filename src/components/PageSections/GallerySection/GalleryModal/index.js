@@ -29,6 +29,8 @@ const GalleryModal = ({
     setActiveImage(images[nextIndex])
   }
 
+  if (typeof window === "undefined") return null
+
   return ReactDOM.createPortal(
     open ? (
       <div className="gallery-modal">

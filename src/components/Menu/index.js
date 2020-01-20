@@ -4,7 +4,8 @@ import "./Menu.scss"
 
 const Menu = () => {
   const onClick = sectionId => {
-    const element = document.getElementById(sectionId)
+    const element =
+      typeof document !== undefined && document.getElementById(sectionId)
     element.scrollIntoView()
   }
 

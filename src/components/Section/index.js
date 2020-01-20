@@ -3,14 +3,15 @@ import SectionTitle from "components/SectionTitle"
 import "./Section.scss"
 
 const Section = ({ title, children, className, ...props }) => {
-  const classes = "section" + (className ? ` ${className}` : "")
+  const classes =
+    "section__content-wrapper" + (className ? ` ${className}` : "")
   return (
-    <section className={classes} {...props}>
+    <section className="section" {...props}>
       <SectionTitle>{title}</SectionTitle>
-      <div className="section__content-wrapper">{children}</div>
-      <a href="#top">
-        <button className="section__to-top">Til toppen</button>
-      </a>
+      <div className={classes}>{children}</div>
+      <button className="section__to-top" onClick={() => window.scrollTo(0, 0)}>
+        Til toppen
+      </button>
     </section>
   )
 }

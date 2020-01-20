@@ -13,6 +13,7 @@ const AlbumLinks = () => {
             target="_blank"
             rel="noreferrer noopener"
             className="album-links__link"
+            key={icon.link}
           >
             <i className={icon.className} />
           </a>

@@ -1,0 +1,29 @@
+@import "../../../../sass/variables";
+
+.event-row {
+  display: flex;
+
+  align-items: center;
+  width: 100%;
+  margin: 1em 0;
+
+  &__data {
+    color: $black;
+    opacity: 1;
+    font-weight: 300;
+    text-transform: uppercase;
+    width: 100%;
+    /* There does not seem to be an easy way to center the middle box when flexing 3 mix width boxes
+       This seemed to be the easiest solution
+    */
+    &:nth-child(2) {
+      text-align: center;
+    }
+    &:nth-child(3) {
+      text-align: right;
+    }
+  }
+  a {
+    text-decoration: underline;
+  }
+}

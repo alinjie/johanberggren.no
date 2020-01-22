@@ -8,8 +8,8 @@ export const menuItems = [
     sectionId: "Galleri",
   },
   {
-    name: "Arrangementer",
-    sectionId: "Arrangementer",
+    name: "Events",
+    sectionId: "Events",
   },
   {
     name: "Om",

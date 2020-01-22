@@ -33,7 +33,7 @@ const EventSection = () => {
   })
 
   return (
-    <Section title="Arrangementer" id="Arrangementer">
+    <Section title="Events" id="Events">
       {filteredData.length >= 1 ? (
         filteredData.map(item => {
           const eventData = item.childMarkdownRemark.frontmatter

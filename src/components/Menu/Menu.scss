@@ -4,7 +4,7 @@
   font-size: $headerElementFontSize;
   width: 100%;
   flex: 2;
-
+  margin-left: 2.5em;
   @media (min-width: $mainBreakPoint) {
   }
   &__list {

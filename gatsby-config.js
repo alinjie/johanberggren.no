@@ -13,6 +13,7 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-plugin-sass`,
     `gatsby-plugin-netlify-cms`,
+    `gatsby-transformer-remark`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -39,6 +40,13 @@ module.exports = {
       options: {
         name: `about-images`,
         path: path.join(__dirname, `src`, `assets`, "img", "about"),
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `event-content`,
+        path: path.join(__dirname, "content", "events"),
       },
     },
   ],

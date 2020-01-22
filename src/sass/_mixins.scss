@@ -4,7 +4,7 @@ $smallDeviceMaxWidth: 400px;
 $largeDeviceMaxWidth: 900px;
 
 @mixin sectionPadding {
-  padding: 20px 80px;
+  padding: 20px 40px;
   max-width: $smallDeviceMaxWidth;
   @media (min-width: $mainBreakPoint) {
     padding: 70px 225px;
@@ -14,7 +14,7 @@ $largeDeviceMaxWidth: 900px;
 
 /* Header padding follows section padding, without padding top and bottom*/
 @mixin headerPadding {
-  padding: 0 80px;
+  padding: 0 40px;
   max-width: $smallDeviceMaxWidth;
   @media (min-width: $mainBreakPoint) {
     padding: 0 225px;

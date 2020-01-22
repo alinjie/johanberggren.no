@@ -16,4 +16,13 @@ collections:
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Date and Time", name: "date", widget: "datetime" }
-      - { label: "Event Link", name: "eventLink", widget: "string" }
+      - {
+          label: "Event Link",
+          name: "eventLink",
+          widget: "string",
+          pattern:
+            [
+              'https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)',
+              "Enter a valid url (Example: https://vg.no)",
+            ],
+        }

@@ -14,6 +14,7 @@ const ImageSection = () => {
     {
       galleryImages: allFile(
         filter: { sourceInstanceName: { eq: "gallery-images" } }
+        sort: { fields: name, order: DESC }
       ) {
         nodes {
           childImageSharp {

@@ -7,7 +7,7 @@ const AlbumCover = () => {
   const data = useStaticQuery(graphql`
     {
       albumCover: file(
-        name: { eq: "lilyhamericana" }
+        name: { eq: "lilyhamericana-album-cover" }
         sourceInstanceName: { eq: "music-images" }
       ) {
         childImageSharp {

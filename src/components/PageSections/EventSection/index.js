@@ -3,6 +3,7 @@ import Section from "components/Section"
 import { useStaticQuery, graphql } from "gatsby"
 import EventRow from "./EventRow"
 import NoEvents from "./NoEvents"
+import "./EventSection.scss"
 
 const EventSection = () => {
   const data = useStaticQuery(graphql`
@@ -34,15 +35,17 @@ const EventSection = () => {
 
   return (
     <Section title="Events" id="Events">
-      {filteredData.length >= 1 ? (
-        filteredData.map(item => {
-          const eventData = item.childMarkdownRemark.frontmatter
-          const { id } = eventData
-          return <EventRow eventData={eventData} key={id} />
-        })
-      ) : (
-        <NoEvents />
-      )}
+      <div className="events">
+        {filteredData.length >= 1 ? (
+          filteredData.map(item => {
+            const eventData = item.childMarkdownRemark.frontmatter
+            const { id } = eventData
+            return <EventRow eventData={eventData} key={id} />
+          })
+        ) : (
+          <NoEvents />
+        )}
+      </div>
     </Section>
   )
 }

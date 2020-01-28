@@ -4,6 +4,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import EventRow from "./EventRow"
 import NoEvents from "./NoEvents"
 import "./EventSection.scss"
+import { sortEventData } from "../../../utils"
 
 const EventSection = () => {
   const data = useStaticQuery(graphql`
@@ -27,17 +28,20 @@ const EventSection = () => {
   `)
 
   const { eventContent } = data
+
   const filteredData = eventContent.nodes.filter(node => {
     const { date } = node.childMarkdownRemark.frontmatter
     const now = Date.now()
     if (new Date(date) >= now) return date
   })
 
+  const eventsUpcoming = filteredData.length > 1
+
   return (
     <Section title="Events" id="Events">
       <div className="events">
-        {filteredData.length >= 1 ? (
-          filteredData.map(item => {
+        {eventsUpcoming ? (
+          sortEventData(filteredData).map(item => {
             const eventData = item.childMarkdownRemark.frontmatter
             const { id } = eventData
             return <EventRow eventData={eventData} key={id} />
@@ -45,6 +49,7 @@ const EventSection = () => {
         ) : (
           <NoEvents />
         )}
+        {eventsUpcoming && <p>* = Solo</p>}
       </div>
     </Section>
   )

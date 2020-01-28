@@ -3,13 +3,16 @@ import { formatDateString } from "../../../../utils"
 import "./EventRow.scss"
 
 const EventRow = ({ eventData }) => {
-  const { title, date, eventLink } = eventData
+  const { title, date, eventLink, solo } = eventData
 
   const formattedDate = formatDateString(date)
 
   return (
     <div className="event-row">
-      <p className="event-row__data">{title}</p>
+      <p className="event-row__data">
+        {solo ? "* " : null}
+        {title}
+      </p>
       <p className="event-row__data">{formattedDate}</p>
       <a
         target="_blank"

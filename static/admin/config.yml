@@ -26,3 +26,4 @@ collections:
               "Enter a valid url (Example: https://vg.no)",
             ],
         }
+      - { label: "Solo", name: "solo", widget: "boolean", default: true }

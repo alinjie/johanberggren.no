@@ -6,13 +6,17 @@ const AlbumText = () => {
     <div className="album-text">
       <div className="album-text__title">Lilyhamericana</div>
       <p>
-        Johan Berggren dro til USA for å skrive sanger på morsmålet. Knakende
-        gode sanger. - Dagbladet
+        "Tekster som både er velformulerte, poetiske og finurlige til sanger som
+        er vokst ut av dyrka mark"{" "}
+        <span className="album-text__source">
+          - 4.5/6 stjerner - Musikkmagasinet, Klassekampen
+        </span>
       </p>
       <p>
-        Vann ham godt, og gi ham rom til å vokse – han har potensiale til å bli
-        en av våre aller fineste musikalske samtidsdiktere. Han skal dere ta
-        godt vare på. - Musikkbloggen
+        "Ingen svake låter!...Berggrens nye plate får meg til å tenke på Hank
+        Williams. Ikke bare er det et kvalitetsstempel, det er også godt gjort i
+        og med at Berggren denne gangen synger på norsk."
+        <span className="album-text__source"> - Popklikk</span>
       </p>
     </div>
   )

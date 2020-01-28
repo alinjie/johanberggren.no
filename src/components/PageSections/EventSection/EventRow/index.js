@@ -10,7 +10,7 @@ const EventRow = ({ eventData }) => {
   return (
     <div className="event-row">
       <p className="event-row__data">
-        {solo ? "* " : null}
+        {solo ? <span className="event-row__asterix">* </span> : null}
         {title}
       </p>
       <p className="event-row__data">{formattedDate}</p>

@@ -20,6 +20,7 @@ const EventSection = () => {
               title
               date
               eventLink
+              solo
             }
           }
         }
@@ -49,7 +50,11 @@ const EventSection = () => {
         ) : (
           <NoEvents />
         )}
-        {eventsUpcoming && <p>* = Solo</p>}
+        {eventsUpcoming && (
+          <p>
+            <span className="events__asterix">* </span> = Solo
+          </p>
+        )}
       </div>
     </Section>
   )

@@ -5,10 +5,18 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    &::after {
+      /* This is a hack to allign the last image to the left when there are only two images on the last row. 
+          Ref Robin's answer in: https://stackoverflow.com/questions/18744164/flex-box-align-last-row-to-grid
+      */
+      content: "";
+      width: 30%;
+    }
   }
   &__image-wrapper {
     @media (min-width: $mainBreakPoint) {
-      width: 30%;
+      flex: 1 0 30%;
+      max-width: 30%;
     }
   }
 }

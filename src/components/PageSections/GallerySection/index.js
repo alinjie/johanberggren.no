@@ -18,7 +18,7 @@ const ImageSection = () => {
       ) {
         nodes {
           childImageSharp {
-            fluid(quality: 100) {
+            fluid(quality: 70) {
               ...GatsbyImageSharpFluid
             }
           }

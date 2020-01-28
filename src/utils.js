@@ -8,3 +8,16 @@ export const formatDateString = dateString => {
     month <= 9 ? "0" + month : month
   }.${year}` // Weird if else check because Javascript returns months in a werid way.
 }
+
+export const sortEventData = eventData => {
+  return eventData.sort((a, b) => {
+    if (
+      a.childMarkdownRemark.frontmatter.date >
+      b.childMarkdownRemark.frontmatter.date
+    ) {
+      return 0
+    } else {
+      return -1
+    }
+  })
+}

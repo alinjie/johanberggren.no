@@ -30,7 +30,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <p className="footer__logo">Johan Berggren</p>
     </footer>
   )
 }

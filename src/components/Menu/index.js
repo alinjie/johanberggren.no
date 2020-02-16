@@ -13,12 +13,14 @@ const Menu = () => {
     <nav className="menu">
       <ul className="menu__list">
         {menuItems.map(item => (
-          <li
-            key={item.name}
-            onClick={() => onClick(item.sectionId)}
-            className="menu__list-item"
-          >
-            {item.name}
+          <li key={item.name}>
+            <button
+              className="menu__list-item"
+              onClick={() => onClick(item.sectionId)}
+              onKeyDown={() => onClick(item.sectionId)}
+            >
+              {item.name}
+            </button>
           </li>
         ))}
       </ul>

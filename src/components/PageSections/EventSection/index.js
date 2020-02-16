@@ -34,6 +34,7 @@ const EventSection = () => {
     const { date } = node.childMarkdownRemark.frontmatter
     const now = Date.now()
     if (new Date(date) >= now) return date
+    else return null
   })
 
   const eventsUpcoming = filteredData.length > 1

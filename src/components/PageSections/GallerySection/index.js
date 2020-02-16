@@ -38,6 +38,8 @@ const ImageSection = () => {
         <div
           className="gallery__image-wrapper"
           onClick={() => handleImageClick(image)}
+          onKeyDown={() => handleImageClick(image)}
+          role="img"
           key={index}
         >
           <GalleryImage

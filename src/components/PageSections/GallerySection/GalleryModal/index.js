@@ -38,6 +38,9 @@ const GalleryModal = ({
           <i
             className="fas fa-times gallery-modal__close-icon"
             onClick={() => closeModal()}
+            onKeyDown={() => closeModal()}
+            role="button"
+            tabIndex="0"
           />
           <Img
             className="gallery-modal__image"

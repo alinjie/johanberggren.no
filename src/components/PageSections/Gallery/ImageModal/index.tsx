@@ -1,24 +1,33 @@
-import React, { useRef } from "react"
+import React, { useRef, Dispatch, SetStateAction } from "react"
 import ReactDOM from "react-dom"
 import Img from "gatsby-image"
 import Cyclers from "./Cyclers"
 import useOutsideAlerter from "../../../../hooks/useOutsideAlerter"
 import "./GalleryModal.scss"
+import ChildImageSharp from "interfaces/ChildImageSharp"
 
-const GalleryModal = ({
+interface Props {
+  open: boolean
+  images: ChildImageSharp[]
+  closeModal: Function
+  activeImage: ChildImageSharp
+  setActiveImage: Dispatch<SetStateAction<null | ChildImageSharp>>
+}
+
+export default function GalleryModal({
   open,
   images,
   closeModal,
   setActiveImage,
   activeImage,
-}) => {
+}: Props) {
   const modalContentRef = useRef(null)
   useOutsideAlerter(modalContentRef, closeModal)
 
-  const handleCycle = direction => {
+  const handleCycle = (direction: "previous" | "next") => {
     const activeImageIndex = images.indexOf(activeImage)
     const imageLength = images.length
-    let nextIndex
+    let nextIndex = 1
     if (direction === "next") {
       nextIndex =
         activeImageIndex + 1 === imageLength ? 0 : activeImageIndex + 1
@@ -29,7 +38,9 @@ const GalleryModal = ({
     setActiveImage(images[nextIndex])
   }
 
-  if (typeof window === "undefined") return null
+  const portalRoot = document.getElementById("___gatsby")
+
+  if (typeof window === "undefined" || !portalRoot) return null
 
   return ReactDOM.createPortal(
     open ? (
@@ -40,7 +51,7 @@ const GalleryModal = ({
             onClick={() => closeModal()}
             onKeyDown={() => closeModal()}
             role="button"
-            tabIndex="0"
+            tabIndex={0}
           />
           <Img
             className="gallery-modal__image"
@@ -54,8 +65,6 @@ const GalleryModal = ({
         </div>
       </div>
     ) : null,
-    document.getElementById("___gatsby")
+    portalRoot
   )
 }
-
-export default GalleryModal

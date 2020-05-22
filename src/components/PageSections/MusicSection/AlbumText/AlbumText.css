@@ -1,0 +1,9 @@
+.album-text__title {
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.album-text__source {
+  font-style: normal;
+  font-weight: 400;
+}

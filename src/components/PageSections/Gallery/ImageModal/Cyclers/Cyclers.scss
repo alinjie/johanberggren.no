@@ -1,0 +1,23 @@
+@import "variables";
+
+$margin: 1em;
+
+.cyclers {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__previous,
+  &__next {
+    color: $white;
+    font-size: 2rem;
+    cursor: pointer;
+  }
+
+  &__previous {
+    margin-right: $margin;
+  }
+  &__next {
+    margin-left: $margin;
+  }
+}

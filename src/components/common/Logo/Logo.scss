@@ -1,0 +1,10 @@
+@import "variables";
+
+.logo {
+  color: $black;
+  text-transform: uppercase;
+  font-size: $headerElementFontSize;
+  font-weight: 700;
+  flex: 1;
+  user-select: none;
+}

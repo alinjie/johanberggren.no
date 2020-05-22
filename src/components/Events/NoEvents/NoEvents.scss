@@ -1,0 +1,9 @@
+@import "variables";
+
+.no-events {
+  display: flex;
+  justify-content: center;
+  @media (min-width: $mainBreakPoint) {
+    justify-content: flex-start;
+  }
+}

@@ -1,9 +1,0 @@
-@import "../../sass/variables";
-
-.section-title {
-  font-size: 2rem;
-
-  @media (min-width: $mainBreakPoint) {
-    align-self: flex-start;
-  }
-}

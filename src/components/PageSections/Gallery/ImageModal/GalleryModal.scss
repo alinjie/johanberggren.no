@@ -1,0 +1,41 @@
+@import "variables";
+
+$maxWidth: 1000px;
+
+.gallery-modal {
+  position: fixed;
+  background-color: rgba($color: #000000, $alpha: 0.8);
+  animation: fadeIn 0.2s ease-in;
+
+  top: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &__content-wrapper {
+    width: 100%;
+    padding: 2.5em;
+    max-width: $maxWidth;
+  }
+
+  &__image {
+    min-height: 300px;
+    margin: 2em auto;
+  }
+
+  &__close-icon {
+    color: $white;
+    font-size: 2rem;
+    cursor: pointer;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

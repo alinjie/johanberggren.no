@@ -1,5 +1,5 @@
 import React from "react"
-import Section from "components/Section"
+import Section from "components/common/Section"
 import AlbumText from "./AlbumText"
 import AlbumCover from "./AlbumCover"
 import AlbumLinks from "./AlbumLinks"

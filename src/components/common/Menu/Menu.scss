@@ -1,0 +1,21 @@
+@import "variables";
+
+.menu {
+  font-size: $headerElementFontSize;
+  width: 100%;
+  flex: 2;
+  margin-left: 2.5em;
+  @media (min-width: $mainBreakPoint) {
+  }
+  &__list {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__list-item {
+    text-transform: uppercase;
+    font-weight: 100;
+    border: none;
+    cursor: pointer;
+  }
+}

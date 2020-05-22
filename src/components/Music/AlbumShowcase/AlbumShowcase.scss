@@ -1,0 +1,47 @@
+@import "variables";
+
+.album-showcase {
+  &__cover-wrapper {
+    position: relative;
+  }
+
+  &__cover-overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: 0.5s ease;
+    background-color: transparentize($color: $black, $amount: 0.5);
+    color: transparentize($color: white, $amount: 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    word-break: break-all;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &__cover {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  &__links {
+    display: grid;
+    grid-template-columns: repeat(3, max-content);
+    margin-top: 0.5rem;
+    column-gap: 0.5rem;
+    i {
+      color: $black;
+      font-size: 1.2rem;
+    }
+  }
+}

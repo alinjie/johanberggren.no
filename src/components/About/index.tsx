@@ -13,7 +13,7 @@ export default function About() {
     {
       aboutImage: file(name: { eq: "about-image" }) {
         childImageSharp {
-          fluid {
+          fluid(quality: 40) {
             ...GatsbyImageSharpFluid
           }
         }

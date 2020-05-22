@@ -16,7 +16,7 @@ export default function AlbumCover() {
         sourceInstanceName: { eq: "music-images" }
       ) {
         childImageSharp {
-          fluid {
+          fluid(quality: 40) {
             ...GatsbyImageSharpFluid
           }
         }

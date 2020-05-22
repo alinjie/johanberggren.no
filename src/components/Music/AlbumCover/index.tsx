@@ -1,10 +1,15 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
+import ChildImageSharp from "interfaces/ChildImageSharp"
 import "./AlbumCover.scss"
 
-const AlbumCover = () => {
-  const data = useStaticQuery(graphql`
+interface Data {
+  albumCover: ChildImageSharp
+}
+
+export default function AlbumCover() {
+  const { albumCover }: Data = useStaticQuery(graphql`
     {
       albumCover: file(
         name: { eq: "lilyhamericana-album-cover" }
@@ -21,7 +26,7 @@ const AlbumCover = () => {
   return (
     <div className="album-cover">
       <Img
-        fluid={data.albumCover.childImageSharp.fluid}
+        fluid={albumCover.childImageSharp.fluid}
         alt="Lilyhamericana Album Cover"
         className="album-cover__image"
       />
@@ -29,5 +34,3 @@ const AlbumCover = () => {
     </div>
   )
 }
-
-export default AlbumCover

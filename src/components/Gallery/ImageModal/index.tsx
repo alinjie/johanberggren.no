@@ -2,7 +2,7 @@ import React, { useRef, Dispatch, SetStateAction } from "react"
 import ReactDOM from "react-dom"
 import Img from "gatsby-image"
 import Cyclers from "./Cyclers"
-import useOutsideAlerter from "../../../../hooks/useOutsideAlerter"
+import useOutsideAlerter from "../../../hooks/useOutsideAlerter"
 import "./GalleryModal.scss"
 import ChildImageSharp from "interfaces/ChildImageSharp"
 

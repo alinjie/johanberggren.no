@@ -1,4 +1,9 @@
-export const icons = [
+interface Icon {
+  className: string
+  link: string
+}
+
+export const icons: Icon[] = [
   {
     className: "fab fa-spotify",
     link:

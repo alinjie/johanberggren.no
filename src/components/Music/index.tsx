@@ -3,9 +3,9 @@ import Section from "components/common/Section"
 import AlbumText from "./AlbumText"
 import AlbumCover from "./AlbumCover"
 import AlbumLinks from "./AlbumLinks"
-import "./MusicSection.scss"
+import "./Music.scss"
 
-const MusicSection = () => {
+export default function Music() {
   return (
     <Section title="Musikk" id="Musikk">
       <AlbumCover />
@@ -16,5 +16,3 @@ const MusicSection = () => {
     </Section>
   )
 }
-
-export default MusicSection

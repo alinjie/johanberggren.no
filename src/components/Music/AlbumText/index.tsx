@@ -1,7 +1,7 @@
 import React from "react"
 import "./AlbumText.scss"
 
-const AlbumText = () => {
+export default function AlbumText() {
   return (
     <div className="album-text">
       <div className="album-text__title">Lilyhamericana</div>
@@ -25,5 +25,3 @@ const AlbumText = () => {
     </div>
   )
 }
-
-export default AlbumText

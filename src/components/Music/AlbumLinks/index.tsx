@@ -2,12 +2,12 @@ import React from "react"
 import { icons } from "./icons"
 import "./AlbumLinks.scss"
 
-const AlbumLinks = () => {
+export default function AlbumLinks() {
   return (
     <div className="album-links">
       <span className="album-links__title">Lytt til albumet</span>
       <div className="alum-links__icon-wrapper">
-        {icons.map(icon => (
+        {icons.map((icon) => (
           <a
             href={icon.link}
             target="_blank"
@@ -22,5 +22,3 @@ const AlbumLinks = () => {
     </div>
   )
 }
-
-export default AlbumLinks

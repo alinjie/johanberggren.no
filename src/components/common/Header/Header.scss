@@ -1,19 +1,13 @@
-@import "../../sass/mixins";
-
 .header {
   width: 100%;
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  height: $headerAndFooterHeight;
   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
 
   &__container {
-    width: 100%;
-    height: 100%;
+    padding: 1em 0;
     display: flex;
     align-items: center;
-
-    @include headerPadding;
   }
 }

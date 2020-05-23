@@ -7,31 +7,24 @@
 
   &__cover-overlay {
     position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 100%;
     width: 100%;
-    opacity: 0;
-    transition: 0.5s ease;
-    background-color: transparentize($color: $black, $amount: 0.5);
-    color: transparentize($color: white, $amount: 0.2);
+    height: 100%;
+    background-color: transparentize($color: #000000, $amount: 0.5);
+    top: 0;
+    left: 0;
+    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     text-transform: uppercase;
-    word-break: break-all;
-
-    &:hover {
-      opacity: 1;
-    }
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+    z-index: 100; // Without z-index, "gatsby-image" will render the image above the overlay.
   }
 
-  &__cover {
-    display: block;
-    width: 100%;
-    height: auto;
+  &__cover-wrapper:hover &__cover-overlay {
+    opacity: 1;
   }
 
   &__links {
@@ -39,9 +32,14 @@
     grid-template-columns: repeat(3, max-content);
     margin-top: 0.5rem;
     column-gap: 0.5rem;
-    i {
+    a {
       color: $black;
       font-size: 1.2rem;
+      opacity: 0.5;
+      transition: opacity 0.2s ease-in-out;
+      &:hover {
+        opacity: 1;
+      }
     }
   }
 }

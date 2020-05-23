@@ -1,3 +1,5 @@
+import RemarkObject from "interfaces/RemarkObject"
+
 export const formatDateString = (dateString: string) => {
   const dateObject = new Date(dateString)
   const day = dateObject.getDate()
@@ -9,7 +11,7 @@ export const formatDateString = (dateString: string) => {
   }.${year}` // Weird if else check because Javascript returns months in a werid way.
 }
 
-export const sortEventData = (eventData: any[]) => {
+export const sortEventData = (eventData: RemarkObject[]) => {
   return eventData.sort((a, b) => {
     if (
       a.childMarkdownRemark.frontmatter.date >
@@ -20,4 +22,11 @@ export const sortEventData = (eventData: any[]) => {
       return -1
     }
   })
+}
+
+export function combineClassNames(
+  customClass: string,
+  classNameProp: string | undefined
+): string {
+  return customClass + (classNameProp ? ` ${classNameProp}` : "")
 }

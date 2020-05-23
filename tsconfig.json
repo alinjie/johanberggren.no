@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
+    "module": "CommonJS",
     "target": "esnext",
     "jsx": "preserve",
     "lib": ["dom", "esnext"],
@@ -8,7 +8,7 @@
     "noEmit": true,
     "isolatedModules": true,
     "esModuleInterop": true,
-    "noUnusedLocals": false,
+    "noUnusedLocals": true,
     "allowJs": true,
     "baseUrl": "src"
   },

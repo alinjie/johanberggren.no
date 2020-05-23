@@ -5,10 +5,10 @@
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
+    "build": "SASS_PATH=src/sass gatsby build",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "SASS_PATH=src/sass gatsby develop --port 3000",
-    "serve": "gatsby serve",
+    "serve": "SASS_PATH=src/sass gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },

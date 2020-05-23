@@ -7,12 +7,16 @@ body,
   margin: 0;
   padding: 0;
   font-size: 12px;
-  font-family: "Public Sans", sans-serif;
+  font-family: "Lato", sans-serif;
   box-sizing: border-box;
 
   @media (min-width: $mainBreakPoint) {
     font-size: 16px;
   }
+}
+
+#___gatsby {
+  position: relative; // For modal
 }
 
 /* Typography */

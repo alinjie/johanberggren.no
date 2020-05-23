@@ -14,7 +14,7 @@ export default function Layout({ children }: Props) {
     <main className="layout">
       <Helmet>
         <link
-          href="https://fonts.googleapis.com/css?family=Public+Sans:100,400,700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;1,100&display=swap"
           rel="stylesheet"
         />
         <title>Johan Berggren</title>

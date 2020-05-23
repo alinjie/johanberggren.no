@@ -18,8 +18,8 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `music-images`,
-        path: path.join(__dirname, `src`, `assets`, "img", "music"),
+        name: `album-covers`,
+        path: path.join(__dirname, `src`, `components`, "music", "img"),
       },
     },
     {

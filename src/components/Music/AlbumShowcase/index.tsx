@@ -1,8 +1,10 @@
-import React, { ReactElement, ReactNode } from "react"
+import React, { ReactElement } from "react"
+import ChildImageSharp from "interfaces/ChildImageSharp"
+import Img from "gatsby-image"
 import "./AlbumShowcase.scss"
 
 interface Props {
-  coverImage: string
+  coverImage: ChildImageSharp
   albumName: string
   spotifyLink?: string
   appleMusicLink?: string
@@ -20,9 +22,9 @@ export default function AlbumShowcase({
     <div className="album-showcase">
       <div className="album-showcase__cover-wrapper">
         <div className="album-showcase__cover-overlay">{albumName}</div>
-        <img
+        <Img
           className="album-showcase__cover"
-          src={coverImage}
+          fluid={coverImage.childImageSharp.fluid}
           alt={`${albumName} album cover`}
         />
       </div>

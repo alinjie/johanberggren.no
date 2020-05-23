@@ -5,6 +5,6 @@
   grid-template-columns: 1fr;
   gap: 1rem;
   @media (min-width: $mainBreakPoint) {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr 1fr;
   }
 }

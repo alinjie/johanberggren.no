@@ -1,11 +1,12 @@
 import React from "react"
 import { socialIcons } from "./socialIcons"
 import "./Footer.scss"
+import Container from "../Container"
 
 export default function Footer() {
   return (
     <footer className="footer">
-      <div className="footer__content-wrapper">
+      <Container className="footer__content-wrapper">
         <div className="footer__section">
           <p className="footer__title">Presse / Booking</p>
           <p>Vibeke@rootsy.no</p>
@@ -17,7 +18,7 @@ export default function Footer() {
         <div className="footer__section">
           <p className="footer__title">Sosialt</p>
           <div className="footer__icon-wrapper">
-            {socialIcons.map(icon => (
+            {socialIcons.map((icon) => (
               <a
                 key={icon.icon}
                 href={icon.link}
@@ -29,7 +30,7 @@ export default function Footer() {
             ))}
           </div>
         </div>
-      </div>
+      </Container>
     </footer>
   )
 }

@@ -1,5 +1,6 @@
 import React, { ReactNode, HTMLProps } from "react"
 import "./Section.scss"
+import Container from "../Container"
 
 interface Props extends HTMLProps<HTMLElement> {
   title: string
@@ -21,12 +22,14 @@ export default function Section({
   const classes =
     "section__content-wrapper" + (className ? ` ${className}` : "")
   return (
-    <section className="section" {...props}>
-      <p className="section__title">{title}</p>
-      <div className={classes}>{children}</div>
-      <button className="section__to-top" onClick={handleToTopClick}>
-        Til toppen
-      </button>
-    </section>
+    <Container>
+      <section className="section" {...props}>
+        <p className="section__title">{title}</p>
+        <div className={classes}>{children}</div>
+        <button className="section__to-top" onClick={handleToTopClick}>
+          Til toppen
+        </button>
+      </section>
+    </Container>
   )
 }

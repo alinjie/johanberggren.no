@@ -7,6 +7,12 @@
 const path = require("path")
 
 module.exports = {
+  siteMetadata: {
+    title: "Johan Berggren",
+    description: "Offisiell nettside for Johan Berggren",
+    url: "https://johanberggren.no",
+    image: "/seo.jpg",
+  },
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-sharp`,

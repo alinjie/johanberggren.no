@@ -48,7 +48,7 @@ export default function Events() {
     <Section title="Events" id="Events">
       <div className="events">
         {eventsUpcoming ? (
-          sortEventData(filteredData).map((item, index) => {
+          sortEventData(filteredData).map((item) => {
             const eventData = item.childMarkdownRemark.frontmatter
             const { id } = item.childMarkdownRemark
             return <EventRow eventData={eventData} key={id} />

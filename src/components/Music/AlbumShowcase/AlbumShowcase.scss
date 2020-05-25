@@ -1,30 +1,11 @@
 @import "variables";
 
 .album-showcase {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   &__cover-wrapper {
+    grid-column: 1 / 3;
     position: relative;
-  }
-
-  &__cover-overlay {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: transparentize($color: #000000, $amount: 0.5);
-    top: 0;
-    left: 0;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-transform: uppercase;
-    font-weight: bold;
-    opacity: 0;
-    transition: opacity 0.2s ease-in-out;
-    z-index: 100; // Without z-index, "gatsby-image" will render the image above the overlay.
-  }
-
-  &__cover-wrapper:hover &__cover-overlay {
-    opacity: 1;
   }
 
   &__links {
@@ -37,5 +18,11 @@
       font-size: 1.2rem;
       transition: opacity 0.2s ease-in-out;
     }
+  }
+
+  &__album-name {
+    font-size: 0.8rem;
+    justify-self: end;
+    opacity: 0.5;
   }
 }

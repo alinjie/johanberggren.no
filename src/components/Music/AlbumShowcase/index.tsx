@@ -21,7 +21,6 @@ export default function AlbumShowcase({
   return (
     <div className="album-showcase">
       <div className="album-showcase__cover-wrapper">
-        <div className="album-showcase__cover-overlay">{albumName}</div>
         <Img
           className="album-showcase__cover"
           fluid={coverImage.childImageSharp.fluid}
@@ -45,6 +44,7 @@ export default function AlbumShowcase({
           </a>
         )}
       </div>
+      <p className="album-showcase__album-name">{albumName}</p>
     </div>
   )
 }

@@ -42,7 +42,7 @@ export default function Events() {
     else return null
   })
 
-  const eventsUpcoming = filteredData.length > 1
+  const eventsUpcoming = filteredData.length > 0
 
   return (
     <Section title="Events" id="Events">
@@ -56,11 +56,14 @@ export default function Events() {
         ) : (
           <NoEvents />
         )}
-        {eventsUpcoming && (
-          <p className="events__symbol-description">
-            <span className="events__asterix">* </span> = Solo
-          </p>
-        )}
+        {eventsUpcoming &&
+          filteredData.some(
+            (event) => event.childMarkdownRemark.frontmatter.solo
+          ) && (
+            <p className="events__symbol-description">
+              <span className="events__asterix">* </span> = Solo
+            </p>
+          )}
       </div>
     </Section>
   )

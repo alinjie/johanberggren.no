@@ -9,6 +9,8 @@
     color: $red;
   }
   &__symbol-description {
-    opacity: 0.5;
+    font-size: 0.8rem;
+    opacity: 0.8;
+    text-transform: uppercase;
   }
 }

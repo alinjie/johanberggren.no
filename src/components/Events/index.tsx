@@ -48,20 +48,18 @@ export default function Events() {
     <Section title="Events" id="Events">
       <div className="events">
         {eventsUpcoming ? (
-          sortEventData(filteredData).map((item) => {
+          sortEventData(filteredData).map((item, index) => {
             const eventData = item.childMarkdownRemark.frontmatter
-            const { id } = eventData
-            return (
-              <React.Fragment>
-                <EventRow eventData={eventData} key={id} />
-                <p>
-                  <span className="events__asterix">* </span> = Solo
-                </p>
-              </React.Fragment>
-            )
+            const { id } = item.childMarkdownRemark
+            return <EventRow eventData={eventData} key={id} />
           })
         ) : (
           <NoEvents />
+        )}
+        {eventsUpcoming && (
+          <p className="events__symbol-description">
+            <span className="events__asterix">* </span> = Solo
+          </p>
         )}
       </div>
     </Section>

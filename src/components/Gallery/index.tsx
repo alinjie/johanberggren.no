@@ -34,7 +34,11 @@ export default function Gallery() {
     <React.Fragment>
       <Section title="Galleri" id="Galleri" className="gallery">
         {galleryImages.nodes.map((image, index) => (
-          <Img className="gallery__image" fluid={image.childImageSharp.fluid} />
+          <Img
+            key={index}
+            className="gallery__image"
+            fluid={image.childImageSharp.fluid}
+          />
         ))}
       </Section>
     </React.Fragment>

@@ -12,6 +12,7 @@ module.exports = {
     description: "Offisiell nettside for Johan Berggren",
     url: "https://johanberggren.no",
     image: "/seo.jpg",
+    author: "Ali Kristoffer Njie // https://github.com/alinjie/",
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

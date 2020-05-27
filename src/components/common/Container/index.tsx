@@ -1,5 +1,5 @@
 import React, { ReactElement, ReactNode } from "react"
-import { combineClassNames } from "../../../utils/misc"
+import { combineClassNames } from "utils/misc"
 import "./Container.scss"
 
 interface Props {

@@ -1,13 +1,10 @@
 import React from "react"
 import Section from "components/common/Section"
 import AlbumShowcase from "./AlbumShowcase"
-import LilyhamericanaCover from "./img/lilyhamericana.jpg"
-import FNIGRHCover from "./img/fnigrh.png"
-import "./Music.scss"
 import ChildImageSharp from "interfaces/ChildImageSharp"
 import { useStaticQuery, graphql } from "gatsby"
-import { FluidObject } from "gatsby-image"
 import Caption from "components/common/Caption"
+import "./Music.scss"
 
 interface Data {
   albumCovers: {
@@ -42,9 +39,9 @@ export default function Music() {
       <div className="music__video-wrapper">
         <iframe
           src="https://www.youtube.com/embed/9M-LWLX2h-Q"
-          frameborder="0"
+          frameBorder="0"
           allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
+          allowFullScreen
           className="music__video"
         ></iframe>
         <Caption className="music__video-caption">

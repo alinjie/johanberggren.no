@@ -7,6 +7,7 @@ import "./Music.scss"
 import ChildImageSharp from "interfaces/ChildImageSharp"
 import { useStaticQuery, graphql } from "gatsby"
 import { FluidObject } from "gatsby-image"
+import Caption from "components/common/Caption"
 
 interface Data {
   albumCovers: {
@@ -38,6 +39,19 @@ export default function Music() {
 
   return (
     <Section title="Musikk" id="Musikk" className="music">
+      <div className="music__video-wrapper">
+        <iframe
+          src="https://www.youtube.com/embed/9M-LWLX2h-Q"
+          frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          className="music__video"
+        ></iframe>
+        <Caption className="music__video-caption">
+          Hjerter som aldri brant
+        </Caption>
+      </div>
+
       <AlbumShowcase
         albumName="Lilyhamericana"
         coverImage={lilyhamericanaImage}

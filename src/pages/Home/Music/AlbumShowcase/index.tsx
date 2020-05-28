@@ -2,7 +2,8 @@ import React, { ReactElement } from "react"
 import ChildImageSharp from "interfaces/ChildImageSharp"
 import Img from "gatsby-image"
 import "./AlbumShowcase.scss"
-import Caption from "components/common/Caption"
+import Caption from "components/Caption"
+import { Link } from "gatsby"
 
 interface Props {
   coverImage: ChildImageSharp
@@ -45,7 +46,9 @@ export default function AlbumShowcase({
           </a>
         )}
       </div>
-      <Caption className="album-showcase__album-name">{albumName}</Caption>
+      <Link to="/" className="album-showcase__album-name">
+        <Caption>{albumName} (Se tekster)</Caption>
+      </Link>
     </div>
   )
 }

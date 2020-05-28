@@ -26,7 +26,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `album-covers`,
-        path: path.join(__dirname, `src`, `components`, "Music", "img"),
+        path: path.join(__dirname, `src`, `pages`, "Home", "Music", "img"),
       },
     },
     {

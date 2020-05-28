@@ -1,9 +1,9 @@
 import React from "react"
-import Section from "components/common/Section"
+import Section from "components/Section"
 import AlbumShowcase from "./AlbumShowcase"
 import ChildImageSharp from "interfaces/ChildImageSharp"
 import { useStaticQuery, graphql } from "gatsby"
-import Caption from "components/common/Caption"
+import Caption from "components/Caption"
 import "./Music.scss"
 
 interface Data {

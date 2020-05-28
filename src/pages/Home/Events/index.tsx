@@ -1,9 +1,9 @@
 import React from "react"
-import Section from "components/common/Section"
+import Section from "components/Section"
 import { useStaticQuery, graphql } from "gatsby"
 import EventRow from "./EventRow"
 import NoEvents from "./NoEvents"
-import { sortEventData } from "../../utils/misc"
+import { sortEventData } from "../../../utils/misc"
 import RemarkObject from "interfaces/RemarkObject"
 import "./Events.scss"
 

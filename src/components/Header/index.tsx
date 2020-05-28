@@ -1,6 +1,6 @@
 import React from "react"
-import Menu from "components/common/Menu"
-import Logo from "components/common/Logo"
+import Menu from "components/Menu"
+import Logo from "components/Logo"
 import Container from "../Container"
 import "./Header.scss"
 

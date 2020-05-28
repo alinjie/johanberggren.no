@@ -1,5 +1,5 @@
 import React from "react"
-import Section from "components/common/Section"
+import Section from "components/Section"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import ChildImageSharp from "interfaces/ChildImageSharp"

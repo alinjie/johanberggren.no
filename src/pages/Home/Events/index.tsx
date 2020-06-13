@@ -38,8 +38,11 @@ export default function Events() {
   const filteredData = eventContent.nodes.filter((node) => {
     const { frontmatter } = node.childMarkdownRemark
     const now = new Date()
-    if (new Date(frontmatter.date) >= now) return frontmatter.date
-    else return null
+    if (new Date(frontmatter.date) >= now) {
+      return frontmatter.date
+    }
+
+    return null
   })
 
   const eventsUpcoming = filteredData.length > 0

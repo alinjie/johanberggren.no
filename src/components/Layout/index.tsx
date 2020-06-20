@@ -1,13 +1,15 @@
 import React, { ReactNode } from "react"
 import { Helmet } from "react-helmet"
-import "./Layout.scss"
 import Header from "components/Header"
 import Footer from "components/Footer"
 import "assets/font-awesome/css/all.min.css"
 import { useStaticQuery, graphql } from "gatsby"
+import "./Layout.scss"
 
 interface Props {
   children?: ReactNode
+  showHeader?: boolean
+  showFooter?: boolean
 }
 
 interface SiteMetadata {
@@ -22,7 +24,11 @@ interface SiteMetadata {
   }
 }
 
-export default function Layout({ children }: Props) {
+export default function Layout({
+  children,
+  showHeader = true,
+  showFooter = true,
+}: Props) {
   const {
     site: { siteMetadata },
   }: SiteMetadata = useStaticQuery(graphql`
@@ -64,9 +70,9 @@ export default function Layout({ children }: Props) {
           content="Offisiell nettside for Johan Berggren"
         />
       </Helmet>
-      <Header />
+      {showHeader && <Header />}
       {children}
-      <Footer />
+      {showFooter && <Footer />}
     </main>
   )
 }

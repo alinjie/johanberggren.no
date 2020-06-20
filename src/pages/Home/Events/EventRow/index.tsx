@@ -1,5 +1,5 @@
 import React from "react"
-import { formatDateString } from "utils/misc"
+import { formatDateString } from "utils/string"
 import "./EventRow.scss"
 import Event from "interfaces/Event"
 

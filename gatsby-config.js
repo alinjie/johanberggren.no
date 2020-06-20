@@ -57,5 +57,12 @@ module.exports = {
         path: path.join(__dirname, "content", "events"),
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `lilyhamericana-lyrics`,
+        path: path.join(__dirname, "content", "lilyhamericana-lyrics"),
+      },
+    },
   ],
 }

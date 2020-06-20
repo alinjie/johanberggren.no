@@ -8,11 +8,14 @@ body,
   padding: 0;
   font-size: 14px;
   font-family: "Lato", sans-serif;
-  box-sizing: border-box;
 }
 
 #___gatsby {
   position: relative; // For modal
+}
+
+* {
+  box-sizing: border-box;
 }
 
 /* Typography */

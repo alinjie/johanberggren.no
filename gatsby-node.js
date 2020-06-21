@@ -111,37 +111,3 @@ exports.createPages = async function ({ graphql, actions }) {
     })
   )
 }
-
-exports.onCreateNode = function ({ actions, node }) {
-  if (
-    node.internal.type === "MarkdownRemark" &&
-    node.frontmatter.name &&
-    node.frontmatter.order // Ensures that this is a lyric node
-  ) {
-    const albumName = new RegExp(/lilyhamericana-lyrics/i).test(
-      node.fileAbsolutePath
-    )
-      ? "lilyhamericana"
-      : "fnigrh"
-
-    const lilyhamericanaRegex = actions.createNodeField({
-      name: "albumName",
-      value: albumName,
-      node,
-    })
-    actions.createNodeField({
-      name: "slug",
-      value: sanitizeText(node.frontmatter.name),
-      node,
-    })
-
-    actions.createNodeField({
-      name: "albumCoverId",
-      value:
-        albumName === "lilyhamericana"
-          ? "d09bfbbf-5762-54d5-adfc-807d6bca6d8c"
-          : "ed65a16b-9ab0-5a10-9073-7735dc86621a",
-      node,
-    })
-  }
-}

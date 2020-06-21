@@ -8,5 +8,11 @@
   cursor: pointer;
   &__direction-text {
     opacity: 0.5;
+    &--left {
+      align-self: flex-start;
+    }
+    &--right {
+      align-self: flex-end;
+    }
   }
 }

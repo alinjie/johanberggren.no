@@ -20,7 +20,14 @@ export default function NavigationButton({
       className={combineClassNames("navigation-button", className)}
       {...props}
     >
-      <span className="navigation-button__direction-text">
+      <span
+        className={
+          "navigation-button__direction-text" +
+          (direction === "left"
+            ? " navigation-button__direction-text--left"
+            : " navigation-button__direction-text--right")
+        }
+      >
         {direction === "left" ? "Forrige" : "Neste"}
       </span>
       {children}

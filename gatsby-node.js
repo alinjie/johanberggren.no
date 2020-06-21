@@ -34,13 +34,13 @@ exports.createPages = async function ({ graphql, actions }) {
   const albums = [
     {
       name: "Lilyhamericana",
-      albumCoverImageId: "ea340b64-f12e-5750-92f0-78798c4731cd",
       slug: "lilyhamericana",
+      albumCoverRelativePath: "lilyhamericana.jpg",
       lyricsSourceInstanceName: "lilyhamericana-lyrics",
     },
     {
       name: "For Now I'm Good Right Here",
-      albumCoverImageId: "c80bced0-3624-5683-9bd3-cb09b35e2b44",
+      albumCoverRelativePath: "fnigrh.png",
       slug: "for-now-im-good-right-here",
       lyricsSourceInstanceName: "fnigrh-lyrics",
     },
@@ -50,7 +50,7 @@ exports.createPages = async function ({ graphql, actions }) {
     albums.map(async (album) => {
       const query = `
     {
-      file(id:{eq: "${album.albumCoverImageId}"}) {
+      file(relativePath:{eq: "${album.albumCoverRelativePath}"}, sourceInstanceName: {eq:"album-covers"}) {
         childImageSharp {
           fixed(width: 350) {
             src
@@ -73,9 +73,6 @@ exports.createPages = async function ({ graphql, actions }) {
       }
     }`
       const { data } = await graphql(query)
-      console.log(JSON.stringify(album, null, 2))
-
-      console.log(JSON.stringify(data.file, null, 2))
 
       const albumCoverSrc = data.file.childImageSharp.fixed.src
       const allSongs = data.allFile.edges.map((song) => {

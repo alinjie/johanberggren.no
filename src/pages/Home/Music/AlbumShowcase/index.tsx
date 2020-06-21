@@ -11,6 +11,7 @@ interface Props {
   spotifyLink?: string
   appleMusicLink?: string
   googlePlayLink?: string
+  firstSongPath: string
 }
 
 export default function AlbumShowcase({
@@ -19,6 +20,7 @@ export default function AlbumShowcase({
   appleMusicLink,
   googlePlayLink,
   spotifyLink,
+  firstSongPath,
 }: Props): ReactElement {
   return (
     <div className="album-showcase">
@@ -46,7 +48,7 @@ export default function AlbumShowcase({
           </a>
         )}
       </div>
-      <Link to="/" className="album-showcase__album-name">
+      <Link to={firstSongPath} className="album-showcase__album-name">
         <Caption>{albumName} (Se tekster)</Caption>
       </Link>
     </div>

@@ -1,0 +1,34 @@
+---
+name: Junkyard
+order: 7
+---
+Dropped her off at the station I think she headed south  
+Names were yelled and I recall her crying when I threw her CDs out  
+Drove home in an anger I’ve never felt before  
+With lack of sleep and eyes running like a waterfall I could barely see the road  
+
+They say it takes more to forgive than to forget  
+I say they haven’t yet tried forgetting you  
+But I won’t take your sorry for an answer  
+Cause I know I can do better than what is left  
+
+A couple of years went and I found myself in a junkyard parking lot  
+Bearded mechanic asks politely if there is anything left inside  
+I see some cigarette butts on the floor as I dismantle the stereo  
+Then out falls this record that I know she used to love  
+
+They say it takes more to forgive than to forget  
+I say they haven’t yet tried forgetting you  
+But I won’t take your sorry for an answer  
+Cause I know I can do better than what is left  
+
+Have you felt how easy loneliness lets the paranoia in?  
+And leaves you further away from dry land than you’ve ever been  
+I’ve heard behind every man stands a good woman so I turn around  
+Yet nothing but the shore is what catches my eye as I’m sinking down  
+
+They say it takes more to forgive than to forget  
+I say they haven’t yet tried forgetting you  
+But I won’t take your sorry for an answer  
+Cause I know I can do better than what is left  
+Cause I know I can do so much better than what is left  

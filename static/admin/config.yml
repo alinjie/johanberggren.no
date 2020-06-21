@@ -1,6 +1,6 @@
 backend:
-  name: git-gateway
-  repo: alinjie/johan-berggren
+name: git-gateway
+repo: alinjie/johan-berggren
 
 media_folder: static/img
 public_folder: /img
@@ -27,14 +27,3 @@ collections:
             ],
         }
       - { label: "Solo", name: "solo", widget: "boolean", default: true }
-  - name: lilyhamericana-lyrics
-    label: Lilyhamericana Lyrics
-    folder: content/lilyhamericana-lyrics
-    create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    editor:
-      preview: true
-    fields:
-      - { label: Name, name: name, widget: string }
-      - { label: Order, name: order, widget: number }
-      - { label: Body, name: body, widget: markdown }

@@ -29,10 +29,30 @@ export default function Music() {
     }
   `)
 
-  const lilyhamericanaImage = albumCovers.nodes[1]
-  const fnigrhCover = albumCovers.nodes[0]
-
-  if (!lilyhamericanaImage || !fnigrhCover) return null
+  const albums = [
+    {
+      name: "Lilyhamericana",
+      coverImage: albumCovers.nodes[1],
+      spotifyUrl:
+        "https://open.spotify.com/album/1Xj0AwMINsMUDTfwIaStnb?si=H3QCSUOfRneeON8OzhohPA",
+      appleMusicUrl:
+        "https://music.apple.com/no/album/lilyhamericana/1489496780",
+      googlePlayUrl:
+        "https://play.google.com/store/music/album?id=Benkmxtgwyo2ndlsm7gwtiiov7q&tid=song-T4wv4tg6j37mgqnv3bj45jjjavu",
+      firstSongPath: "/lilyhamericana-lyrikk/du-saa-meg",
+    },
+    {
+      name: "For Now I'm Good Right Here",
+      coverImage: albumCovers.nodes[0],
+      spotifyUrl:
+        "https://open.spotify.com/album/6pwWHdrQScPz2sCXIUiKhY?si=vPLf4QbwTJeKmm_DrjYdhQ",
+      appleMusicUrl:
+        "https://music.apple.com/no/album/for-now-im-good-right-here/1437919945",
+      googlePlayUrl:
+        "https://play.google.com/store/music/album?id=Benkmxtgwyo2ndlsm7gwtiiov7q&tid=song-T4wv4tg6j37mgqnv3bj45jjjavu",
+      firstSongPath: "/for-now-im-good-right-here-lyrikk/things-i-hate",
+    },
+  ]
 
   return (
     <Section title="Musikk" id="Musikk" className="music">
@@ -48,21 +68,17 @@ export default function Music() {
           Hjerter som aldri brant
         </Caption>
       </div>
-
-      <AlbumShowcase
-        albumName="Lilyhamericana"
-        coverImage={lilyhamericanaImage}
-        spotifyLink="https://open.spotify.com/album/1Xj0AwMINsMUDTfwIaStnb?si=H3QCSUOfRneeON8OzhohPA"
-        appleMusicLink="https://music.apple.com/no/album/lilyhamericana/1489496780"
-        googlePlayLink="https://play.google.com/store/music/album/Johan_Berggren_Lilyhamericana?id=Bz2yh6urq37of2jvuf335eiyrlu"
-      />
-      <AlbumShowcase
-        albumName="For Now I'm Good Right Here"
-        coverImage={fnigrhCover}
-        spotifyLink="https://open.spotify.com/album/6pwWHdrQScPz2sCXIUiKhY?si=vPLf4QbwTJeKmm_DrjYdhQ"
-        appleMusicLink="https://music.apple.com/no/album/for-now-im-good-right-here/1437919945"
-        googlePlayLink="https://play.google.com/store/music/album?id=Benkmxtgwyo2ndlsm7gwtiiov7q&tid=song-T4wv4tg6j37mgqnv3bj45jjjavu"
-      />
+      {albums.map((album) => (
+        <AlbumShowcase
+          key={album.name}
+          albumName={album.name}
+          coverImage={album.coverImage}
+          appleMusicLink={album.appleMusicUrl}
+          googlePlayLink={album.googlePlayUrl}
+          spotifyLink={album.spotifyUrl}
+          firstSongPath={album.firstSongPath}
+        />
+      ))}
     </Section>
   )
 }

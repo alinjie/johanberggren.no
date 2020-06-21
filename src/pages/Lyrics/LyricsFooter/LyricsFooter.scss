@@ -1,0 +1,15 @@
+.lyrics-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+  background-color: white;
+  bottom: 0;
+  width: 100%;
+  &__next-button {
+    margin-left: auto;
+  }
+  &__previous-button {
+    margin-right: auto;
+  }
+}

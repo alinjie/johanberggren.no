@@ -1,0 +1,39 @@
+---
+name: Spain
+order: 3
+---
+All I can hear is the wind that cries  
+as it helps thee snow climb on the walls outside  
+I haven’t spoken to anyone in a week  
+I miss you a little bit but I don’t lose sleep  
+
+Tomorrow will be like yesterday  
+What if I’m one of those who like it that way  
+At least when life is out to kill  
+It’s nice being a place where time stands still  
+
+If I could disappear I would  
+Maybe you could come too  
+I’ve heard nice things about Spain I think I’d like it there  
+But for now I’m good right here  
+
+I’ve been thinking about moving to the countryside  
+To get somewhere to scream to get somewhere to hide  
+Away from all the people that have grown so cold  
+They can’t blame it on the winter anymore   
+
+If I could disappear I would  
+Maybe you could come too  
+I’ve heard nice things about Spain I think I’d like it there  
+But for now I’m good right here  
+
+Some days I wish that I’ll get snowed in  
+I got enough canned food to make it until spring  
+I could tell my friends that I’ve moved to Spain  
+Then change my number and change my name  
+
+And suddenly I’ve disappeared  
+All that’s missing now is you  
+I’ll let you know where I’m if still you care  
+But for now, I’m good right here  
+For now I’m good right here  

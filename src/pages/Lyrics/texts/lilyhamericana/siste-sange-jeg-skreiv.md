@@ -1,0 +1,28 @@
+---
+name: Siste sangen jeg skreiv
+order: 9
+---
+Nå er jeg lei av å rime om deg  
+Jeg er lei av å rime om deg  
+Så til deg blir det her siste sangen jeg skreiv  
+Jeg er lei av å rime om deg  
+
+Jeg satt fyr på alt du ga meg i går  
+Jeg satt fyr på alt du ga meg i går  
+Og inviterte alle naboene på brente brev og bål  
+Jeg satt fyr på alt du ga meg i går  
+
+Så kan jeg få tilbake hjertet mitt nå  
+Kan jeg få tilbake hjertet mitt nå  
+Så jeg igjen kan gjøre et forsøk på å elske og forstå  
+Kan jeg få tilbake hjertet mitt nå  
+
+Ta hånda mi en siste gang  
+Ta hånda mi en siste gang  
+Så danser vi sakte så lenge natta er lang  
+Ta hånda mi en siste gang  
+
+Jeg har aldri klart å ljuge til deg  
+Jeg har aldri klart å ljuge til deg  
+Så vi får vente å sjå om det blir sant det jeg skreiv  
+For jeg har aldri klart å ljuge til deg  

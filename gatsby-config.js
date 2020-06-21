@@ -61,7 +61,21 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `lilyhamericana-lyrics`,
-        path: path.join(__dirname, "content", "lilyhamericana-lyrics"),
+        path: path.join(
+          __dirname,
+          "src",
+          "pages",
+          "Lyrics",
+          "texts",
+          "lilyhamericana"
+        ),
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `fnigrh-lyrics`,
+        path: path.join(__dirname, "src", "pages", "Lyrics", "texts", "fnigrh"),
       },
     },
   ],

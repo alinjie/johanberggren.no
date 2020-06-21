@@ -1,0 +1,27 @@
+.button {
+  min-width: 70px;
+  border: none;
+  background-color: transparent;
+  text-transform: uppercase;
+  height: 40px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  &--chevron-left {
+    &::before {
+      content: "\203A";
+      margin-left: 5px;
+      position: absolute;
+    }
+  }
+  &--chevron-right {
+    &::after {
+      content: "\203A";
+      font-size: 24px;
+      margin-left: 5px;
+    }
+  }
+}

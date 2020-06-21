@@ -1,0 +1,12 @@
+.navigation-button {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  border: none;
+  background-color: transparent;
+  font-size: inherit;
+  cursor: pointer;
+  &__direction-text {
+    opacity: 0.5;
+  }
+}

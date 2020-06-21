@@ -1,21 +1,47 @@
 import React, { ReactElement } from "react"
-import { PageProps, useStaticQuery, graphql } from "gatsby"
+import { PageProps } from "gatsby"
 import Layout from "components/Layout"
+import Container from "components/Container"
+import LyricsHeader from "./LyricsHeader"
+import Song from "interfaces/Song"
+import LyricsFooter from "./LyricsFooter"
+import "./Lyrics.scss"
 
-export default function LyricsTemplate({
-  pageContext,
-}: PageProps): ReactElement {
-  const { albumCover } = useStaticQuery(graphql`
-    {
-      albumCover: file(id: { eq: "da74deb6-d3d5-5e65-be1d-4ada4b2e9ec0" }) {
-        childImageSharp {
-          fluid {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-    }
-  `)
+interface Props extends PageProps {
+  pageContext: {
+    albumCoverSrc: string
+    albumName: string
+    allSongs: Song[]
+    nextSong?: Song
+    previousSong?: Song
+    currentSong: Song
+  }
+}
 
-  return <Layout>Lyrics page {JSON.stringify(albumCover)}</Layout>
+export default function Lyrics({ pageContext }: Props): ReactElement {
+  const {
+    albumCoverSrc,
+    nextSong,
+    previousSong,
+    currentSong,
+    allSongs,
+    albumName,
+  } = pageContext
+  return (
+    <Layout showHeader={false}>
+      <Container className="lyrics">
+        <LyricsHeader
+          albumImageSource={albumCoverSrc}
+          albumName={albumName}
+          lyricNodes={allSongs}
+          currentSong={currentSong}
+        />
+        <div className="lyrics__container">
+          <h2>{currentSong.name}</h2>
+          <div dangerouslySetInnerHTML={{ __html: currentSong.lyrics }} />
+        </div>
+        <LyricsFooter next={nextSong} previous={previousSong} />
+      </Container>
+    </Layout>
+  )
 }

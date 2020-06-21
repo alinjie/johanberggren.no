@@ -1,14 +1,9 @@
 const path = require("path")
 const { createFilePath } = require(`gatsby-source-filesystem`)
+const { promises } = require("fs")
 
-function sanitizeText(input) {
-  return input
-    .replace(/æ/i, "ae")
-    .replace(/ø/i, "o")
-    .replace(/å/i, "aa")
-    .replace(/ /g, "-")
-    .replace(/[^a-zA-Z0-9-]/g, "")
-    .toLowerCase()
+function createLyricsPath(album, songFileName) {
+  return `/${album.slug}-lyrikk/${songFileName}`
 }
 
 exports.onCreateWebpackConfig = ({ actions }) => {
@@ -43,97 +38,76 @@ exports.createPages = async function ({ graphql, actions }) {
       name: "Lilyhamericana",
       albumCoverImageId: "d09bfbbf-5762-54d5-adfc-807d6bca6d8c",
       slug: "lilyhamericana",
+      lyricsSourceInstanceName: "lilyhamericana-lyrics",
     },
     {
       name: "For Now I'm Good Right Here",
       albumCoverImageId: "ed65a16b-9ab0-5a10-9073-7735dc86621a",
       slug: "for-now-im-good-right-here",
+      lyricsSourceInstanceName: "fnigrh-lyrics",
     },
   ]
 
   await Promise.all(
     albums.map(async (album) => {
-      const albumCoverQuery = `
-      {
-        file(id: {eq: "${album.albumCoverImageId}"}) {
-          childImageSharp {
-            fluid {
-              src
-            }
+      const query = `
+    {
+      file(id:{eq: "${album.albumCoverImageId}"}) {
+        childImageSharp {
+          fixed(width: 350) {
+            src
           }
         }
-      }`
-      const albumCoverFetch = graphql(albumCoverQuery)
-
-      const lyricsQuery = `
-      {
-        allMarkdownRemark(filter: {fileAbsolutePath: {regex: "/lilyhamericana-lyrics/i"}}, sort: {fields: frontmatter___order, order: ASC}) {
-          edges {
-            node {
+      }
+      allFile(filter: { sourceInstanceName:{eq:"${album.lyricsSourceInstanceName}"}}) {
+        edges {
+          node {
+            name
+            childMarkdownRemark {
               frontmatter {
                 name
                 order
               }
-              fields {
-                slug
-                albumName
-                albumCoverId
-              }
-              id
               html
             }
           }
         }
-      }`
+      }
+    }`
+      const { data } = await graphql(query)
 
-      const lyricsFetch = graphql(lyricsQuery)
-      const values = await Promise.all([albumCoverFetch, lyricsFetch])
-      const [albumCover, lyrics] = values
-
-      const lyricNodes = lyrics.data.allMarkdownRemark.edges
-
-      for ({ node } of lyricNodes) {
-        const {
-          fields: { slug, albumName, albumCoverId },
-        } = node
-
-        const { data } = await graphql(`
-        {
-          file(id: {eq: "${albumCoverId}"}) {
-            absolutePath
-          }
-        }`)
-
-        const allSongs = lyricNodes.map((item) => ({
-          name: item.node.frontmatter.name,
-          order: item.node.frontmatter.order,
-          slug: `${item.node.frontmatter.name}-${sanitizeText(
-            item.node.frontmatter.name
-          )}`,
-        }))
-
-        const nextSong = allSongs.find(
-          (song) => song.order === node.frontmatter.order + 1
-        )
+      const albumCoverSrc = data.file.childImageSharp.fixed.src
+      const allSongs = data.allFile.edges.map((song) => {
+        const { name: fileName } = song.node
+        const { name, order } = song.node.childMarkdownRemark.frontmatter
+        const path = createLyricsPath(album, fileName)
+        const lyrics = song.node.childMarkdownRemark.html
+        return {
+          fileName,
+          name,
+          order,
+          lyrics,
+          path,
+        }
+      })
+      return allSongs.map((song) => {
+        const nextSong = allSongs.find((item) => item.order === song.order + 1)
         const previousSong = allSongs.find(
-          (song) => song.order === node.frontmatter.order - 1
+          (item) => item.order === song.order - 1
         )
-
-        const albumCoverSrc = data.file.absolutePath
-
-        const urlPath = `${albumName}-${slug}`
         return actions.createPage({
-          path: urlPath,
+          path: createLyricsPath(album, song.fileName),
           component: path.resolve("src/pages/Lyrics/index.tsx"),
           context: {
-            allSongs,
-            node,
             albumCoverSrc,
+            allSongs,
             nextSong,
             previousSong,
+            currentSong: song,
+            albumName: album.name,
           },
         })
-      }
+      })
     })
   )
 }

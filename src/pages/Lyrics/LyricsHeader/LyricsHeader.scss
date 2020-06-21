@@ -1,0 +1,36 @@
+@import "variables";
+
+.lyrics-header {
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 1px solid transparentize($color: #000000, $amount: 0.8);
+  }
+  &__image {
+    display: block;
+    height: 100%;
+    width: 100%;
+    max-width: 250px;
+  }
+
+  &__song-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  &__song {
+    display: flex;
+    justify-content: center;
+    opacity: 0.5;
+    margin-bottom: 1rem;
+    min-width: 200px;
+    cursor: pointer;
+    &--active {
+      opacity: 1;
+    }
+  }
+
+  &__back-button {
+    margin-right: auto;
+  }
+}

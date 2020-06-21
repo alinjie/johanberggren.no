@@ -1,0 +1,43 @@
+---
+name: Alt er bra i Amerika
+order: 6
+---
+Natta er mørkere, dagene lenger  
+Huet mitt fullt, men ingenting fenger  
+Terrassehuska gynger, kardinalene synger  
+Alt er bra i Amerika   
+
+Jeg ringer hver søndag, så mamma veit ståa  
+Hu spør alltid om det er trygt der jeg er  
+Så jeg sendte kort med bilde av gullkysten i Omaha  
+Og skreiv alt er bra i Amerika  
+
+Jeg veit at det hjemme rusler og går  
+Ingen får igjen for oppbrukte år  
+Det eneste som gir meg littegrann ro  
+Er at jeg veit så godt i hvilket land jeg vil bo  
+
+Det var ikke meininga å vekke deg  
+Ville bare si hei og høre deg hviske at det var deg og meg  
+Jeg er akkurat på tur ut til nærmeste ølhus  
+Og alt er bra i Amerika  
+
+Jeg veit at det hjemme rusler og går  
+Ingen får igjen for oppbrukte år  
+Det eneste som gir meg littegrann ro  
+Er at jeg veit så godt i hvilket land jeg vil bo  
+
+Bygd på håp og drømmer det rakner i sømmer  
+Hos landet fullt av frihet og ubesvarte bønner  
+Men bildene jeg skyver fram på internett og instagram  
+De sier alt er bra i Amerika  
+
+Jeg veit at det hjemme rusler og går  
+Ingen får igjen for oppbrukte år  
+Det eneste som gir meg littegrann ro  
+Er at jeg veit så godt i hvilket land jeg vil bo  
+
+Natta er mørkere, dagene lenger  
+Huet mitt fullt, men ingenting fenger  
+Terrassehuska gynger, kardinalene synger  
+Alt er bra i Amerika  

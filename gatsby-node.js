@@ -75,6 +75,8 @@ exports.createPages = async function ({ graphql, actions }) {
       }
     }`
       const { data } = await graphql(query)
+      console.log(JSON.stringify(data, null, 2))
+
       const albumCoverSrc = data.file.childImageSharp.fixed.src
       const allSongs = data.allFile.edges.map((song) => {
         const { name: fileName } = song.node

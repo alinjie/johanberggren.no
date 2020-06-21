@@ -1,6 +1,6 @@
 backend:
   name: git-gateway
-  repo: alinjie/johan-berggren
+  repo: AliNjie/johanberggren.no
 
 media_folder: static/img
 public_folder: /img

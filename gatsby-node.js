@@ -31,8 +31,6 @@ exports.createPages = async function ({ graphql, actions }) {
   /**
    * LYRICS
    */
-
-  // ed65a16b-9ab0-5a10-9073-7735dc86621a
   const albums = [
     {
       name: "Lilyhamericana",
@@ -75,7 +73,9 @@ exports.createPages = async function ({ graphql, actions }) {
       }
     }`
       const { data } = await graphql(query)
-      console.log(JSON.stringify(data, null, 2))
+      console.log(JSON.stringify(album, null, 2))
+
+      console.log(JSON.stringify(data.file, null, 2))
 
       const albumCoverSrc = data.file.childImageSharp.fixed.src
       const allSongs = data.allFile.edges.map((song) => {

@@ -26,7 +26,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `album-covers`,
-        path: path.join(__dirname, `src`, `pages`, "Home", "Music", "img"),
+        path: path.join(__dirname, `src`, `screens`, "Home", "Music", "img"),
       },
     },
     {
@@ -64,7 +64,7 @@ module.exports = {
         path: path.join(
           __dirname,
           "src",
-          "pages",
+          "screens",
           "Lyrics",
           "texts",
           "lilyhamericana"
@@ -75,7 +75,14 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `fnigrh-lyrics`,
-        path: path.join(__dirname, "src", "pages", "Lyrics", "texts", "fnigrh"),
+        path: path.join(
+          __dirname,
+          "src",
+          "screens",
+          "Lyrics",
+          "texts",
+          "fnigrh"
+        ),
       },
     },
   ],

@@ -1,0 +1,23 @@
+.lyrics-footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100px;
+  background-color: white;
+  bottom: 0;
+  width: 100%;
+}
+
+.lyrics-footer__next-button {
+  margin-left: auto;
+}
+
+.lyrics-footer__previous-button {
+  margin-right: auto;
+}

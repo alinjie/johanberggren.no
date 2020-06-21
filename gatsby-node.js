@@ -23,26 +23,26 @@ exports.createPages = async function ({ graphql, actions }) {
   /**
    * HOME
    */
-  const homePageComponent = path.resolve("src/pages/Home/index.tsx")
   actions.createPage({
     path: "/",
-    component: homePageComponent,
+    component: path.resolve("src/screens/Home/index.tsx"),
   })
 
   /**
    * LYRICS
    */
 
+  // ed65a16b-9ab0-5a10-9073-7735dc86621a
   const albums = [
     {
       name: "Lilyhamericana",
-      albumCoverImageId: "d09bfbbf-5762-54d5-adfc-807d6bca6d8c",
+      albumCoverImageId: "ea340b64-f12e-5750-92f0-78798c4731cd",
       slug: "lilyhamericana",
       lyricsSourceInstanceName: "lilyhamericana-lyrics",
     },
     {
       name: "For Now I'm Good Right Here",
-      albumCoverImageId: "ed65a16b-9ab0-5a10-9073-7735dc86621a",
+      albumCoverImageId: "c80bced0-3624-5683-9bd3-cb09b35e2b44",
       slug: "for-now-im-good-right-here",
       lyricsSourceInstanceName: "fnigrh-lyrics",
     },
@@ -75,7 +75,6 @@ exports.createPages = async function ({ graphql, actions }) {
       }
     }`
       const { data } = await graphql(query)
-
       const albumCoverSrc = data.file.childImageSharp.fixed.src
       const allSongs = data.allFile.edges.map((song) => {
         const { name: fileName } = song.node
@@ -97,7 +96,7 @@ exports.createPages = async function ({ graphql, actions }) {
         )
         return actions.createPage({
           path: createLyricsPath(album, song.fileName),
-          component: path.resolve("src/pages/Lyrics/index.tsx"),
+          component: path.resolve("src/screens/Lyrics/index.tsx"),
           context: {
             albumCoverSrc,
             allSongs,

@@ -52,8 +52,13 @@ exports.createPages = async function ({ graphql, actions }) {
     {
       file(relativePath:{eq: "${album.albumCoverRelativePath}"}, sourceInstanceName: {eq:"album-covers"}) {
         childImageSharp {
-          fixed(width: 350) {
+          fluid {
+            aspectRatio
+            base64
+            sizes
+            originalImg
             src
+            srcSet
           }
         }
       }
@@ -74,7 +79,7 @@ exports.createPages = async function ({ graphql, actions }) {
     }`
       const { data } = await graphql(query)
 
-      const albumCoverSrc = data.file.childImageSharp.fixed.src
+      const albumCoverSrc = data.file.childImageSharp.fluid
       const allSongs = data.allFile.edges.map((song) => {
         const { name: fileName } = song.node
         const { name, order } = song.node.childMarkdownRemark.frontmatter

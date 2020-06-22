@@ -3,6 +3,7 @@ import Container from "components/Container"
 import "./LyricsHeader.scss"
 import Button from "components/Button"
 import { navigate } from "gatsby"
+import Img, { FluidObject } from "gatsby-image"
 
 interface Song {
   name: string
@@ -11,7 +12,7 @@ interface Song {
 }
 
 interface Props {
-  albumImageSource: string
+  albumImageSource: FluidObject
   lyricNodes: Song[]
   albumName: string
   currentSong: Song
@@ -32,11 +33,12 @@ export default function LyricsHeader({
         >
           Tilbake
         </Button>
-        <img
+        <Img
+          fluid={albumImageSource}
           className="lyrics-header__image"
-          src={`${albumImageSource}`}
           alt="Album cover"
         />
+
         <h3>{albumName}</h3>
         <ul className="lyrics-header__song-list">
           {lyricNodes

@@ -1,6 +1,6 @@
 ---
-title: Bryggerihuset Beitostølen
-date: 2020-09-12T19:00:00.000Z
-eventLink: https://bryggerihuset.ticketco.events/no/nb/e/johan_berggren__innflytterne__bryggerihuset__28_mars?fbclid=IwAR11wTciGTcGiSIQFQ1XqBspjrjtQLgDtFlzhm8-59u0kzpAl_ZLH5FOCVk
-solo: false
+title: "Bryggerihuset, Beitostølen (Support: Vegard Hertzberg)"
+date: 2020-07-11T19:00:00.000Z
+eventLink: https://bryggerihuset.ticketco.events/no/nb/e/johan_berggren__live_paa_bryggerihuset_11_juli?fbclid=IwAR1YJxNgNlJhnm0aBEPJgHJ0_AX5K4EXWkxfL5uuRVEhnmrON6r8BwZMFiw
+solo: true
 ---

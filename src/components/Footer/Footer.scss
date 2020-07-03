@@ -15,6 +15,10 @@
     font-weight: bold;
   }
 
+  &__section a {
+    font-weight: lighter;
+  }
+
   &__icon-wrapper {
     i {
       color: $black;

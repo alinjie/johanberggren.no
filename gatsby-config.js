@@ -23,6 +23,15 @@ module.exports = {
     `gatsby-transformer-remark`,
     "gatsby-plugin-typescript",
     {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "UA-171505789-1",
+        anonymize: true,
+        respectDNT: true,
+        exclude: ["/admin"],
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `album-covers`,

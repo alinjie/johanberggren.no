@@ -69,6 +69,10 @@ export default function Layout({
           name="description"
           content="Offisiell nettside for Johan Berggren"
         />
+        <meta
+          name="keywords"
+          content="Johan Berggren, Lilyhamericana, For Now I'm Good Right Here, Music, Country, Americana, Norwegian, Country, johanberggren.no, Johan Berggren Nettside, Rootsy, Rootsy Music"
+        />
       </Helmet>
       {showHeader && <Header />}
       {children}

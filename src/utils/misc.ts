@@ -3,10 +3,10 @@ import RemarkObject from "interfaces/RemarkObject"
 export const sortEventData = (eventData: RemarkObject[]) => {
   return eventData.sort((a, b) => {
     if (
-      a.childMarkdownRemark.frontmatter.date >
-      b.childMarkdownRemark.frontmatter.date
+      new Date(a.childMarkdownRemark.frontmatter.date) >
+      new Date(b.childMarkdownRemark.frontmatter.date)
     ) {
-      return 0
+      return 1
     } else {
       return -1
     }

@@ -1,6 +1,6 @@
 ---
-title: Blårock, Tromsø
-date: 2020-07-19T19:00:43.366Z
-eventLink: https://northcountryfair.antitickets.com/event/johan-berggren-blaarock-19-07?fbclid=IwAR0HBKq06zQ_ohr8x8kI4sIorWjjs56YYV2h17FCUeLCqi3_OJKslArQSaA
+title: Fabrikken, Lillehammer
+date: 2020-08-14T19:00:43.366Z
+eventLink: https://tikkio.com/tickets/18153-johan-berggren-pa-fabrikken?fbclid=IwAR2k3iNH80VrWftzmfHI9PsArnRIOMSX3ayyWnoWbmUj3UMMej3p9tw_6Ks
 solo: true
 ---

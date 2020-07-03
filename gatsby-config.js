@@ -28,6 +28,7 @@ module.exports = {
         trackingId: "UA-171505789-1",
         anonymize: true,
         respectDNT: true,
+        head: true,
         exclude: ["/admin"],
       },
     },

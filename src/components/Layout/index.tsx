@@ -17,7 +17,7 @@ interface SiteMetadata {
     siteMetadata: {
       title: string
       description: string
-      url: string
+      siteUrl: string
       image: string
       author: string
     }
@@ -37,7 +37,7 @@ export default function Layout({
         siteMetadata {
           title
           description
-          url
+          siteUrl
           image
           author
         }
@@ -47,7 +47,7 @@ export default function Layout({
   const meta = [
     { name: "description", content: siteMetadata.description },
     { name: "author", content: siteMetadata.author },
-    { name: "url", content: siteMetadata.url },
+    { name: "url", content: siteMetadata.siteUrl },
     {
       name: "keywords",
       content:

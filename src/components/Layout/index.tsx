@@ -44,35 +44,29 @@ export default function Layout({
       }
     }
   `)
+  const meta = [
+    { name: "description", content: siteMetadata.description },
+    { name: "author", content: siteMetadata.author },
+    { name: "url", content: siteMetadata.url },
+    {
+      name: "keywords",
+      content:
+        "Johan Berggren, Lilyhamericana, For Now I'm Good Right Here, Music, Country, Americana, Norwegian",
+    },
+    { name: "image", content: siteMetadata.image },
+  ]
+
   return (
     <main className="layout">
-      <Helmet
-        title={siteMetadata.title}
-        meta={[
-          { name: "description", content: siteMetadata.description },
-          { name: "author", content: siteMetadata.author },
-          { name: "url", content: siteMetadata.author },
-          {
-            name: "keywords",
-            content:
-              "Johan Berggren, Lilyhamericana, For Now I'm Good Right Here, Music, Country, Americana, Norwegian",
-          },
-          { name: "image", content: siteMetadata.image },
-        ]}
-      >
+      <Helmet title={siteMetadata.title} meta={meta}>
         <link
           href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap"
           rel="stylesheet"
         />
         <title>Johan Berggren</title>
-        <meta
-          name="description"
-          content="Offisiell nettside for Johan Berggren"
-        />
-        <meta
-          name="keywords"
-          content="Johan Berggren, Lilyhamericana, For Now I'm Good Right Here, Music, Country, Americana, Norwegian, Country, johanberggren.no, Johan Berggren Nettside, Rootsy, Rootsy Music"
-        />
+        {meta.map((item) => (
+          <meta name={item.name} content={item.content} />
+        ))}
       </Helmet>
       {showHeader && <Header />}
       {children}

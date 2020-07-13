@@ -24,6 +24,15 @@ interface SiteMetadata {
   }
 }
 
+const keywords =
+  "Johan Berggren, \
+Lilyhamericana, For Now I'm Good Right Here, Music, Country, \
+Americana, Norwegian, Lilyhamericana lyrics, Lilyhamericana lyrics, \
+johanberggre.no, johan berggren lyrics, johan berggren tekst, \
+johan berggren country, johan berggren musikk, country musikk, \
+amerikana musikk, norsk amerikana, jhan berggren hjemmeside, johan berrggren nettiside \
+johan berggren galleri"
+
 export default function Layout({
   children,
   showHeader = true,
@@ -50,8 +59,7 @@ export default function Layout({
     { name: "url", content: siteMetadata.siteUrl },
     {
       name: "keywords",
-      content:
-        "Johan Berggren, Lilyhamericana, For Now I'm Good Right Here, Music, Country, Americana, Norwegian",
+      content: keywords,
     },
     { name: "image", content: siteMetadata.image },
   ]
@@ -63,7 +71,7 @@ export default function Layout({
           href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap"
           rel="stylesheet"
         />
-        <title>Johan Berggren</title>
+        <title>Offisiell nettside for Johan Berggren | johanberggren.no</title>
         {meta.map((item) => (
           <meta name={item.name} content={item.content} />
         ))}

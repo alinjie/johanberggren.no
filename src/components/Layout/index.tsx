@@ -24,14 +24,38 @@ interface SiteMetadata {
   }
 }
 
-const keywords =
-  "Johan Berggren, \
-Lilyhamericana, For Now I'm Good Right Here, Music, Country, \
-Americana, Norwegian, Lilyhamericana lyrics, Lilyhamericana lyrics, \
-johanberggre.no, johan berggren lyrics, johan berggren tekst, \
-johan berggren country, johan berggren musikk, country musikk, \
-amerikana musikk, norsk amerikana, jhan berggren hjemmeside, johan berrggren nettiside \
-johan berggren galleri"
+const keywords = [
+  "Johan Berggren",
+  "Lilyhamericana",
+  "For Now I'm Good Right Here",
+  "Music",
+  "Country",
+  "Americana",
+  "Norwegian",
+  "Lilyhamericana lyrics",
+  "Lilyhamericana tekst",
+  "For Now I'm Good Right Here lyrics",
+  "For Now I'm Good Right Here tekst",
+  "Johan Berggren lyrics",
+  "Johan Berggren tekst",
+  "Johan Berggren musikk",
+  "Coutry musikk",
+  "Americana musikk",
+  "Norsk americana",
+  "Johan Berggren hjemmeside",
+  "Johan Berggren nettside",
+  "Johan Berggren galleri",
+  "Johan Berggren bilder",
+  "Johan Berggren offisiell",
+].reduce((acc, keyword, index, keywords) => {
+  if (index === keywords.length - 1) {
+    acc += `${keyword}`
+  } else {
+    acc += `${keyword}, `
+  }
+
+  return acc
+}, "")
 
 export default function Layout({
   children,

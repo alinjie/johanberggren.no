@@ -1,6 +1,6 @@
 ---
-title: Fabrikken, Lillehammer
-date: 2020-08-14T19:00:22.466Z
-eventLink: https://tikkio.com/tickets/18153-johan-berggren-pa-fabrikken?fbclid=IwAR0H3LS2L2cKk58qSISE8KTmm1d9sK_0O46LFLX6gfJINoOxzw_Q-vkPtRI
+title: Arendal Låtskrivernettverk, Arendal (med Vegard Hertzberg)
+date: 2020-09-25T18:00:24.746Z
+eventLink: https://www.facebook.com/events/2455121928124144/
 solo: true
 ---

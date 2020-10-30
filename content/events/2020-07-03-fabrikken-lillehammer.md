@@ -1,6 +1,6 @@
 ---
-title: Releasekonsert, Rockefeller, Oslo
-date: 2021-01-27T20:00:24.746Z
-eventLink: https://www.ticketmaster.no/event/648947?camefrom=CFC_NO_Rockefeller_Johan_Berggren_2021_Billettsalg
+title: Rådhusteateret, Kongsvinger (Med Roy Lønhøiden)
+date: 2021-03-04T14:00:24.746Z
+eventLink: https://www.facebook.com/johanberggrenmusic
 solo: false
 ---

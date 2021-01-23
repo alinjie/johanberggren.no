@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Teko:wght@300;400;500;600;700&display=swap");
+
+.hero-section {
+  background: url("../../public/assets/img/hero-image.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+p,
+cite {
+  @apply leading-6 font-light;
+}
+
+.button {
+  @apply inline-block border border-black uppercase px-4 py-2 transition-colors cursor-pointer hover:text-gray-600 hover:border-gray-600;
+}
+
+.container {
+  @apply px-4 py-8 md:max-w-6xl md:mx-auto;
+}
+
+.title {
+  @apply text-2xl font-black;
+}

@@ -38,6 +38,7 @@ export default function Home() {
             width={500}
             quality={100}
             className="block"
+            alt="Ei hytte foran loven album cover"
           />
         </div>
         <div className="flex flex-col">
@@ -104,6 +105,7 @@ export default function Home() {
           height={745}
           width={1000}
           quality={50}
+          alt="Johan Berggren sitter i en stol ved siden av et bord med plante og smiler"
         />
         <div className="md:text-lg">
           <p className="leading-6">

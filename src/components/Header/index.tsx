@@ -83,6 +83,7 @@ function MobileNav({ setNavOpen, pathname }: NavProps) {
                 className={cx("transition-colors duration-200", {
                   "text-detail": pathname === link.href,
                 })}
+                data-testid={`mobile-nav-link-${link.name}`}
               >
                 {link.name}
               </a>
@@ -119,7 +120,11 @@ export default function Header({ transparent }: Props) {
             <Logo />
           </a>
         </Link>
-        <button className="md:hidden" onClick={() => setNavOpen(true)}>
+        <button
+          className="md:hidden"
+          data-testid="hamburger-menu"
+          onClick={() => setNavOpen(true)}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-6 w-6"
@@ -145,6 +150,7 @@ export default function Header({ transparent }: Props) {
                     "text-detail": pathname == link.href,
                   }
                 )}
+                data-testid={`desktop-nav-link-${link.name}`}
               >
                 {link.name}
               </a>

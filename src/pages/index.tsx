@@ -103,6 +103,7 @@ export default function Home() {
           layout="responsive"
           height={745}
           width={1000}
+          quality={50}
         />
         <div className="md:text-lg">
           <p className="leading-6">

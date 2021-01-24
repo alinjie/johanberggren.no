@@ -69,7 +69,7 @@ export default function Home() {
       <div className="bg-gray-100">
         <div className="container">
           <h3 className="title mb-2">Video</h3>
-          <div className="flex flex-col gap-4 md:grid md:grid-cols-2">
+          <div className="flex flex-col space-y-4 md:space-y-0 md:gap-4 md:grid md:grid-cols-2">
             <iframe
               className="w-full h-80 md:h-96"
               src="https://www.youtube.com/embed/9M-LWLX2h-Q"

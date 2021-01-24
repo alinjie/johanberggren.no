@@ -11,6 +11,7 @@ export default function App({ Component, pageProps }: AppProps) {
           crossOrigin="anonymous"
         ></script>
       </Head>
+      <h1 className="sr-only">Johan Berggren Offisiell Nettside</h1>
       <Component {...pageProps} />
     </div>
   )

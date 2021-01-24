@@ -3,7 +3,7 @@ import Footer from "components/Footer"
 import { motion } from "framer-motion"
 import { LINK_VARIANTS } from "consts"
 import Image from "next/image"
-import { ErrorMessage, Field, Form, Formik } from "formik"
+import { ErrorMessage, Form, Formik } from "formik"
 import * as yup from "yup"
 
 const initialValues = {

@@ -1,4 +1,3 @@
-import Header from "components/Header"
 import { AppProps } from "next/app"
 import "styles/tailwind.css"
 import Head from "next/head"

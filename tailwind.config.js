@@ -12,6 +12,7 @@ module.exports = {
       gray: colors.gray,
       white: "#FFFFFF",
       black: colors.black,
+      red: colors.red,
       transparent: "transparent",
       "detail": "#E9A61F"
     },
@@ -19,5 +20,7 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/forms')
+  ],
 }

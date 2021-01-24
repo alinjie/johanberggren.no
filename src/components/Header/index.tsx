@@ -11,6 +11,7 @@ type Props = {
 
 type NavProps = {
   setNavOpen: Dispatch<SetStateAction<boolean>>
+  pathname: string
 }
 
 const variants: Variants = {
@@ -48,15 +49,14 @@ const navLinks = [
   },
 ]
 
-function Nav({ setNavOpen }: NavProps) {
-  const { pathname } = useRouter()
+function MobileNav({ setNavOpen, pathname }: NavProps) {
   return (
     <motion.nav
       variants={variants}
       initial="hidden"
       animate="visible"
       exit="exit"
-      className="fixed bg-white z-50 h-screen w-full"
+      className="fixed bg-white z-50 h-screen w-full md:hidden"
     >
       <button onClick={() => setNavOpen(false)}>
         <svg
@@ -79,7 +79,11 @@ function Nav({ setNavOpen }: NavProps) {
         {navLinks.map((link) => (
           <li key={link.href}>
             <Link href={link.href}>
-              <a className={cx({ "text-gray-300": pathname !== link.href })}>
+              <a
+                className={cx("transition-colors duration-200", {
+                  "text-detail": pathname === link.href,
+                })}
+              >
                 {link.name}
               </a>
             </Link>
@@ -92,17 +96,21 @@ function Nav({ setNavOpen }: NavProps) {
 
 export default function Header({ transparent }: Props) {
   const [navOpen, setNavOpen] = useState(false)
+  const { pathname } = useRouter()
+
   useEffect(() => {
-    navOpen ? (document.body.style.overflow = "hidden") : "unset"
-  }, [navOpen])
+    // Makes sure page is not scrollable when mobile nav is open
+    document.body.style.overflow = navOpen ? "hidden" : "unset"
+  })
+
   return (
     <header
-      className={cx("bg-white duration-150 w-full shadow", {
+      className={cx("bg-white duration-150 w-full shadow-sm", {
         "text-white bg-transparent shadow-none": transparent,
       })}
     >
       <AnimatePresence>
-        {navOpen && <Nav setNavOpen={setNavOpen} />}
+        {navOpen && <MobileNav setNavOpen={setNavOpen} pathname={pathname} />}
       </AnimatePresence>
 
       <div className="container flex justify-between">
@@ -111,7 +119,7 @@ export default function Header({ transparent }: Props) {
             <Logo />
           </a>
         </Link>
-        <button onClick={() => setNavOpen(true)}>
+        <button className="md:hidden" onClick={() => setNavOpen(true)}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-6 w-6"
@@ -127,6 +135,22 @@ export default function Header({ transparent }: Props) {
             <line x1="3" y1="18" x2="21" y2="18"></line>
           </svg>
         </button>
+        <nav className="space-x-4 hidden md:block">
+          {navLinks.map((link) => (
+            <Link href={link.href}>
+              <a
+                className={cx(
+                  "text-xl transition-colors duration-200 hover:text-detail",
+                  {
+                    "text-detail": pathname == link.href,
+                  }
+                )}
+              >
+                {link.name}
+              </a>
+            </Link>
+          ))}
+        </nav>
       </div>
     </header>
   )

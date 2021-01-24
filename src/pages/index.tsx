@@ -1,7 +1,8 @@
 import Header from "components/Header"
-import { SOCIAL_LINKS } from "consts"
+import { LINK_VARIANTS, SOCIAL_LINKS } from "consts"
 import Image from "next/image"
 import Footer from "components/Footer"
+import { motion } from "framer-motion"
 
 export default function Home() {
   return (
@@ -9,55 +10,26 @@ export default function Home() {
       <div className="hero-section flex flex-col h-screen">
         <Header transparent />
         <div className="flex flex-col h-full items-center justify-center">
-          <h2 className="text-detail text-5xl font-black text-center">
+          <h2 className="text-detail text-7xl font-black text-center">
             Johan Berggren
           </h2>
-          <ul className="flex space-x-2 items-center text-gray-200">
-            <li>
-              <a href={SOCIAL_LINKS.youtube} target="_blank" rel="noopener">
-                <i className="fab fa-youtube" />
-              </a>
-            </li>
-            <li>
-              <a
-                href={SOCIAL_LINKS.youtubeMusic}
-                target="_blank"
-                rel="noopener"
+          <ul className="flex space-x-2 items-center text-gray-200 text-xl">
+            {SOCIAL_LINKS.map((link) => (
+              <li
+                key={link.href}
+                className="transition-colors duration-200 hover:text-detail"
               >
-                <i className="fab fa-google-play" />
-              </a>
-            </li>
-            <li>
-              <a href={SOCIAL_LINKS.amazon} target="_blank" rel="noopener">
-                <i className="fab fa-amazon" />
-              </a>
-            </li>
-            <li>
-              <a href={SOCIAL_LINKS.facebook} target="_blank" rel="noopener">
-                <i className="fab fa-facebook" />
-              </a>
-            </li>
-            <li>
-              <a href={SOCIAL_LINKS.soundCloud} target="_blank" rel="noopener">
-                <i className="fab fa-soundcloud" />
-              </a>
-            </li>
-            <li>
-              <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener">
-                <i className="fab fa-instagram" />
-              </a>
-            </li>
-            <li>
-              <a href={SOCIAL_LINKS.spotify} target="_blank" rel="noopener">
-                <i className="fab fa-spotify" />
-              </a>
-            </li>
+                <a href={link.href} target="_blank" rel="noopener">
+                  <i className={link.icon} />
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
       </div>
 
       {/* ALBUM SHOWCASE */}
-      <div className="container space-x-6 flex flex-col md:flex-row items-center">
+      <div className="container md:space-x-6 flex flex-col md:flex-row items-center">
         <div>
           <Image
             src="/assets/img/album-covers/ehfl.png"
@@ -69,18 +41,26 @@ export default function Home() {
           />
         </div>
         <div className="flex flex-col">
-          <h2 className="text-6xl text-detail font-black my-2">
+          <h2 className="text-6xl text-detail font-black my-2 text-center">
             Ei Hytte Foran Loven
           </h2>
           <div className="space-y-2 flex flex-col md:flex-row md:items-end md:space-x-4">
-            <a className="button text-center">
+            <motion.a
+              className="button text-center"
+              whileHover="hover"
+              variants={LINK_VARIANTS}
+            >
               <i className="fab fa-spotify mr-1" />
               Spotify
-            </a>
-            <a className="button text-center">
+            </motion.a>
+            <motion.a
+              className="button text-center"
+              whileHover="hover"
+              variants={LINK_VARIANTS}
+            >
               <i className="fab fa-apple mr-1" />
               Apple Music
-            </a>
+            </motion.a>
           </div>
         </div>
       </div>
@@ -123,9 +103,8 @@ export default function Home() {
           layout="responsive"
           height={745}
           width={1000}
-          quality={100}
         />
-        <div>
+        <div className="md:text-lg">
           <p className="leading-6">
             Omtrent nøyaktig ett år etter debutplata er Johan Berggren fra
             Jørstadmoen ute med oppfølgeren “Lilyhamericana”. Denne gangen på

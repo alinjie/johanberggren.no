@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <footer className="bg-gray-100">
       <div className="container">
-        <div className="flex flex-col items-ce md:flex justify-between  space-y-4">
+        <div className="grid grid-cols-2 items-ce md:flex justify-between mb-4  space-y-4">
           <div className="space-y-2">
             <h4 className="text-xl">Kontakt</h4>
             <div>
@@ -46,57 +46,21 @@ export default function Footer() {
           <div>
             <h4 className="text-xl">Sosialt</h4>
             <ul className="flex space-x-1 items-center text-gray-500">
-              <li>
-                <a href={SOCIAL_LINKS.youtube} target="_blank" rel="noopener">
-                  <i className="fab fa-youtube" />
-                </a>
-              </li>
-              <li>
-                <a
-                  href={SOCIAL_LINKS.youtubeMusic}
-                  target="_blank"
-                  rel="noopener"
-                >
-                  <i className="fab fa-google-play" />
-                </a>
-              </li>
-              <li>
-                <a href={SOCIAL_LINKS.amazon} target="_blank" rel="noopener">
-                  <i className="fab fa-amazon" />
-                </a>
-              </li>
-              <li>
-                <a href={SOCIAL_LINKS.facebook} target="_blank" rel="noopener">
-                  <i className="fab fa-facebook" />
-                </a>
-              </li>
-              <li>
-                <a
-                  href={SOCIAL_LINKS.soundCloud}
-                  target="_blank"
-                  rel="noopener"
-                >
-                  <i className="fab fa-soundcloud" />
-                </a>
-              </li>
-              <li>
-                <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener">
-                  <i className="fab fa-instagram" />
-                </a>
-              </li>
-              <li>
-                <a href={SOCIAL_LINKS.spotify} target="_blank" rel="noopener">
-                  <i className="fab fa-spotify" />
-                </a>
-              </li>
+              {SOCIAL_LINKS.map((link) => (
+                <li key={link.href}>
+                  <a href={link.href} target="_blank" rel="noopener">
+                    <i className={link.icon} />
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
-          <Link href="/">
-            <a className="cursor-pointer">
-              <Logo />
-            </a>
-          </Link>
         </div>
+        <Link href="/">
+          <a className="cursor-pointer self-end">
+            <Logo />
+          </a>
+        </Link>
       </div>
     </footer>
   )

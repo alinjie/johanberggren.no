@@ -1,10 +1,16 @@
 import { AppProps } from "next/app"
 import "styles/tailwind.css"
 import Head from "next/head"
+import { useEffect } from "react"
 
-export default function App({ Component, pageProps }: AppProps) {
+export default function App({ Component, pageProps, router }: AppProps) {
+  useEffect(() => {
+    if (router.pathname === "/") {
+      window.scrollTo(0, 0)
+    }
+  }, [])
   return (
-    <div className="uppercase">
+    <div className="uppercase text-sm">
       <Head>
         <script
           src="https://kit.fontawesome.com/c96ed127ec.js"

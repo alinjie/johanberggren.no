@@ -8,13 +8,15 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     fontFamily: {
-      sans: ["Teko", ...defaultTheme.fontFamily.sans]
+      "heading": ["Teko", ...defaultTheme.fontFamily.sans],
+      sans: ["Inter", ...defaultTheme.fontFamily.sans],
     },
     colors: {
       gray: colors.gray,
       white: "#FFFFFF",
       black: colors.black,
       red: colors.red,
+      green: colors.green,
       transparent: "transparent",
       "detail": "#E9A61F"
     },

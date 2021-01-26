@@ -4,6 +4,7 @@ import { AnimatePresence, motion, Variants } from "framer-motion"
 import Link from "next/link"
 import { useRouter } from "next/dist/client/router"
 import { Dispatch, SetStateAction, useEffect, useState } from "react"
+import { useScrollDirection } from "hooks/useScrollDirection"
 
 type Props = {
   transparent?: boolean
@@ -40,8 +41,8 @@ const navLinks = [
     name: "Hjem",
   },
   {
-    href: "/konserter",
-    name: "Konserter",
+    href: "/om",
+    name: "Om",
   },
   {
     href: "/kontakt",
@@ -75,7 +76,7 @@ function MobileNav({ setNavOpen, pathname }: NavProps) {
           <line x1="6" y1="6" x2="18" y2="18" />
         </svg>
       </button>
-      <ul className=" h-full text-gray-900 text-4xl flex flex-col space-y-6 items-center justify-center">
+      <ul className=" h-full text-2xl text-gray-900 flex flex-col space-y-6 items-center justify-center">
         {navLinks.map((link) => (
           <li key={link.href}>
             <Link href={link.href}>
@@ -98,6 +99,9 @@ function MobileNav({ setNavOpen, pathname }: NavProps) {
 export default function Header({ transparent }: Props) {
   const [navOpen, setNavOpen] = useState(false)
   const { pathname } = useRouter()
+
+  const scrollDirection = useScrollDirection()
+  console.log(scrollDirection)
 
   useEffect(() => {
     // Makes sure page is not scrollable when mobile nav is open
@@ -145,7 +149,7 @@ export default function Header({ transparent }: Props) {
             <Link href={link.href}>
               <a
                 className={cx(
-                  "text-xl transition-colors duration-200 hover:text-detail",
+                  "transition-colors duration-200 hover:text-detail",
                   {
                     "text-detail": pathname == link.href,
                   }

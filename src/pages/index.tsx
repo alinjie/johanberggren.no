@@ -1,16 +1,23 @@
 import Header from "components/Header"
-import { LINK_VARIANTS, SOCIAL_LINKS } from "consts"
+import { CMS_URL, LINK_VARIANTS, SOCIAL_LINKS } from "consts"
 import Image from "next/image"
 import Footer from "components/Footer"
 import { motion } from "framer-motion"
+import Section from "components/Section"
+import { Concert } from "types/Concert"
+import request from "graphql-request"
+import { InferGetStaticPropsType } from "next"
+import moment from "moment"
 
-export default function Home() {
+export default function Home({
+  concerts,
+}: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <div>
       <div className="hero-section flex flex-col h-screen">
         <Header transparent />
         <div className="flex flex-col h-full items-center justify-center">
-          <h2 className="text-detail text-7xl font-black text-center">
+          <h2 className="text-detail text-7xl font-black text-center font-heading">
             Johan Berggren
           </h2>
           <ul className="flex space-x-2 items-center text-gray-200 text-xl">
@@ -29,47 +36,100 @@ export default function Home() {
       </div>
 
       {/* ALBUM SHOWCASE */}
-      <div className="container md:space-x-6 flex flex-col md:flex-row items-center">
-        <div>
-          <Image
-            src="/assets/img/album-covers/ehfl.png"
-            layout="intrinsic"
-            height={500}
-            width={500}
-            quality={100}
-            className="block"
-            alt="Ei hytte foran loven album cover"
-          />
-        </div>
-        <div className="flex flex-col">
-          <h2 className="text-6xl text-detail font-black my-2 text-center">
-            Ei Hytte Foran Loven
-          </h2>
-          <div className="space-y-2 flex flex-col md:flex-row md:items-end md:space-x-4">
-            <motion.a
-              className="button text-center"
-              whileHover="hover"
-              variants={LINK_VARIANTS}
-            >
-              <i className="fab fa-spotify mr-1" />
-              Spotify
-            </motion.a>
-            <motion.a
-              className="button text-center"
-              whileHover="hover"
-              variants={LINK_VARIANTS}
-            >
-              <i className="fab fa-apple mr-1" />
-              Apple Music
-            </motion.a>
+      <Section>
+        <div className="container md:space-x-6 flex flex-col md:flex-row items-center">
+          <div>
+            <Image
+              src="/assets/img/album-covers/ehfl.png"
+              layout="intrinsic"
+              height={500}
+              width={500}
+              quality={100}
+              className="block"
+              alt="Ei hytte foran loven album cover"
+            />
+          </div>
+          <div className="flex flex-col">
+            <h2 className="text-6xl text-detail font-black my-2 text-center font-heading">
+              Ei Hytte Foran Loven
+            </h2>
+            <div className="space-y-2 flex flex-col md:flex-row md:items-end md:space-x-4">
+              <motion.a
+                className="button text-center"
+                whileHover="hover"
+                variants={LINK_VARIANTS}
+              >
+                <i className="fab fa-spotify mr-1" />
+                Spotify
+              </motion.a>
+              <motion.a
+                className="button text-center"
+                whileHover="hover"
+                variants={LINK_VARIANTS}
+              >
+                <i className="fab fa-apple mr-1" />
+                Apple Music
+              </motion.a>
+            </div>
           </div>
         </div>
-      </div>
+      </Section>
+
+      {/* CONCERTS */}
+      <Section className="bg-gray-100">
+        <div className="container">
+          <h3 className="title mb-4">Konserter</h3>
+          {!concerts.length ? (
+            <span className="text-gray-500">Ingen kommende konserter</span>
+          ) : (
+            concerts.map((concert) => (
+              <div
+                key={concert.date}
+                className="flex justify-between items-end"
+              >
+                <div>
+                  <h3 className="font-medium">
+                    {moment(concert.date).locale("nb").format("DD MMMM, yyyy")}
+                  </h3>
+                  <span className="block font-light">{`${concert.city}, ${concert.country}`}</span>
+                  <span className="block font-light">{concert.venue}</span>
+                </div>
+                <motion.a
+                  className="button items-center"
+                  variants={LINK_VARIANTS}
+                  whileHover="hover"
+                  href={concert.detailsUrl}
+                  target="_blank"
+                  rel="noopener"
+                >
+                  Detailjer
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="inline-block ml-1"
+                  >
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                    <polyline points="15 3 21 3 21 9" />
+                    <line x1="10" y1="14" x2="21" y2="3" />
+                  </svg>
+                </motion.a>
+              </div>
+            ))
+          )}
+        </div>
+      </Section>
 
       {/* VIDEO */}
-      <div className="bg-gray-100">
+      <Section>
         <div className="container">
-          <h3 className="title mb-2">Video</h3>
+          <h3 className="title mb-4">Video</h3>
           <div className="flex flex-col space-y-4 md:space-y-0 md:gap-4 md:grid md:grid-cols-2">
             <iframe
               className="w-full h-80 md:h-96"
@@ -94,53 +154,19 @@ export default function Home() {
             />
           </div>
         </div>
-      </div>
-
-      {/* ABOUT */}
-      <div className="container space-y-4">
-        <h3 className="title">Om</h3>
-        <Image
-          src="/assets/img/about.jpg"
-          layout="responsive"
-          height={745}
-          width={1000}
-          quality={50}
-          alt="Johan Berggren sitter i en stol ved siden av et bord med plante og smiler"
-        />
-        <div className="md:text-lg">
-          <p className="leading-6">
-            Omtrent nøyaktig ett år etter debutplata er Johan Berggren fra
-            Jørstadmoen ute med oppfølgeren “Lilyhamericana”. Denne gangen på
-            morsmålet. Med låter om seine kvelder, tomme glass og flammer som
-            ikke lenger vil ha noe mer med deg å gjøre, tar han deg med på ei
-            fuktig reise gjennom en urban, men bygdefødt visesangers liv.
-          </p>
-          <br />
-          <p className="leading-6">
-            I april tok Berggren med seg en gitar og en idé om ei skive til en
-            gudsforlatt gård i Greeneville, Tennessee. Med vindu ut mot The
-            Smoky Mountains, skreiv han låtene som resulterte i
-            “Lilyhamericana”. To måneder seinere kom han tilbake til Oslo og tok
-            med seg bandet rett til Velvet Recordings for å spille inn plata.
-          </p>
-          <br />
-          <p className="leading-6">
-            Dagbladets Øyvind Rønning gav skiva en femmer med ordene “Gi plass
-            til en ny country-/americanastjerne”.
-          </p>
-          <br />
-          <p className="leading-6">
-            Stavanger Aftenblad gav også en femmer og sa at “Berggren brått
-            hadde etablert seg som en av de beste tekstforfatterne vi har”.
-          </p>
-          <br />
-          <p className="leading-6">
-            Dust of Daylight skrev at “platen var spekket av glitrende linjer,
-            gjennomtenkte analogier og har billedbruk i etterfølgelse”.
-          </p>
-        </div>
-      </div>
+      </Section>
       <Footer />
     </div>
   )
+}
+
+export async function getStaticProps() {
+  const query = "query { concerts { date venue city country detailsUrl } }"
+  const { concerts } = await request<{ concerts: Concert[] }>(CMS_URL, query)
+
+  return {
+    props: {
+      concerts,
+    },
+  }
 }

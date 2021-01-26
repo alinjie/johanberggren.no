@@ -3,7 +3,7 @@ import Footer from "components/Footer"
 import { motion } from "framer-motion"
 import { LINK_VARIANTS } from "consts"
 import Image from "next/image"
-import { ErrorMessage, Form, Formik } from "formik"
+import { ErrorMessage, Form, Formik, FormikHelpers } from "formik"
 import * as yup from "yup"
 
 const initialValues = {
@@ -18,7 +18,32 @@ const validationSchema = yup.object({
   message: yup.string().required("Melding mangler"),
 })
 
+type FormValues = yup.InferType<typeof validationSchema>
+
 export default function Contact() {
+  const handleSubmit = async (
+    values: FormValues,
+    helpers: FormikHelpers<FormValues>
+  ) => {
+    const response = await fetch("/api/contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(values),
+    })
+
+    if (!response.ok) {
+      return helpers.setStatus({
+        type: "error",
+        message: "Det skjedde en feil ved sending av meldingen.",
+      })
+    }
+
+    helpers.resetForm()
+    helpers.setStatus({ message: "Meldingen ble sendt!" })
+  }
+
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
@@ -34,20 +59,31 @@ export default function Contact() {
         <div className="grid md:grid-cols-2 space-y-4 md:flex-row mt-4">
           <div className="md:order-2 md:ml-6">
             <h2 className="title mb-4">Kontakt oss</h2>
-            <p className="text-lg text-gray-500">
+            <p className="text-gray-500 font-light">
               Har du spørsmål til nettsiden, tilbakemelding eller lurer på noe
               annet? Send en melding så tar vi kontakt så fort som mulig.
             </p>
           </div>
           <Formik
             initialValues={initialValues}
-            onSubmit={(values) => console.log(values)}
+            onSubmit={handleSubmit}
             validationSchema={validationSchema}
           >
-            {({ getFieldProps }) => (
+            {({ getFieldProps, status }) => (
               <Form className="space-y-6 flex-1">
+                {status && (
+                  <span
+                    className={
+                      status.type === "error"
+                        ? "text-red-400"
+                        : "text-green-400"
+                    }
+                  >
+                    {status.message}
+                  </span>
+                )}
                 <div>
-                  <label htmlFor="name" className="block text-lg">
+                  <label htmlFor="name" className="block">
                     Navn
                   </label>
                   <input
@@ -60,7 +96,7 @@ export default function Contact() {
                   </span>
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-lg">
+                  <label htmlFor="email" className="block">
                     E-post
                   </label>
                   <input
@@ -73,7 +109,7 @@ export default function Contact() {
                   </span>
                 </div>
                 <div>
-                  <label htmlFor="name" className="block text-lg">
+                  <label htmlFor="name" className="block">
                     Melding
                   </label>
                   <textarea

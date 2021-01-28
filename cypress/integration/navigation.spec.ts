@@ -5,8 +5,8 @@ describe("Navigation tests", () => {
     cy.get('[data-testid="desktop-nav-link-Kontakt"]').click()
     cy.url().should("eq", "http://localhost:3000/kontakt")
 
-    cy.get('[data-testid="desktop-nav-link-Konserter"]').click()
-    cy.url().should("eq", "http://localhost:3000/konserter")
+    cy.get('[data-testid="desktop-nav-link-Om"]').click()
+    cy.url().should("eq", "http://localhost:3000/om")
 
     cy.get('[data-testid="desktop-nav-link-Hjem"]').click()
     cy.url().should("eq", "http://localhost:3000/")
@@ -21,8 +21,8 @@ describe("Navigation tests", () => {
     cy.url().should("eq", "http://localhost:3000/kontakt")
 
     cy.get('[data-testid="hamburger-menu"]').click()
-    cy.get('[data-testid="mobile-nav-link-Konserter"]').click()
-    cy.url().should("eq", "http://localhost:3000/konserter")
+    cy.get('[data-testid="mobile-nav-link-Om"]').click()
+    cy.url().should("eq", "http://localhost:3000/om")
 
     cy.get('[data-testid="hamburger-menu"]').click()
     cy.get('[data-testid="mobile-nav-link-Hjem"]').click()

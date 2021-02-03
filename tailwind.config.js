@@ -9,7 +9,7 @@ module.exports = {
   theme: {
     fontFamily: {
       "heading": ["Teko", ...defaultTheme.fontFamily.sans],
-      sans: ["Inter", ...defaultTheme.fontFamily.sans],
+      sans: ["Nunito Sans", ...defaultTheme.fontFamily.sans],
     },
     colors: {
       gray: colors.gray,

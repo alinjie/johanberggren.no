@@ -59,23 +59,25 @@ function MobileNav({ setNavOpen, pathname }: NavProps) {
       exit="exit"
       className="fixed bg-white z-50 h-screen w-full md:hidden"
     >
-      <button onClick={() => setNavOpen(false)}>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          className="text-black m-4"
-        >
-          <line x1="18" y1="6" x2="6" y2="18" />
-          <line x1="6" y1="6" x2="18" y2="18" />
-        </svg>
-      </button>
+      <div className="flex justify-end">
+        <button onClick={() => setNavOpen(false)}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            className="text-black m-4"
+          >
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+      </div>
       <ul className=" h-full text-2xl text-gray-900 flex flex-col space-y-6 items-center justify-center">
         {navLinks.map((link) => (
           <li key={link.href}>
@@ -118,7 +120,7 @@ export default function Header({ transparent }: Props) {
         {navOpen && <MobileNav setNavOpen={setNavOpen} pathname={pathname} />}
       </AnimatePresence>
 
-      <div className="container flex justify-between">
+      <div className="py-4 px-4 flex justify-between">
         <Link href="/">
           <a className="cursor-pointer">
             <Logo />
@@ -146,7 +148,7 @@ export default function Header({ transparent }: Props) {
         </button>
         <nav className="space-x-4 hidden md:block">
           {navLinks.map((link) => (
-            <Link href={link.href}>
+            <Link key={link.href} href={link.href}>
               <a
                 className={cx(
                   "transition-colors duration-200 hover:text-detail",

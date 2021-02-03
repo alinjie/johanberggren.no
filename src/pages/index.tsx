@@ -20,7 +20,7 @@ export default function Home({
           <h2 className="text-detail text-7xl font-black text-center font-heading">
             Johan Berggren
           </h2>
-          <ul className="flex space-x-2 items-center text-gray-200 text-xl">
+          <ul className="flex space-x-2 items-center text-gray-200 text-base">
             {SOCIAL_LINKS.map((link) => (
               <li
                 key={link.href}
@@ -50,7 +50,7 @@ export default function Home({
             />
           </div>
           <div className="flex flex-col">
-            <h2 className="text-6xl text-detail font-black my-2 text-center font-heading">
+            <h2 className="text-6xl text-detail font-black my-2 text-center font-heading md:text-left">
               Ei Hytte Foran Loven
             </h2>
             <div className="space-y-2 flex flex-col md:flex-row md:items-end md:space-x-4">
@@ -76,7 +76,7 @@ export default function Home({
       </Section>
 
       {/* CONCERTS */}
-      <Section className="bg-gray-100">
+      <Section className="bg-gray-50">
         <div className="container">
           <h3 className="title mb-4">Konserter</h3>
           {!concerts.length ? (
@@ -88,11 +88,13 @@ export default function Home({
                 className="flex justify-between items-end"
               >
                 <div>
-                  <h3 className="font-medium">
+                  <h3>
                     {moment(concert.date).locale("nb").format("DD MMMM, yyyy")}
                   </h3>
-                  <span className="block font-light">{`${concert.city}, ${concert.country}`}</span>
-                  <span className="block font-light">{concert.venue}</span>
+                  <span className="block text-gray-400 font-light">{`${concert.city}, ${concert.country}`}</span>
+                  <span className="block text-gray-400 font-light">
+                    {concert.venue}
+                  </span>
                 </div>
                 <motion.a
                   className="button items-center"

@@ -4,7 +4,6 @@ import { AnimatePresence, motion, Variants } from "framer-motion"
 import Link from "next/link"
 import { useRouter } from "next/dist/client/router"
 import { Dispatch, SetStateAction, useEffect, useState } from "react"
-import { useScrollDirection } from "hooks/useScrollDirection"
 
 type Props = {
   transparent?: boolean
@@ -101,8 +100,6 @@ function MobileNav({ setNavOpen, pathname }: NavProps) {
 export default function Header({ transparent }: Props) {
   const [navOpen, setNavOpen] = useState(false)
   const { pathname } = useRouter()
-
-  const scrollDirection = useScrollDirection()
 
   useEffect(() => {
     // Makes sure page is not scrollable when mobile nav is open

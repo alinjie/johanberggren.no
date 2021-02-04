@@ -2,16 +2,86 @@ import Header from "components/Header"
 import { CMS_URL, LINK_VARIANTS, SOCIAL_LINKS } from "consts"
 import Image from "next/image"
 import Footer from "components/Footer"
-import { motion } from "framer-motion"
+import { AnimatePresence, motion } from "framer-motion"
 import Section from "components/Section"
 import { Concert } from "types/Concert"
 import request from "graphql-request"
 import { InferGetStaticPropsType } from "next"
 import moment from "moment"
+import { useEffect, useReducer } from "react"
+
+type ActionType = { type: "NEXT_QUOTE" }
+
+const initialState = {
+  activeRating: 0,
+}
+
+const albumRatings = [
+  {
+    text:
+      "Johan Berggren er Lillehammer svar på Stein Torleif Bjella og Hellbillies",
+    source: "Dagbladet",
+    rating: "5/6",
+  },
+  {
+    text:
+      "Med Ei hytte foran loven har Berggren lagd ei plate som er så god at jeg alt nå vil si at det er en skandale om den ikke nomineres i Spellemannsprisens country-kategori for 2021!",
+    source: "Stavanger Aftenblad",
+    rating: "5/6",
+  },
+  {
+    text:
+      "Johan Berggren er Lillehammer svar på Stein Torleif Bjella og Hellbillies",
+    source: "Musikknyheter.no",
+    rating: "8/10",
+  },
+  {
+    text:
+      "Johan Berggren er Lillehammer svar på Stein Torleif Bjella og Hellbillies",
+    source: "Musikknyheter.no",
+    rating: "8/10",
+  },
+  {
+    text: "En fantastisk start på americana-året 2021!",
+    source: "Erik Valebrokk",
+    rating: "6/6",
+  },
+  {
+    text: "Berggren er en av de som gir fornyet liv til norsk språkdrakt.",
+    source: "Tormod Reiersen, Popklikk.no",
+  },
+]
+
+function reducer(
+  state: typeof initialState,
+  action: ActionType
+): typeof initialState {
+  switch (action.type) {
+    case "NEXT_QUOTE":
+      const nextIndex = state.activeRating + 1
+
+      return {
+        activeRating: nextIndex > albumRatings.length - 1 ? 0 : nextIndex,
+      }
+
+    default:
+      return state
+  }
+}
 
 export default function Home({
   concerts,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
+  const [state, dispatch] = useReducer(reducer, initialState)
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      dispatch({ type: "NEXT_QUOTE" })
+    }, 5000)
+
+    return () => clearInterval(intervalId)
+  }, [])
+
   return (
     <div>
       <div className="hero-section flex flex-col h-screen">
@@ -49,11 +119,41 @@ export default function Home({
               alt="Ei hytte foran loven album cover"
             />
           </div>
+
           <div className="flex flex-col">
-            <h2 className="text-6xl text-detail font-black my-2 text-center font-heading md:text-left">
+            <h2 className="text-6xl text-detail font-black my-2 text-center font-heading">
               Ei Hytte Foran Loven
             </h2>
-            <div className="space-y-2 flex flex-col md:flex-row md:items-end md:space-x-4">
+            <div className="h-36 flex items-center justify-center mb-4">
+              {albumRatings.map((rating) => (
+                <AnimatePresence initial={false}>
+                  {albumRatings.indexOf(rating) === state.activeRating && (
+                    <motion.div
+                      key={rating.source}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{
+                        opacity: 0,
+                        position: "absolute",
+                      }}
+                      transition={{ duration: 0.6 }}
+                      className="relative"
+                    >
+                      <p className="text-center text-xs leading-6 max-w-sm font-semibold">
+                        <cite className="text-gray-400 font-light font-italic">
+                          {rating.text}
+                        </cite>
+                        <br /> -{" "}
+                        {`${rating.rating ? rating.rating + " hos" : ""}  ${
+                          rating.source
+                        }`}
+                      </p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              ))}
+            </div>
+            <div className="space-y-2 flex flex-col md:flex-row md:items-end md:justify-center md:space-x-4">
               <motion.a
                 className="button text-center"
                 whileHover="hover"

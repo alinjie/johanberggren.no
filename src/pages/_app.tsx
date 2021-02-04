@@ -54,9 +54,9 @@ export default function App({ Component, pageProps, router }: AppProps) {
         <meta property="og:url" content={meta.url} />
         <meta property="og:type" content={meta.type} />
 
-        <meta property="twitter:image" content={meta.image} />
-        <meta property="twitter:title" content={meta.title} />
-        <meta property="twitter:description" content={meta.description} />
+        <meta name="twitter:image" content={meta.image} />
+        <meta name="twitter:title" content={meta.title} />
+        <meta name="twitter:description" content={meta.description} />
 
         <script
           src="https://kit.fontawesome.com/c96ed127ec.js"

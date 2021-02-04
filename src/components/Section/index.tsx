@@ -13,8 +13,6 @@ export default function Section({
       (entries) => {
         const entry = entries.find((entry) => entry.target === ref.current)
 
-        console.log(entry)
-
         if (entry && entry.isIntersecting) {
           controls.start({
             opacity: 1,

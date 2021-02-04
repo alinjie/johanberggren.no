@@ -103,7 +103,6 @@ export default function Header({ transparent }: Props) {
   const { pathname } = useRouter()
 
   const scrollDirection = useScrollDirection()
-  console.log(scrollDirection)
 
   useEffect(() => {
     // Makes sure page is not scrollable when mobile nav is open

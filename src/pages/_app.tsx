@@ -31,7 +31,7 @@ const meta = {
     "Johan Berggren bilder",
     "Johan Berggren offisiell",
   ].join(", "),
-  image: "/seo.jpg",
+  image: "/assets/img/seo.jpg",
   type: "website",
 }
 
@@ -42,7 +42,7 @@ export default function App({ Component, pageProps, router }: AppProps) {
     }
   }, [])
   return (
-    <div className="uppercase text-sm">
+    <div className="uppercase text-sm ">
       <Head>
         <title>{meta.title}</title>
         <meta name="description" content={meta.description} />

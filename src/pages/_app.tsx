@@ -32,6 +32,7 @@ const meta = {
     "Johan Berggren offisiell",
   ].join(", "),
   image: "/seo.jpg",
+  type: "website",
 }
 
 export default function App({ Component, pageProps, router }: AppProps) {
@@ -51,6 +52,7 @@ export default function App({ Component, pageProps, router }: AppProps) {
         <meta property="og:title" content={meta.title} />
         <meta property="og:description" content={meta.description} />
         <meta property="og:url" content={meta.url} />
+        <meta property="og:type" content={meta.type} />
 
         <meta property="twitter:image" content={meta.image} />
         <meta property="twitter:title" content={meta.title} />

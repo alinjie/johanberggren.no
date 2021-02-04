@@ -120,7 +120,7 @@ export default function Header({ transparent }: Props) {
         {navOpen && <MobileNav setNavOpen={setNavOpen} pathname={pathname} />}
       </AnimatePresence>
 
-      <div className="py-4 px-4 flex justify-between">
+      <div className="py-4 px-4 flex justify-between max-w-6xl mx-auto">
         <Link href="/">
           <a className="cursor-pointer">
             <Logo />

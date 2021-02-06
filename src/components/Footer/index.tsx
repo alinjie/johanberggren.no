@@ -1,10 +1,15 @@
 import Logo from "components/Logo"
 import { SOCIAL_LINKS } from "consts"
 import Link from "next/link"
+import cx from "classnames"
 
-export default function Footer() {
+type Props = {
+  noBackground?: boolean
+}
+
+export default function Footer({ noBackground }: Props) {
   return (
-    <footer className="bg-gray-50 text-xs">
+    <footer className={cx("text-xs", { "bg-gray-50": !noBackground })}>
       <div className="container leading-5">
         <div className="grid grid-cols-2 items-ce md:flex justify-between mb-4 gap-y-4">
           <div className="space-y-2">

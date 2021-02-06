@@ -52,6 +52,19 @@ const albumRatings = [
   },
 ]
 
+const otherAlbums = [
+  {
+    name: "Lilyhamericana",
+    image: "/assets/img/album-covers/lilyhamericana.png",
+    amplifyLink: "https://ampl.ink/jEzBa",
+  },
+  {
+    name: "For Now I'm Good Right Here",
+    image: "/assets/img/album-covers/fnigrh.png",
+    amplifyLink: "https://ampl.ink/eEjXX",
+  },
+]
+
 function reducer(
   state: typeof initialState,
   action: ActionType
@@ -103,80 +116,139 @@ export default function Home({
             ))}
           </ul>
         </div>
+        <svg
+          className="w-6 h-6 self-center text-white mb-4"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fillRule="evenodd"
+            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+            clipRule="evenodd"
+          />
+        </svg>
       </div>
 
       {/* ALBUM SHOWCASE */}
       <Section>
-        <div className="container md:space-x-6 flex flex-col md:flex-row items-center">
-          <div>
-            <Image
-              src="/assets/img/album-covers/ehfl.png"
-              layout="intrinsic"
-              height={500}
-              width={500}
-              quality={100}
-              className="block"
-              alt="Ei hytte foran loven album cover"
-            />
-          </div>
+        <div className="container">
+          <h3 className="title mb-4">Musikk</h3>
+          <div className="md:space-x-6 flex flex-col md:flex-row items-center">
+            <div>
+              <Image
+                src="/assets/img/album-covers/ehfl.png"
+                layout="intrinsic"
+                height={500}
+                width={500}
+                quality={100}
+                className="block"
+                alt="Ei hytte foran loven album cover"
+              />
+            </div>
 
-          <div className="flex flex-col">
-            <h2 className="text-6xl text-detail font-black my-2 text-center font-heading">
-              Ei Hytte Foran Loven
-            </h2>
-            <div className="h-36 flex items-center justify-center mb-4">
-              {albumRatings.map((rating) => (
-                <AnimatePresence initial={false}>
-                  {albumRatings.indexOf(rating) === state.activeRating && (
-                    <motion.div
-                      key={rating.source}
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{
-                        opacity: 0,
-                        position: "absolute",
-                      }}
-                      transition={{ duration: 0.6 }}
-                      className="relative"
+            <div className="flex flex-col">
+              <h3 className="text-6xl text-detail font-black my-2 text-center font-heading">
+                Ei Hytte Foran Loven
+              </h3>
+              <div className="h-36 flex items-center justify-center mb-4">
+                {albumRatings.map((rating) => (
+                  <AnimatePresence initial={false} key={rating.source}>
+                    {albumRatings.indexOf(rating) === state.activeRating && (
+                      <motion.div
+                        key={rating.source}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{
+                          opacity: 0,
+                          position: "absolute",
+                        }}
+                        transition={{ duration: 0.6 }}
+                        className="relative"
+                      >
+                        <p className="text-center text-xs leading-6 max-w-sm font-semibold">
+                          <cite className="text-gray-400 font-light font-italic">
+                            {rating.text}
+                          </cite>
+                          <br /> -{" "}
+                          {`${rating.rating ? rating.rating + " hos" : ""}  ${
+                            rating.source
+                          }`}
+                        </p>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                ))}
+              </div>
+              <div className="space-y-2 flex flex-col md:flex-row md:items-end md:justify-center md:space-x-4">
+                <motion.a
+                  className="button text-center"
+                  whileHover="hover"
+                  variants={LINK_VARIANTS}
+                >
+                  <i className="fab fa-spotify mr-1" />
+                  Spotify
+                </motion.a>
+                <motion.a
+                  className="button text-center"
+                  whileHover="hover"
+                  variants={LINK_VARIANTS}
+                >
+                  <i className="fab fa-apple mr-1" />
+                  Apple Music
+                </motion.a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="bg-gray-50">
+          <div className="container grid grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-8">
+            {otherAlbums.map((album) => (
+              <div key={album.name} className="flex flex-col md:items-start">
+                <Image
+                  src={album.image}
+                  layout="intrinsic"
+                  height={300}
+                  width={300}
+                />
+                <div>
+                  <h4
+                    className="font-semibold  md:text-base my-2 truncate"
+                    title={album.name}
+                  >
+                    {album.name}
+                  </h4>
+                  <motion.a
+                    className="button text-xs"
+                    href={album.amplifyLink}
+                    target="_blank"
+                    rel="noopener"
+                    whileHover="hover"
+                    variants={LINK_VARIANTS}
+                  >
+                    <svg
+                      className="w-4 h-4 md:h-5 md:w-5 mr-2"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
                     >
-                      <p className="text-center text-xs leading-6 max-w-sm font-semibold">
-                        <cite className="text-gray-400 font-light font-italic">
-                          {rating.text}
-                        </cite>
-                        <br /> -{" "}
-                        {`${rating.rating ? rating.rating + " hos" : ""}  ${
-                          rating.source
-                        }`}
-                      </p>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              ))}
-            </div>
-            <div className="space-y-2 flex flex-col md:flex-row md:items-end md:justify-center md:space-x-4">
-              <motion.a
-                className="button text-center"
-                whileHover="hover"
-                variants={LINK_VARIANTS}
-              >
-                <i className="fab fa-spotify mr-1" />
-                Spotify
-              </motion.a>
-              <motion.a
-                className="button text-center"
-                whileHover="hover"
-                variants={LINK_VARIANTS}
-              >
-                <i className="fab fa-apple mr-1" />
-                Apple Music
-              </motion.a>
-            </div>
+                      <path
+                        fillRule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    Lytt nå
+                  </motion.a>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </Section>
 
       {/* CONCERTS */}
-      <Section className="bg-gray-50">
+      <Section>
         <div className="container">
           <h3 className="title mb-4">Konserter</h3>
           {!concerts.length ? (
@@ -229,7 +301,7 @@ export default function Home({
       </Section>
 
       {/* VIDEO */}
-      <Section>
+      <Section className="bg-gray-50">
         <div className="container">
           <h3 className="title mb-4">Video</h3>
           <div className="flex flex-col space-y-4 md:space-y-0 md:gap-4 md:grid md:grid-cols-2">
@@ -257,7 +329,7 @@ export default function Home({
           </div>
         </div>
       </Section>
-      <Footer />
+      <Footer noBackground />
     </div>
   )
 }

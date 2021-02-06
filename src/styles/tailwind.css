@@ -16,7 +16,7 @@
 }
 
 .container {
-  @apply px-4 py-8 md:max-w-6xl md:mx-auto;
+  @apply px-4 py-8 md:max-w-6xl mx-auto;
 }
 
 .title {

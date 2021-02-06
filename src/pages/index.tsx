@@ -213,7 +213,7 @@ export default function Home({
                 />
                 <div>
                   <h4
-                    className="font-semibold  md:text-base my-2 truncate"
+                    className="font-semibold md:text-base my-2 truncate"
                     title={album.name}
                   >
                     {album.name}
@@ -225,7 +225,7 @@ export default function Home({
                     variants={LINK_VARIANTS}
                   >
                     <svg
-                      className="w-4 h-4 md:h-5 md:w-5 mr-2"
+                      className="w-4 h-4 md:h-5 md:w-5 mr-1"
                       fill="currentColor"
                       viewBox="0 0 20 20"
                       xmlns="http://www.w3.org/2000/svg"

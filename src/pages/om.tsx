@@ -9,6 +9,7 @@ export default function Concerts() {
       <div className="container">
         <h3 className="title">Om</h3>
         <Image
+          priority
           src="/assets/img/about.jpg"
           layout="intrinsic"
           className="object-cover object-top"

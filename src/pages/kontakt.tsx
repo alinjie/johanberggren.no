@@ -49,6 +49,7 @@ export default function Contact() {
       <Header />
       <div className="container flex-1">
         <Image
+          priority
           className="object-cover object-top "
           src="/assets/img/concert.jpg"
           layout="intrinsic"

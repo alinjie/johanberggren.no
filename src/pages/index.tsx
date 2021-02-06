@@ -132,7 +132,7 @@ export default function Home({
 
       {/* ALBUM SHOWCASE */}
       <Section>
-        <div className="container">
+        <div className="container flex flex-col items-center md:items-start">
           <h3 className="title mb-4">Musikk</h3>
           <div className="md:space-x-6 flex flex-col md:flex-row items-center">
             <div>

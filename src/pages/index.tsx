@@ -221,8 +221,6 @@ export default function Home({
                   <motion.a
                     className="button text-xs"
                     href={album.amplifyLink}
-                    target="_blank"
-                    rel="noopener"
                     whileHover="hover"
                     variants={LINK_VARIANTS}
                   >

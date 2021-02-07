@@ -339,5 +339,6 @@ export async function getStaticProps() {
     props: {
       concerts,
     },
+    revalidate: 1,
   }
 }

@@ -4,9 +4,10 @@ import { AnimatePresence, motion, Variants } from "framer-motion"
 import Link from "next/link"
 import { useRouter } from "next/dist/client/router"
 import { Dispatch, SetStateAction, useEffect, useState } from "react"
+import { useScroll } from "hooks/useScroll"
 
 type Props = {
-  transparent?: boolean
+  textWhite?: boolean
 }
 
 type NavProps = {
@@ -97,8 +98,9 @@ function MobileNav({ setNavOpen, pathname }: NavProps) {
   )
 }
 
-export default function Header({ transparent }: Props) {
+export default function Header({ textWhite }: Props) {
   const [navOpen, setNavOpen] = useState(false)
+  const { currentScroll, scrollDirection } = useScroll()
   const { pathname } = useRouter()
 
   useEffect(() => {
@@ -108,9 +110,18 @@ export default function Header({ transparent }: Props) {
 
   return (
     <header
-      className={cx("bg-white duration-150 w-full shadow-sm", {
-        "text-white bg-transparent shadow-none": transparent,
-      })}
+      className={cx(
+        "fixed transform transition-all bg-white duration-500 w-full shadow-sm z-40",
+        scrollDirection === "DOWN" && currentScroll > 100
+          ? "-translate-y-full"
+          : "translate-y-0",
+        currentScroll === 0 && textWhite ? "text-white" : "text-black",
+
+        {
+          "bg-transparent shadow-none": currentScroll === 0,
+          shadow: currentScroll > 0,
+        }
+      )}
     >
       <AnimatePresence>
         {navOpen && <MobileNav setNavOpen={setNavOpen} pathname={pathname} />}

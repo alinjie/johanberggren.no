@@ -178,6 +178,9 @@ export default function Home({
                   className="button text-center"
                   whileHover="hover"
                   variants={LINK_VARIANTS}
+                  href="https://open.spotify.com/album/3sSE3SrT5OwdyMWCvqXfVA?si=6LE7o-ePQSaK5GbHoW42JA"
+                  target="_blank"
+                  rel="noopener"
                 >
                   <i className="fab fa-spotify mr-1" />
                   Spotify
@@ -186,6 +189,9 @@ export default function Home({
                   className="button text-center"
                   whileHover="hover"
                   variants={LINK_VARIANTS}
+                  href="https://music.apple.com/no/album/ei-hytte-foran-loven/1537979183"
+                  target="_blank"
+                  rel="noopener"
                 >
                   <i className="fab fa-apple mr-1" />
                   Apple Music

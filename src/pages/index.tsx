@@ -2,7 +2,7 @@ import Header from "components/Header"
 import { CMS_URL, LINK_VARIANTS, SOCIAL_LINKS } from "consts"
 import Image from "next/image"
 import Footer from "components/Footer"
-import { AnimatePresence, motion } from "framer-motion"
+import { AnimateSharedLayout, motion } from "framer-motion"
 import Section from "components/Section"
 import { Concert } from "types/Concert"
 import request from "graphql-request"
@@ -92,7 +92,7 @@ export default function Home({
   return (
     <div>
       <div className="hero-section flex flex-col h-screen">
-        <Header transparent />
+        <Header textWhite />
         <div className="flex flex-col h-full items-center justify-center">
           <h2 className="text-detail text-7xl font-black text-center font-heading">
             Johan Berggren
@@ -146,33 +146,32 @@ export default function Home({
                 Ei Hytte Foran Loven
               </h3>
               <div className="h-36 flex items-center justify-center mb-4">
-                {albumRatings.map((rating) => (
-                  <AnimatePresence initial={false} key={rating.source}>
-                    {albumRatings.indexOf(rating) === state.activeRating && (
-                      <motion.div
-                        key={rating.source}
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{
-                          opacity: 0,
-                          position: "absolute",
-                        }}
-                        transition={{ duration: 0.6 }}
-                        className="relative"
-                      >
-                        <p className="text-center text-xs leading-6 max-w-sm font-semibold">
-                          <cite className="text-gray-400 font-light font-italic">
-                            {rating.text}
-                          </cite>
-                          <br /> -{" "}
-                          {`${rating.rating ? rating.rating + " hos" : ""}  ${
-                            rating.source
-                          }`}
-                        </p>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                ))}
+                <AnimateSharedLayout type="crossfade">
+                  {albumRatings.map(
+                    (rating) =>
+                      albumRatings.indexOf(rating) === state.activeRating && (
+                        <motion.div
+                          key={rating.source}
+                          layoutId={rating.source}
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          exit={{ opacity: 0 }}
+                          transition={{ duration: 1 }}
+                          className="relative"
+                        >
+                          <p className="text-center text-xs leading-6 max-w-sm font-semibold">
+                            <cite className="text-gray-400 font-light font-italic">
+                              {rating.text}
+                            </cite>
+                            <br /> -{" "}
+                            {`${rating.rating ? rating.rating + " hos" : ""}  ${
+                              rating.source
+                            }`}
+                          </p>
+                        </motion.div>
+                      )
+                  )}
+                </AnimateSharedLayout>
               </div>
               <div className="space-y-2 flex flex-col md:flex-row md:items-end md:justify-center md:space-x-4">
                 <motion.a

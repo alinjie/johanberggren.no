@@ -111,12 +111,11 @@ export default function Header({ textWhite }: Props) {
   return (
     <header
       className={cx(
-        "fixed transform transition-all bg-white duration-500 w-full shadow-sm z-40",
+        "fixed transform transition-all bg-white duration-500 w-full z-40",
         scrollDirection === "DOWN" && currentScroll > 100
           ? "-translate-y-full"
           : "translate-y-0",
         currentScroll === 0 && textWhite ? "text-white" : "text-black",
-
         {
           "bg-transparent shadow-none": currentScroll === 0,
           shadow: currentScroll > 0,

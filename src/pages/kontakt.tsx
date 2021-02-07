@@ -59,7 +59,7 @@ export default function Contact() {
         />
         <div className="grid md:grid-cols-2 space-y-4 md:flex-row mt-4">
           <div className="md:order-2 md:ml-6">
-            <h2 className="title mb-4">Kontakt oss</h2>
+            <h2 className="title">Kontakt oss</h2>
             <p className="text-gray-500 font-light">
               Har du spørsmål til nettsiden, tilbakemelding eller lurer på noe
               annet? Send en melding så tar vi kontakt så fort som mulig.

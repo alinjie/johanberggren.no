@@ -127,7 +127,7 @@ export default function Home({
       {/* ALBUM SHOWCASE */}
       <Section>
         <div className="container flex flex-col items-center md:items-start">
-          <h3 className="title mb-4">Musikk</h3>
+          <h3 className="title">Musikk</h3>
           <div className="md:space-x-6 flex flex-col md:flex-row items-center">
             <div>
               <Image
@@ -241,7 +241,7 @@ export default function Home({
       {/* CONCERTS */}
       <Section>
         <div className="container">
-          <h3 className="title mb-4">Konserter</h3>
+          <h3 className="title">Konserter</h3>
           {!concerts.length ? (
             <span className="text-gray-500">Ingen kommende konserter</span>
           ) : (
@@ -294,7 +294,7 @@ export default function Home({
       {/* VIDEO */}
       <Section className="bg-gray-50">
         <div className="container">
-          <h3 className="title mb-4">Video</h3>
+          <h3 className="title">Video</h3>
           <div className="flex flex-col space-y-4 md:space-y-0 md:gap-4 md:grid md:grid-cols-2">
             <iframe
               className="w-full h-80 md:h-96"

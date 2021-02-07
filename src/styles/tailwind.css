@@ -20,5 +20,5 @@
 }
 
 .title {
-  @apply text-xl font-black;
+  @apply text-xl font-black mb-4;
 }

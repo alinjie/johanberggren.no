@@ -41,6 +41,7 @@ export default function App({ Component, pageProps, router }: AppProps) {
       window.scrollTo(0, 0)
     }
   }, [])
+
   return (
     <div className="uppercase text-sm ">
       <Head>

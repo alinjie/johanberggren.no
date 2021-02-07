@@ -13,8 +13,8 @@ export default function Concerts() {
           src="/assets/img/about.jpg"
           layout="intrinsic"
           className="object-cover object-top"
-          height={400}
-          width={1000}
+          height={600}
+          width={1200}
           alt="Johan Berggren sitter i en stol ved siden av et bord med plante og smiler"
         />
         <div className="font-light mt-4">

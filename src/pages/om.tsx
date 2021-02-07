@@ -15,7 +15,7 @@ export default function Concerts() {
           className="object-cover object-top"
           height={600}
           width={1200}
-          alt="Johan Berggren sitter i en stol ved siden av et bord med plante og smiler"
+          alt="Johan Berggren spiller gitar i et rom dekorert med country props"
         />
         <div className="font-light mt-4">
           <p className="leading-6">

@@ -54,7 +54,7 @@ export default function Contact() {
           src="/assets/img/concert.jpg"
           layout="intrinsic"
           height={400}
-          width={1000}
+          width={1200}
           alt="Johan Berggren sitter i sofaen og ser inn i kameraet"
         />
         <div className="grid md:grid-cols-2 space-y-4 md:flex-row mt-4">

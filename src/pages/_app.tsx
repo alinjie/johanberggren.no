@@ -30,7 +30,7 @@ const meta = {
     "Johan Berggren bilder",
     "Johan Berggren offisiell",
   ].join(", "),
-  image: "/assets/img/seo.jpg",
+  image: "/assets/img/seo.png",
   type: "website",
 }
 

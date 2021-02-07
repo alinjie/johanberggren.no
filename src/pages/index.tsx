@@ -251,48 +251,52 @@ export default function Home({
           {!concerts.length ? (
             <span className="text-gray-500">Ingen kommende konserter</span>
           ) : (
-            concerts.map((concert) => (
-              <div
-                key={concert.date}
-                className="flex justify-between items-end"
-              >
-                <div>
-                  <h3>
-                    {moment(concert.date).locale("nb").format("DD MMMM, yyyy")}
-                  </h3>
-                  <span className="block text-gray-400 font-light">{`${concert.city}, ${concert.country}`}</span>
-                  <span className="block text-gray-400 font-light">
-                    {concert.venue}
-                  </span>
-                </div>
-                <motion.a
-                  className="button items-center"
-                  variants={LINK_VARIANTS}
-                  whileHover="hover"
-                  href={concert.detailsUrl}
-                  target="_blank"
-                  rel="noopener"
+            <div className="space-y-6">
+              {concerts.map((concert) => (
+                <div
+                  key={concert.date}
+                  className="flex justify-between items-end"
                 >
-                  Detailjer
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="inline-block ml-1"
+                  <div>
+                    <h3>
+                      {moment(concert.date)
+                        .locale("nb")
+                        .format("DD MMMM, yyyy")}
+                    </h3>
+                    <span className="block text-gray-400 font-light">{`${concert.city}, ${concert.country}`}</span>
+                    <span className="block text-gray-400 font-light">
+                      {concert.venue}
+                    </span>
+                  </div>
+                  <motion.a
+                    className="button items-center"
+                    variants={LINK_VARIANTS}
+                    whileHover="hover"
+                    href={concert.detailsUrl}
+                    target="_blank"
+                    rel="noopener"
                   >
-                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                    <polyline points="15 3 21 3 21 9" />
-                    <line x1="10" y1="14" x2="21" y2="3" />
-                  </svg>
-                </motion.a>
-              </div>
-            ))
+                    Detailjer
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="inline-block ml-1"
+                    >
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                      <polyline points="15 3 21 3 21 9" />
+                      <line x1="10" y1="14" x2="21" y2="3" />
+                    </svg>
+                  </motion.a>
+                </div>
+              ))}
+            </div>
           )}
         </div>
       </Section>

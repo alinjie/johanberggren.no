@@ -36,12 +36,6 @@ const albumRatings = [
     rating: "8/10",
   },
   {
-    text:
-      "Johan Berggren er Lillehammer svar på Stein Torleif Bjella og Hellbillies",
-    source: "Musikknyheter.no",
-    rating: "8/10",
-  },
-  {
     text: "En fantastisk start på americana-året 2021!",
     source: "Erik Valebrokk",
     rating: "6/6",

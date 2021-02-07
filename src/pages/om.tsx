@@ -10,7 +10,7 @@ export default function Concerts() {
         <h3 className="title">Om</h3>
         <Image
           priority
-          src="/assets/img/about.jpg"
+          src="/assets/img/about.png"
           layout="intrinsic"
           className="object-cover object-top"
           height={600}

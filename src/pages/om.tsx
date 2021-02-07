@@ -6,7 +6,7 @@ export default function Concerts() {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
-      <div className="container">
+      <div className="container mt-16">
         <h3 className="title">Om</h3>
         <Image
           priority

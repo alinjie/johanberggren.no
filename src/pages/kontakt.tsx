@@ -47,7 +47,7 @@ export default function Contact() {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
-      <div className="container flex-1">
+      <div className="container flex-1 mt-16">
         <Image
           priority
           className="object-cover object-top "

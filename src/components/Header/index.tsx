@@ -115,9 +115,9 @@ export default function Header({ textWhite }: Props) {
         scrollDirection === "DOWN" && currentScroll > 100
           ? "-translate-y-full"
           : "translate-y-0",
-        currentScroll === 0 && textWhite ? "text-white" : "text-black",
+        currentScroll < 50 && textWhite ? "text-white" : "text-black",
         {
-          "bg-transparent shadow-none": currentScroll === 0,
+          "bg-transparent shadow-none": currentScroll < 50,
           shadow: currentScroll > 0,
         }
       )}

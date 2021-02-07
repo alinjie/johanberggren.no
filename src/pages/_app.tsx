@@ -1,7 +1,6 @@
 import { AppProps } from "next/app"
 import "styles/tailwind.css"
 import Head from "next/head"
-import { useEffect } from "react"
 
 const meta = {
   title: "Johan Berggren",
@@ -35,13 +34,7 @@ const meta = {
   type: "website",
 }
 
-export default function App({ Component, pageProps, router }: AppProps) {
-  useEffect(() => {
-    if (router.pathname === "/") {
-      window.scrollTo(0, 0)
-    }
-  }, [])
-
+export default function App({ Component, pageProps }: AppProps) {
   return (
     <div className="uppercase text-sm ">
       <Head>

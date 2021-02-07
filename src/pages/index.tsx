@@ -89,6 +89,13 @@ export default function Home({
     return () => clearInterval(intervalId)
   }, [])
 
+  useEffect(() => {
+    // Scrolls to top on refresh
+    if (window.pageYOffset > 0) {
+      window.scrollTo(0, 0)
+    }
+  }, [])
+
   return (
     <div>
       <div className="hero-section flex flex-col h-screen">

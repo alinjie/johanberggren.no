@@ -1,30 +1,11 @@
-const colors = require("tailwindcss/colors");
-const defaultTheme = require("tailwindcss/defaultTheme");
-
 module.exports = {
-  purge: [
-    "./src/**/*.tsx"
-  ],
+  purge: [],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    fontFamily: {
-      "heading": ["Teko", ...defaultTheme.fontFamily.sans],
-      sans: ["Nunito Sans", ...defaultTheme.fontFamily.sans],
-    },
-    colors: {
-      gray: colors.gray,
-      white: "#FFFFFF",
-      black: colors.black,
-      red: colors.red,
-      green: colors.green,
-      transparent: "transparent",
-      "detail": "#E9A61F"
-    },
+    extend: {},
   },
   variants: {
     extend: {},
   },
-  plugins: [
-    require('@tailwindcss/forms')
-  ],
+  plugins: [],
 }

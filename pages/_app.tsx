@@ -8,6 +8,11 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <div className="h-screen flex flex-col">
       <Head>
+        <title>Johan Berggren</title>
+        <meta
+          name="description"
+          content="Offisiell nettside for Johan Berggren"
+        />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"

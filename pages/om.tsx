@@ -13,6 +13,7 @@ export default function Om() {
           className="xl:object-top 2xl:object-about-banner "
           priority
           placeholder="blur"
+          alt="Johan Berggren spiller gitar i en bar"
         />
       </div>
       <Container className="prose">
@@ -38,6 +39,7 @@ export default function Om() {
               src="/img/about-image-1.jpg"
               layout="fill"
               objectFit="cover"
+              alt="Johan Berggren spiller el-gitar konsert"
             />
           </div>
           <div className="relative h-[500px]">
@@ -45,6 +47,7 @@ export default function Om() {
               src="/img/about-image-2.jpg"
               layout="fill"
               objectFit="cover"
+              alt="Johan Berggren stemmer utstyr mellom låter"
             />
           </div>
         </div>

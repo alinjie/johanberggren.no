@@ -13,17 +13,20 @@ const ALBUMS = [
     name: "Ei Hytte Foran Loven",
     image: "/img/ehfl.png",
     externalLink: "https://songwhip.com/johanberggren/eihytteforanloven",
+    alt: "Ei Hytte Foran Loven album cover",
   },
   {
     name: "Liliyhamericana",
     image: "/img/lilyhamericana.jpg",
     externalLink: "https://songwhip.com/johanberggren/lilyhamericana",
+    alt: "Lilyhamericana album cover",
   },
   {
     name: "For Now I'm Good Right Here",
     image: "/img/fnigrh.png",
     externalLink:
       "https://songwhip.com/johanberggren/for-now-im-good-right-here",
+    alt: "For Now I'm Good Right Here album cover",
   },
 ];
 
@@ -43,6 +46,7 @@ export default function Home({
             height={450}
             width={450}
             priority
+            alt="Ei Hytte Foran Loven album cover"
           />
 
           <div className="flex flex-col max-w-3xl lg:mt-0">
@@ -147,6 +151,7 @@ export default function Home({
                 layout="intrinsic"
                 height={300}
                 width={300}
+                alt={album.alt}
               />
 
               <span className="uppercase  text-sm text-gray-900 group-hover:underline block">

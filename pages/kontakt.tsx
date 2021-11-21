@@ -16,7 +16,7 @@ export default function Kontakt() {
       <Container>
         <h2 className="font-bold text-2xl mb-8">Kontakt</h2>
         <div className="flex flex-col gap-10 justify-between">
-          <div className="grid grid-cols-2 lg:grid-cols-3 gap-y-8">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="flex flex-col">
               <span className="font-medium text-lg mb-2">
                 Presse og booking

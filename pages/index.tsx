@@ -75,6 +75,7 @@ export default function Home({
           muted
           autoPlay
           loop
+          playsInline
           className="h-full w-full object-cover absolute"
         >
           <source type="video/mp4" src="/video/valgt-det-sjol.mp4" />

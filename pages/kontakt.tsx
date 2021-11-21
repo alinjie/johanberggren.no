@@ -6,7 +6,12 @@ export default function Kontakt() {
   return (
     <div>
       <div className="relative h-[350px] lg:h-[600px]">
-        <Image src="/img/contact-banner.jpg" layout="fill" objectFit="cover" />
+        <Image
+          src="/img/contact-banner.jpg"
+          layout="fill"
+          objectFit="cover"
+          priority
+        />
       </div>
       <Container>
         <h2 className="font-bold text-2xl mb-8">Kontakt</h2>

@@ -10,6 +10,7 @@ export default function Om() {
           layout="fill"
           objectFit="cover"
           className="object-top"
+          priority
         />
       </div>
       <Container className="prose">

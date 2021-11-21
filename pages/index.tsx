@@ -42,6 +42,7 @@ export default function Home({
             objectFit="contain"
             height={450}
             width={450}
+            priority
           />
 
           <div className="flex flex-col max-w-3xl lg:mt-0">

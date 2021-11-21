@@ -32,7 +32,7 @@ export default function Home({
   return (
     <div>
       <div className="h-screen w-screen relative flex max-w-full ">
-        <div className="m-auto z-30 flex flex-col lg:flex-row gap-10 p-8 max-h-[600px]">
+        <div className="m-auto z-30 flex flex-col lg:flex-row gap-6 lg:gap-12 p-8 max-h-[600px]">
           <Image
             src="/img/ehfl.png"
             layout="intrinsic"
@@ -61,7 +61,7 @@ export default function Home({
               </span>
             </p>
             <a
-              className="z-50 bg-white w-max mt-12 py-4 px-10 rounded-sm uppercase text-gray-900 transition-colors hover:bg-gray-200 mx-auto lg:mx-0 text-sm"
+              className="z-50 bg-[#c99b1e]  w-max mt-12 py-4 px-10 rounded-sm uppercase text-white transition-colors hover:bg-gray-200 mx-auto lg:mx-0 text-sm"
               href="https://songwhip.com/johanberggren/eihytteforanloven"
               target="_blank"
               rel="noreferrer noopener"

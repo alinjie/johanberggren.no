@@ -8,7 +8,7 @@ import { FiMenu, FiX } from "react-icons/fi";
 import { AnimatePresence, motion, Variants } from "framer-motion";
 import classNames from "classnames";
 
-const SCROLL_TRHESHOLD = 200;
+const SCROLL_TRHESHOLD = 0;
 
 const NAV_LINKS = [
   {

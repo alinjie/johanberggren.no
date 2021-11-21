@@ -57,8 +57,8 @@ function MobileNav() {
   const router = useRouter();
   return (
     <motion.div
-      // Height of this element should be header height (80px) + 1px to account for header border
-      className="bg-white w-full flex flex-col fixed mt-px flex-1 bottom-0 h-[calc(100%-81px)]"
+      // Height of this element should be header height (65px) + 1px to account for header border
+      className="bg-white w-full flex flex-col fixed mt-px flex-1 bottom-0 h-[calc(100%-66px)]"
       variants={VARIANTS}
       initial="hidden"
       animate="visible"
@@ -70,7 +70,7 @@ function MobileNav() {
             <Link href={link.href}>
               <a
                 className={classNames(
-                  "font-medium text-2xl text-gray-900 border-b pb-1",
+                  "font-medium text-2xl text-gray-900 border-b  pb-1",
                   router.pathname === link.href
                     ? "border-gray-900"
                     : "border-transparent"
@@ -133,9 +133,9 @@ export default function Hedaer() {
         router.pathname === "/" ? "fixed" : "sticky"
       )}
     >
-      <Container className="flex flex-1 w-full mx-auto items-center justify-between h-[80px]">
+      <Container className="flex flex-1 w-full mx-auto items-center justify-between h-[65px] ">
         <Link href="/">
-          <a className="font-black text-lg lg:text-2xl z-40">Johan Berggren</a>
+          <a className="font-black text-lg  z-40">Johan Berggren</a>
         </Link>
         <nav className="hidden lg:block">
           <ul className="flex gap-4">

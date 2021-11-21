@@ -64,7 +64,7 @@ function MobileNav() {
       animate="visible"
       exit="hidden"
     >
-      <ul className="p-4 flex flex-col items-center justify-center gap-y-6 flex-1">
+      <ul className="p-4 flex flex-col items-center justify-center space-y-6 flex-1">
         {NAV_LINKS.map((link) => (
           <li key={link.href}>
             <Link href={link.href}>
@@ -82,7 +82,7 @@ function MobileNav() {
           </li>
         ))}
       </ul>
-      <div className="p-4 flex items-center justify-center border-t border-gray-200 gap-x-4  text-gray-900 z-50">
+      <div className="p-4 flex items-center justify-center border-t border-gray-200 space-x-4  text-gray-900 z-50">
         {SOCIAL_ICONS.map(({ Icon, href }) => (
           <a
             href={href}
@@ -138,7 +138,7 @@ export default function Hedaer() {
           <a className="font-black text-lg  z-40">Johan Berggren</a>
         </Link>
         <nav className="hidden lg:block">
-          <ul className="flex gap-4">
+          <ul className="flex space-x-4">
             {NAV_LINKS.map((link) => (
               <li key={link.href}>
                 <Link href={link.href}>

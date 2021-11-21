@@ -18,7 +18,7 @@ export default function Kontakt() {
       </div>
       <Container>
         <h2 className="font-bold text-2xl mb-8">Kontakt</h2>
-        <div className="flex flex-col gap-10 justify-between">
+        <div className="flex flex-col space-y-10 justify-between">
           <div className="grid grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="flex flex-col">
               <span className="font-medium text-lg mb-2">
@@ -44,7 +44,7 @@ export default function Kontakt() {
             </div>
             <div>
               <span className="font-medium text-lg mb-2 block">Sosialt</span>
-              <div className="flex gap-2">
+              <div className="flex space-x-2 text-lg">
                 {SOCIAL_ICONS.map(({ Icon, href }) => (
                   <a
                     key={href}
@@ -60,8 +60,8 @@ export default function Kontakt() {
             </div>
           </div>
 
-          <form className="flex flex-col gap-4">
-            <div className="flex gap-4">
+          <form className="flex flex-col space-y-4">
+            <div className="flex space-x-4">
               <div className="flex-1">
                 <label
                   className="text-gray-700 mb-2 block font-medium text-sm"

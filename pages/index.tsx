@@ -6,6 +6,7 @@ import { Concert } from "types/concert";
 import { InferGetStaticPropsType } from "next";
 import dayjs from "dayjs";
 import classNames from "classnames";
+import { useState } from "react";
 
 const ALBUMS = [
   {
@@ -29,10 +30,17 @@ const ALBUMS = [
 export default function Home({
   concerts,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
+  const sortedConcerts = concerts.sort((a, b) =>
+    dayjs(a.date).isBefore(b.date) ? -1 : 1
+  );
+  const [shownConcerts, setShownConcerts] = useState(
+    sortedConcerts.slice(0, 5)
+  );
+
   return (
     <div>
       <div className="h-screen w-screen relative flex max-w-full ">
-        <div className="m-auto z-30 flex flex-col lg:flex-row gap-6 lg:gap-12 p-8 max-h-[600px]">
+        <div className="m-auto z-30 flex flex-col lg:flex-row space-x-6 space-y-6 lg:space-x-12 lg:space-y-12 p-8 max-h-[600px]">
           <Image
             src="/img/ehfl.png"
             layout="intrinsic"
@@ -46,7 +54,7 @@ export default function Home({
               Nytt album
             </span>
             <h2 className="text-white text-3xl text-center lg:text-left lg:text-5xl xl:text-6xl font-black">
-              Ei Hytte Foran Loven
+              Ei hytte foran loven
             </h2>
             <p className="text-white leading-tight mt-2 lg:mt-8 text-center lg:text-left ">
               <q className="leading-relaxed font-light text-gray-300 italic">
@@ -86,10 +94,10 @@ export default function Home({
         <h2 className="font-bold text-2xl leading-relaxed mb-6">Konserter</h2>
         {concerts.length > 0 ? (
           <ul className="divide-y">
-            {concerts.map((concert, index) => (
+            {shownConcerts.map((concert, index) => (
               <li
                 className={classNames(
-                  "flex items-center gap-x-4",
+                  "flex items-center space-x-4",
                   index !== concerts.length - 1 && "pb-6",
                   index !== 0 && "pt-6"
                 )}
@@ -116,6 +124,18 @@ export default function Home({
           </ul>
         ) : (
           <span className="text-gray-500">Ingen kommende konserte</span>
+        )}
+        {concerts.length > shownConcerts.length && (
+          <button
+            className="text-sm underline text-gray-600"
+            onClick={() =>
+              setShownConcerts((s) => {
+                return [...s, ...sortedConcerts.slice(5)];
+              })
+            }
+          >
+            Vis alle konserter
+          </button>
         )}
 
         <h2 className="font-bold text-2xl leading-relaxed mb-6 mt-10 lg:mt-20">
@@ -158,5 +178,6 @@ export async function getStaticProps() {
   const concerts: Concert[] = await response.json();
   return {
     props: { concerts },
+    revalidate: 10,
   };
 }

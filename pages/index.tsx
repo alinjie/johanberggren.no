@@ -30,12 +30,7 @@ const ALBUMS = [
 export default function Home({
   concerts,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-  const sortedConcerts = concerts.sort((a, b) =>
-    dayjs(a.date).isBefore(b.date) ? -1 : 1
-  );
-  const [shownConcerts, setShownConcerts] = useState(
-    sortedConcerts.slice(0, 5)
-  );
+  const [shownConcerts, setShownConcerts] = useState(concerts.slice(0, 5));
 
   return (
     <div>
@@ -128,11 +123,7 @@ export default function Home({
         {concerts.length > shownConcerts.length && (
           <button
             className="text-sm underline text-gray-600"
-            onClick={() =>
-              setShownConcerts((s) => {
-                return [...s, ...sortedConcerts.slice(5)];
-              })
-            }
+            onClick={() => setShownConcerts(concerts)}
           >
             Vis alle konserter
           </button>
@@ -169,15 +160,20 @@ export default function Home({
 }
 
 export async function getStaticProps() {
-  const response = await fetch(CMS_URL + "/concerts");
+  const response = await fetch(CMS_URL + "/concerts?_sort=date:ASC,venue:DESC");
 
   if (!response.ok) {
     throw new Error(await response.text());
   }
 
   const concerts: Concert[] = await response.json();
+
   return {
-    props: { concerts },
+    props: {
+      concerts: concerts.filter(
+        (concert) => new Date(concert.date) >= new Date()
+      ),
+    },
     revalidate: 10,
   };
 }

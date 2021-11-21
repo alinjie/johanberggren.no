@@ -11,6 +11,9 @@ module.exports = {
       gray: colors.trueGray,
     },
     extend: {
+      gridTemplateColumns: {
+        "album-grid": "repeat(3, minmax(0, 1fr))"
+      },
       fontFamily: {
         sans: ["Inter", ...defaultTheme.fontFamily.sans],
       },
@@ -19,5 +22,8 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/forms'),
+  ],
 }

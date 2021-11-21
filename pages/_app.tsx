@@ -1,10 +1,13 @@
 import "tailwindcss/tailwind.css";
 import Head from "next/head";
 import Header from "components/Header";
+import Footer from "components/Footer";
+import classNames from "classnames";
+import { AppProps } from "next/app";
 
-export default function App({ Component, pageProps }) {
+export default function App({ Component, pageProps, router }: AppProps) {
   return (
-    <div>
+    <div className="h-screen flex flex-col">
       <Head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
@@ -18,9 +21,10 @@ export default function App({ Component, pageProps }) {
         />
       </Head>
       <Header />
-      <div className="flex flex-col">
+      <div className={"flex flex-col flex-1"}>
         <Component {...pageProps} />
       </div>
+      <Footer />
     </div>
   );
 }

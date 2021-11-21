@@ -7,7 +7,7 @@ export default function Container({
   ...props
 }: HTMLAttributes<HTMLDivElement>) {
   return (
-    <div {...props} className={cx("max-w-4xl mx-auto p-6", className)}>
+    <div {...props} className={cx("max-w-4xl mx-auto p-6 w-full", className)}>
       {children}
     </div>
   );

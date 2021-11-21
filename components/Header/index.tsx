@@ -106,6 +106,8 @@ export default function Hedaer() {
   const router = useRouter();
 
   useEffect(() => {
+    setScrollY(window.scrollY);
+
     const listener = () => {
       setScrollY(window.scrollY);
     };

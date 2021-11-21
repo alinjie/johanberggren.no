@@ -1,16 +1,18 @@
 import Container from "components/Container";
 import Image from "next/image";
+import AboutBanner from "public/img/about-banner.jpg";
 
 export default function Om() {
   return (
     <div>
       <div className="relative h-[350px] lg:h-[600px]">
         <Image
-          src="/img/about-banner.jpg"
+          src={AboutBanner}
           layout="fill"
           objectFit="cover"
-          className="object-top"
+          className="xl:object-top 2xl:object-about-banner "
           priority
+          placeholder="blur"
         />
       </div>
       <Container className="prose">

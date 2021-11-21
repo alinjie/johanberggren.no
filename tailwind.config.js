@@ -11,6 +11,10 @@ module.exports = {
       gray: colors.trueGray,
     },
     extend: {
+      objectPosition: {
+        "about-banner": "0 -200px",
+        "contact-banner": "0 -200px",
+      },
       gridTemplateColumns: {
         "album-grid": "repeat(3, minmax(0, 1fr))"
       },

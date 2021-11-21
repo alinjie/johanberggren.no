@@ -1,16 +1,19 @@
 import Container from "components/Container";
 import { SOCIAL_ICONS } from "components/Header";
 import Image from "next/image";
+import ContactBanner from "public/img/contact-banner.jpg";
 
 export default function Kontakt() {
   return (
     <div>
       <div className="relative h-[350px] lg:h-[600px]">
         <Image
-          src="/img/contact-banner.jpg"
+          src={ContactBanner}
           layout="fill"
           objectFit="cover"
           priority
+          placeholder="blur"
+          className="2xl:object-contact-banner"
         />
       </div>
       <Container>

@@ -143,15 +143,18 @@ export default function Hedaer() {
               <li key={link.href}>
                 <Link href={link.href}>
                   <a
-                    className={cx("pb-1 border-b transition-colors", {
-                      "border-transparent": router.pathname !== link.href,
-                      "hover:border-white": router.pathname === "/",
-                      "hover:border-gray-900": router.pathname !== "/",
-                      "border-gray-900":
-                        (router.pathname === link.href &&
-                          router.pathname !== "/") ||
-                        scrollY > SCROLL_TRHESHOLD,
-                    })}
+                    className={cx(
+                      "pb-1 border-b transition-colors font-medium",
+                      {
+                        "border-transparent": router.pathname !== link.href,
+                        "hover:border-white": router.pathname === "/",
+                        "hover:border-gray-900": router.pathname !== "/",
+                        "border-gray-900":
+                          (router.pathname === link.href &&
+                            router.pathname !== "/") ||
+                          scrollY > SCROLL_TRHESHOLD,
+                      }
+                    )}
                   >
                     {link.name}
                   </a>

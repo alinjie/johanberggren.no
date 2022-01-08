@@ -8,6 +8,8 @@ import dayjs from "dayjs"
 import classNames from "classnames"
 import { useState } from "react"
 import slugify from "slugify"
+import { useEffect } from "react"
+import { AnimatePresence, motion } from "framer-motion"
 
 export const ALBUMS = [
   {
@@ -40,15 +42,52 @@ export const ALBUMS = [
   },
 ]
 
+const QUOTES = [
+  {
+    source: "Dagbladet",
+    text: "Johan Berggren er Lillehammers svar på Stein Torleif Bjella og Hellbillies.",
+    rating: "5/6",
+  },
+  {
+    source: "Stavanger Aftenblad",
+    text: "Berggren er en mester når det kommer til det hverdagslige!",
+    rating: "5/6",
+  },
+  {
+    source: "Musikknyheter.no",
+
+    text: "Med «Ei hytte foran loven» har Johan Berggren lagd ei plate som er så god at jeg alt nå vil si at det er en skandale om den ikke nomineres i Spellemannprisens countrykategori for 2021!",
+    rating: "8/10",
+  },
+  {
+    source: "BluesNews",
+    text: "Alltid ekte. Alltid til å stole på. Alltid usminka og upolert.",
+    rating: "8/10",
+  },
+]
+
 export default function Home({
   concerts,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   const [shownConcerts, setShownConcerts] = useState(concerts.slice(0, 5))
+  const [activeQuote, setActiveQuote] = useState(QUOTES[1])
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const index = QUOTES.indexOf(activeQuote)
+
+      if (index === QUOTES.length - 1) {
+        setActiveQuote(QUOTES[0])
+      } else setActiveQuote(QUOTES[index + 1])
+    }, 5000)
+
+    return () => clearInterval(interval)
+  })
 
   return (
     <div>
       <div className="h-screen w-screen relative flex max-w-full">
-        <div className="m-auto z-30 flex flex-col lg:flex-row space-x-6 space-y-6 lg:space-x-12 lg:space-y-12 p-8 max-h-[600px]">
+        <div className="m-auto z-30 grid lg:grid-cols-2 gap-8 p-8 max-h-[600px] w-full">
           <Image
             src="/img/ehfl.png"
             layout="intrinsic"
@@ -59,27 +98,35 @@ export default function Home({
             alt="Ei Hytte Foran Loven album cover"
           />
 
-          <div className="flex flex-col max-w-3xl lg:mt-0">
+          <div className="flex flex-col max-w-3xl lg:max-w-none lg:mt-0 ">
             <span className="text-[#c99b1e] uppercase mx-auto lg:mx-0 text-sm mb-2">
               Nytt album
             </span>
             <h2 className="text-white text-3xl text-center lg:text-left lg:text-5xl xl:text-6xl font-black">
               Ei hytte foran loven
             </h2>
-            <p className="text-white leading-tight mt-2 lg:mt-8 text-center lg:text-left ">
-              <q className="leading-relaxed font-light text-gray-300 italic">
-                Johan Berggren fra Lillehammer følger opp fjorårets album på
-                morsmålet med en ny fulltreffer,{" "}
-                <span className="whitespace-nowrap">
-                  &#171;Ei hytte foran loven&#187;.
-                </span>
-              </q>
-              <span className="block mt-2 font-medium text-lg">
-                - Dagbladet
-              </span>
-            </p>
+            <div className="h-32 w-full relative">
+              <AnimatePresence exitBeforeEnter>
+                <motion.div
+                  key={activeQuote.source}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.5 }}
+                >
+                  <p className="text-white leading-tight mt-2 lg:mt-8 text-center lg:text-left ">
+                    <q className="leading-relaxed font-light text-gray-300 italic">
+                      {activeQuote.text}
+                    </q>
+                    <span className="block mt-2 font-medium text-lg">
+                      - {activeQuote.source} {activeQuote.rating}
+                    </span>
+                  </p>
+                </motion.div>
+              </AnimatePresence>
+            </div>
             <a
-              className="z-50 bg-[#c99b1e]  w-max mt-12 py-4 px-10 rounded-sm uppercase text-white transition-colors hover:bg-gray-200 mx-auto lg:mx-0 text-sm"
+              className="z-50 bg-[#c99b1e]  w-max mt-12 py-3.5 px-8  font-medium uppercase text-white transition-colors hover:bg-gray-200 mx-auto lg:mx-0 text-sm"
               href="https://songwhip.com/johanberggren/eihytteforanloven"
               target="_blank"
               rel="noreferrer noopener"

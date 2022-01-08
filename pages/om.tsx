@@ -1,6 +1,6 @@
-import Container from "components/Container";
-import Image from "next/image";
-import AboutBanner from "public/img/about-banner.jpg";
+import Container from "components/Container"
+import Image from "next/image"
+import AboutBanner from "public/img/about-banner.jpg"
 
 export default function Om() {
   return (
@@ -16,24 +16,23 @@ export default function Om() {
           alt="Johan Berggren spiller gitar i en bar"
         />
       </div>
-      <Container className="prose">
+      <Container className="prose !max-w-3xl">
         <h2>Om Johan Berggren</h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corporis
-          debitis quis commodi ipsa, sequi beatae magni ratione quos explicabo
-          quas tenetur, ut eum quo iusto eaque laborum? Explicabo, cupiditate
-          ipsum.
+
+        <p className="!mt-0">
+          Berggren gjør norsk køntrimusikk. Nei, forresten - Berggren gjør
+          køntri på sitt eget vis. Og synger på norsk. Visst forstår man at han
+          har ei Merle Haggard-plate eller to, men han imiterer aldri.
+          <br />
+          <br />
+          Intuitivt har Berggren forstått køntriens sjel og hjerte. Han
+          behersker både det musikalske uttrykket og låtskriverkunsten fullt ut.
+          Musikken i seg selv er like behagelig som et par gode, inngåtte boots.
+          Han finner kanskje ikke opp hjulet på nytt, men trenger man det når
+          det køntrihjulet allerede ruller så bra?
         </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur,
-          voluptates delectus voluptatum veritatis qui alias nam quos quisquam
-          impedit doloribus repudiandae autem cupiditate dicta aspernatur.
-          Placeat atque impedit adipisci reiciendis? Ut quae id molestias ipsum
-          facilis iusto ratione ex nihil voluptatem sint culpa, sit dicta. Eius
-          beatae ratione perferendis rem blanditiis, voluptatem aperiam in eos
-          saepe nostrum, nesciunt accusantium molestiae!
-        </p>
-        <div className="grid lg:grid-cols-2 gap-8">
+
+        <div className="grid lg:grid-cols-2 gap-8 my-10">
           <div className="relative h-[500px]">
             <Image
               src="/img/about-image-1.jpg"
@@ -51,22 +50,23 @@ export default function Om() {
             />
           </div>
         </div>
-        <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corporis
-          debitis quis commodi ipsa, sequi beatae magni ratione quos explicabo
-          quas tenetur, ut eum quo iusto eaque laborum? Explicabo, cupiditate
-          ipsum.
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur,
-          voluptates delectus voluptatum veritatis qui alias nam quos quisquam
-          impedit doloribus repudiandae autem cupiditate dicta aspernatur.
-          Placeat atque impedit adipisci reiciendis? Ut quae id molestias ipsum
-          facilis iusto ratione ex nihil voluptatem sint culpa, sit dicta. Eius
-          beatae ratione perferendis rem blanditiis, voluptatem aperiam in eos
-          saepe nostrum, nesciunt accusantium molestiae!
+
+        <p className="!mt-0">
+          Ei hytte foran loven” er Berggrens tredje album. Med den
+          spellemannsnominerte forgjengeren ”Lilyhamericana” etablerte
+          låtskriveren seg som et av de mest interessante navnene på den norske
+          musikkscenen og det ble trukket paralleller til både Stein Torleif
+          Bjella og John Prine.
+          <br />
+          <br />
+          På oppfølgeren tar Berggren ytterligere et steg fremover. Her er det
+          pondus og autoritet i kombinasjon med en gedigen musikalitet og sterk
+          låtskriving som gjør skiven til en usedvanlig kraftig plate.
+          Dagbladets Øyvind Rønning fant fram femmeren og ei helside og skrek
+          ”Arven etter Prøysen!” Stavanger Aftenblad gav også skiva en femmer og
+          sa ”Berggren er en mester når det kommer til det hverdagslige.
         </p>
       </Container>
     </div>
-  );
+  )
 }

@@ -7,7 +7,6 @@ import Container from "components/Container"
 import { ALBUMS } from "pages"
 import Link from "next/link"
 import Image from "next/image"
-import slugify from "slugify"
 import cx from "classnames"
 
 const LYRICS_DIR = "/public/lyrics"

@@ -120,7 +120,5 @@ export async function getStaticPaths(ctx: GetStaticPathsContext) {
     return acc
   }, [])
 
-  console.log(paths)
-
   return { paths: paths, fallback: false }
 }

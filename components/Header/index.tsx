@@ -169,7 +169,7 @@ export default function Hedaer() {
             ))}
           </ul>
         </nav>
-        <div className="hidden space-x-2 text-lg lg:flex text-gray-700">
+        <div className="hidden space-x-3 text-lg lg:flex">
           {SOCIAL_ICONS.map(({ Icon, href }) => (
             <a
               href={href}

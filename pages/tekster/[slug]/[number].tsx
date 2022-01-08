@@ -19,6 +19,8 @@ export default function SongText({
   html,
   album,
   song,
+  next,
+  prev,
 }: InferGetServerSidePropsType<typeof getStaticProps>) {
   return (
     <div>
@@ -68,29 +70,94 @@ export default function SongText({
           </a>
         </Link>
         <div dangerouslySetInnerHTML={{ __html: html }} className="prose" />
+        <div className="grid grid-cols-2 mt-8 border-t pt-4">
+          <div>
+            {prev && (
+              <Link href={`/tekster/${album.slug}/${prev.number}`}>
+                <a className="space-y-1">
+                  <div className="flex items-center space-x-2">
+                    <span>&lsaquo;</span>
+                    <span className="block font-medium">Forrige</span>
+                  </div>
+                  <div>
+                    <span className="text-gray-500">
+                      {prev.number}. {prev.name}
+                    </span>
+                  </div>
+                </a>
+              </Link>
+            )}
+          </div>
+          <div className="flex justify-end">
+            {next && (
+              <Link href={`/tekster/${album.slug}/${next.number}`}>
+                <a className=" flex flex-col space-y-1">
+                  <div className="flex items-center space-x-2 self-end">
+                    <span className="block font-medium text-right">Neste</span>
+                    <span>&rsaquo;</span>
+                  </div>
+
+                  <span className="text-gray-500">
+                    {next.number}. {next.name}
+                  </span>
+                </a>
+              </Link>
+            )}
+          </div>
+        </div>
       </Container>
     </div>
   )
 }
 
 export async function getStaticProps(ctx: GetStaticPropsContext) {
+  const slug = ctx.params.slug.toString()
+  const number = ctx.params.number.toString()
   const album = ALBUMS.find(
     (album) => album.getSlug() === ctx.params.slug.toString()
   )
-  const file = path.join(
-    process.cwd(),
-    "/public/lyrics",
-    ctx.params.slug.toString(),
-    ctx.params.number.toString() + ".md"
-  )
+  const file = path.join(process.cwd(), "/public/lyrics", slug, number + ".md")
   const content = fs.readFileSync(file)
   const fm = frontmatter<Track>(content.toString())
   const html = marked(fm.body)
+
+  const nextPath =
+    path.join(
+      process.cwd(),
+      "/public/lyrics",
+      slug,
+      (parseInt(number) + 1).toString()
+    ) + ".md"
+  const prevPath =
+    path.join(
+      process.cwd(),
+      "/public/lyrics",
+      slug,
+      (parseInt(number) - 1).toString()
+    ) + ".md"
+
+  const hasNext = fs.existsSync(nextPath)
+  const hasPrev = fs.existsSync(prevPath)
+
+  let next: Track = null
+  let prev: Track = null
+
+  if (hasNext) {
+    const content = fs.readFileSync(nextPath).toString()
+    next = frontmatter<Track>(content).attributes
+  }
+
+  if (hasPrev) {
+    const content = fs.readFileSync(prevPath).toString()
+    prev = frontmatter<Track>(content).attributes
+  }
 
   return {
     props: {
       html,
       song: fm.attributes,
+      next,
+      prev,
       album: {
         image: album.image,
         alt: album.alt,
@@ -101,7 +168,7 @@ export async function getStaticProps(ctx: GetStaticPropsContext) {
   }
 }
 
-export async function getStaticPaths(ctx: GetStaticPathsContext) {
+export async function getStaticPaths() {
   const albums = await Promise.all(
     ALBUMS.map(async (album) => {
       const slug = album.getSlug()

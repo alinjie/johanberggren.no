@@ -211,7 +211,7 @@ export default function Home({
                 alt={album.alt}
               />
 
-              <span className="uppercase font-medium  text-sm text-gray-900 group-hover:underline block">
+              <span className="font-medium text-gray-900 group-hover:underline block">
                 {album.name} <BiLinkExternal className="inline" />
               </span>
             </a>

@@ -7,7 +7,7 @@ import {
 import { ALBUMS } from "pages"
 import process from "process"
 import path from "path"
-import fs from "fs/promises"
+import fs from "fs"
 import { marked } from "marked"
 import frontmatter from "front-matter"
 import Container from "components/Container"
@@ -83,7 +83,7 @@ export async function getStaticProps(ctx: GetStaticPropsContext) {
     ctx.params.slug.toString(),
     ctx.params.number.toString() + ".md"
   )
-  const content = await fs.readFile(file)
+  const content = fs.readFileSync(file)
   const fm = frontmatter<Track>(content.toString())
   const html = marked(fm.body)
 
@@ -105,7 +105,7 @@ export async function getStaticPaths(ctx: GetStaticPathsContext) {
   const albums = await Promise.all(
     ALBUMS.map(async (album) => {
       const slug = album.getSlug()
-      const songs = await fs.readdir(
+      const songs = fs.readdirSync(
         path.join(process.cwd(), `/public/lyrics/${slug}`)
       )
 

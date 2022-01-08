@@ -1,4 +1,4 @@
-import fs from "fs/promises"
+import fs from "fs"
 import path from "path"
 import process from "process"
 import { GetStaticPropsContext, InferGetStaticPropsType } from "next"
@@ -76,7 +76,7 @@ export default function AlbumLyrics({
 export async function getStaticProps(ctx: GetStaticPropsContext) {
   const slug = ctx.params.slug.toString()
   let tracks: Track[] = []
-  const songs = await fs.readdir(
+  const songs = fs.readdirSync(
     path.join(process.cwd(), `${LYRICS_DIR}/${slug}`)
   )
 
@@ -84,7 +84,7 @@ export async function getStaticProps(ctx: GetStaticPropsContext) {
     songs.map(async (song) => {
       const file = path.join(process.cwd(), `${LYRICS_DIR}/${slug}`, song)
 
-      const content = (await fs.readFile(file)).toString()
+      const content = fs.readFileSync(file).toString()
 
       const fm = frontmatter<Track>(content)
 
@@ -108,7 +108,7 @@ export async function getStaticProps(ctx: GetStaticPropsContext) {
 }
 
 export async function getStaticPaths() {
-  const albums = await fs.readdir(path.join(process.cwd(), LYRICS_DIR))
+  const albums = fs.readdirSync(path.join(process.cwd(), LYRICS_DIR))
 
   return {
     paths: albums.map((slug) => ({ params: { slug } })),

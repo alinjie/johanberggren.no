@@ -23,7 +23,7 @@ export default function AlbumLyrics({
   return (
     <div>
       <div className="w-full relative h-[450px] flex items-center">
-        <Container className="absolute z-20 inset-x-0 my-auto  flex  space-x-8 items-center">
+        <Container className="absolute z-20 inset-x-0 my-auto  flex  flex-col md:flex-row space-x-8 items-center">
           <Image
             src={album.image}
             alt={album.alt}
@@ -32,7 +32,7 @@ export default function AlbumLyrics({
             layout="intrinsic"
           />
           <div>
-            <h2 className="text-white font-bold text-5xl mb-2 ">
+            <h2 className="text-white font-bold text-4xl md:text-4xl mb-2 mt-6 md:mt-0">
               {album.name}
             </h2>
             <span className="text-gray-200">Johan Berggren</span>

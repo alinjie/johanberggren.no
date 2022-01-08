@@ -25,7 +25,7 @@ export default function SongText({
   return (
     <div>
       <div className="w-full relative h-[450px] flex items-center">
-        <Container className="absolute z-20 inset-x-0 my-auto  flex  space-x-8 items-center">
+        <Container className="absolute z-20 inset-x-0 my-auto  flex flex-col md:flex-row  space-x-8 items-center ">
           <Image
             src={album.image}
             alt={album.alt}
@@ -34,10 +34,10 @@ export default function SongText({
             layout="intrinsic"
           />
           <div>
-            <span className="text-xs text-gray-300 uppercase tracking-wider mb-2 block">
+            <span className="text-xs text-gray-300 uppercase tracking-wider mb-2 block mt-6 md:mt-0 text-center md:text-left">
               {album.name}
             </span>
-            <h2 className="text-white font-bold text-5xl">
+            <h2 className="text-white font-bold text-4xl md:text-4xl mb-2 ">
               {song.number}. {song.name}
             </h2>
           </div>

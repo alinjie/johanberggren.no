@@ -1,25 +1,32 @@
-import Image from "next/image";
-import Container from "../components/Container";
-import { BiLinkExternal } from "react-icons/bi";
-import { CMS_URL } from "consts";
-import { Concert } from "types/concert";
-import { InferGetStaticPropsType } from "next";
-import dayjs from "dayjs";
-import classNames from "classnames";
-import { useState } from "react";
+import Image from "next/image"
+import Container from "../components/Container"
+import { BiLinkExternal } from "react-icons/bi"
+import { CMS_URL } from "consts"
+import { Concert } from "types/concert"
+import { InferGetStaticPropsType } from "next"
+import dayjs from "dayjs"
+import classNames from "classnames"
+import { useState } from "react"
+import slugify from "slugify"
 
-const ALBUMS = [
+export const ALBUMS = [
   {
     name: "Ei Hytte Foran Loven",
     image: "/img/ehfl.png",
     externalLink: "https://songwhip.com/johanberggren/eihytteforanloven",
     alt: "Ei Hytte Foran Loven album cover",
+    getSlug() {
+      return slugify(this.name, { lower: true })
+    },
   },
   {
     name: "Liliyhamericana",
     image: "/img/lilyhamericana.jpg",
     externalLink: "https://songwhip.com/johanberggren/lilyhamericana",
     alt: "Lilyhamericana album cover",
+    getSlug() {
+      return slugify(this.name, { lower: true })
+    },
   },
   {
     name: "For Now I'm Good Right Here",
@@ -27,17 +34,20 @@ const ALBUMS = [
     externalLink:
       "https://songwhip.com/johanberggren/for-now-im-good-right-here",
     alt: "For Now I'm Good Right Here album cover",
+    getSlug() {
+      return slugify(this.name, { lower: true })
+    },
   },
-];
+]
 
 export default function Home({
   concerts,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-  const [shownConcerts, setShownConcerts] = useState(concerts.slice(0, 5));
+  const [shownConcerts, setShownConcerts] = useState(concerts.slice(0, 5))
 
   return (
     <div>
-      <div className="h-screen w-screen relative flex max-w-full ">
+      <div className="h-screen w-screen relative flex max-w-full">
         <div className="m-auto z-30 flex flex-col lg:flex-row space-x-6 space-y-6 lg:space-x-12 lg:space-y-12 p-8 max-h-[600px]">
           <Image
             src="/img/ehfl.png"
@@ -90,7 +100,7 @@ export default function Home({
         </video>
       </div>
 
-      <Container>
+      <Container className="mt-20">
         <h2 className="font-bold text-2xl leading-relaxed mb-6">Konserter</h2>
         {concerts.length > 0 ? (
           <ul className="divide-y">
@@ -154,7 +164,7 @@ export default function Home({
                 alt={album.alt}
               />
 
-              <span className="uppercase  text-sm text-gray-900 group-hover:underline block">
+              <span className="uppercase font-medium  text-sm text-gray-900 group-hover:underline block">
                 {album.name} <BiLinkExternal className="inline" />
               </span>
             </a>
@@ -162,17 +172,17 @@ export default function Home({
         </div>
       </Container>
     </div>
-  );
+  )
 }
 
 export async function getStaticProps() {
-  const response = await fetch(CMS_URL + "/concerts?_sort=date:ASC,venue:DESC");
+  const response = await fetch(CMS_URL + "/concerts?_sort=date:ASC,venue:DESC")
 
   if (!response.ok) {
-    throw new Error(await response.text());
+    throw new Error(await response.text())
   }
 
-  const concerts: Concert[] = await response.json();
+  const concerts: Concert[] = await response.json()
 
   return {
     props: {
@@ -181,5 +191,5 @@ export async function getStaticProps() {
       ),
     },
     revalidate: 10,
-  };
+  }
 }

@@ -174,7 +174,7 @@ export default function Home({
                   href={concert.ticketLink}
                   className="items-center gap-1 underline font-medium transition-opacity hover:opacity-50 flex-1 ml-auto text-right"
                 >
-                  Billetter <BiLinkExternal className="inline" />
+                  Info <BiLinkExternal className="inline" />
                 </a>
               </li>
             ))}

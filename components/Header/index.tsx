@@ -1,14 +1,14 @@
-import Container from "../Container";
-import { BsFacebook, BsYoutube, BsInstagram } from "react-icons/bs";
-import Link from "next/link";
-import { useRouter } from "next/dist/client/router";
-import cx from "classnames";
-import { useEffect, useState } from "react";
-import { FiMenu, FiX } from "react-icons/fi";
-import { AnimatePresence, motion, Variants } from "framer-motion";
-import classNames from "classnames";
+import Container from "../Container"
+import { BsFacebook, BsYoutube, BsInstagram } from "react-icons/bs"
+import Link from "next/link"
+import { useRouter } from "next/dist/client/router"
+import cx from "classnames"
+import { useEffect, useState } from "react"
+import { FiMenu, FiX } from "react-icons/fi"
+import { AnimatePresence, motion, Variants } from "framer-motion"
+import classNames from "classnames"
 
-const SCROLL_TRHESHOLD = 0;
+const SCROLL_TRHESHOLD = 0
 
 const NAV_LINKS = [
   {
@@ -20,10 +20,14 @@ const NAV_LINKS = [
     href: "/om",
   },
   {
+    name: "Tekster",
+    href: "/tekster",
+  },
+  {
     name: "Kontakt",
     href: "/kontakt",
   },
-];
+]
 
 export const SOCIAL_ICONS = [
   {
@@ -38,7 +42,7 @@ export const SOCIAL_ICONS = [
     Icon: BsYoutube,
     href: "https://www.youtube.com/channel/UCVqzymO-c1r2x3lD4c5lh2g",
   },
-];
+]
 
 // cubic-bezier(0.4, 0, 0.2, 1);
 
@@ -51,10 +55,10 @@ const VARIANTS: Variants = {
     opacity: 1,
     transition: { duration: 0.3, ease: "linear" },
   },
-};
+}
 
 function MobileNav() {
-  const router = useRouter();
+  const router = useRouter()
   return (
     <motion.div
       // Height of this element should be header height (65px) + 1px to account for header border
@@ -95,35 +99,35 @@ function MobileNav() {
         ))}
       </div>
     </motion.div>
-  );
+  )
 }
 
 export default function Hedaer() {
   const [scrollY, setScrollY] = useState(
     typeof window !== "undefined" && window.scrollY
-  );
-  const [mobileNavOpen, setMobileNavOpen] = useState(false);
-  const router = useRouter();
+  )
+  const [mobileNavOpen, setMobileNavOpen] = useState(false)
+  const router = useRouter()
 
   useEffect(() => {
-    setScrollY(window.scrollY);
+    setScrollY(window.scrollY)
 
     const listener = () => {
-      setScrollY(window.scrollY);
-    };
+      setScrollY(window.scrollY)
+    }
 
-    window.addEventListener("scroll", listener);
+    window.addEventListener("scroll", listener)
 
-    return () => window.removeEventListener("scroll", listener);
-  }, []);
-
-  useEffect(() => {
-    document.body.style.overflow = mobileNavOpen ? "hidden" : "unset";
-  }, [mobileNavOpen]);
+    return () => window.removeEventListener("scroll", listener)
+  }, [])
 
   useEffect(() => {
-    setMobileNavOpen(false);
-  }, [router.pathname]);
+    document.body.style.overflow = mobileNavOpen ? "hidden" : "unset"
+  }, [mobileNavOpen])
+
+  useEffect(() => {
+    setMobileNavOpen(false)
+  }, [router.pathname])
 
   return (
     <header
@@ -165,14 +169,14 @@ export default function Hedaer() {
             ))}
           </ul>
         </nav>
-        <div className="hidden gap-4 text-lg lg:flex">
+        <div className="hidden space-x-3 text-lg lg:flex">
           {SOCIAL_ICONS.map(({ Icon, href }) => (
             <a
               href={href}
               key={href}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-gray-600 transition-colors ease-linear duration-300"
+              className="hover:text-gray-400 transition-colors ease-linear "
             >
               <Icon />
             </a>
@@ -187,5 +191,5 @@ export default function Hedaer() {
       </Container>
       <AnimatePresence>{mobileNavOpen && <MobileNav />}</AnimatePresence>
     </header>
-  );
+  )
 }

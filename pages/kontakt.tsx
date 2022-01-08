@@ -14,6 +14,7 @@ export default function Kontakt() {
           priority
           placeholder="blur"
           className="2xl:object-contact-banner"
+          alt="Johan Berggren avbildet i sofa"
         />
       </div>
       <Container>

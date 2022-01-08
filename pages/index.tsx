@@ -1,75 +1,132 @@
-import Image from "next/image";
-import Container from "../components/Container";
-import { BiLinkExternal } from "react-icons/bi";
-import { CMS_URL } from "consts";
-import { Concert } from "types/concert";
-import { InferGetStaticPropsType } from "next";
-import dayjs from "dayjs";
-import classNames from "classnames";
-import { useState } from "react";
+import Image from "next/image"
+import Container from "../components/Container"
+import { BiLinkExternal } from "react-icons/bi"
+import { CMS_URL } from "consts"
+import { Concert } from "types/concert"
+import { InferGetStaticPropsType } from "next"
+import dayjs from "dayjs"
+import classNames from "classnames"
+import { useState } from "react"
+import slugify from "slugify"
+import { useEffect } from "react"
+import { AnimatePresence, motion } from "framer-motion"
 
-const ALBUMS = [
+export const ALBUMS = [
   {
     name: "Ei Hytte Foran Loven",
     image: "/img/ehfl.png",
     externalLink: "https://songwhip.com/johanberggren/eihytteforanloven",
+    alt: "Ei Hytte Foran Loven album cover",
+    getSlug() {
+      return slugify(this.name, { lower: true })
+    },
   },
   {
     name: "Liliyhamericana",
     image: "/img/lilyhamericana.jpg",
     externalLink: "https://songwhip.com/johanberggren/lilyhamericana",
+    alt: "Lilyhamericana album cover",
+    getSlug() {
+      return slugify(this.name, { lower: true })
+    },
   },
   {
     name: "For Now I'm Good Right Here",
     image: "/img/fnigrh.png",
     externalLink:
       "https://songwhip.com/johanberggren/for-now-im-good-right-here",
+    alt: "For Now I'm Good Right Here album cover",
+    getSlug() {
+      return slugify(this.name, { lower: true })
+    },
   },
-];
+]
+
+const QUOTES = [
+  {
+    source: "Dagbladet",
+    text: "Johan Berggren er Lillehammers svar på Stein Torleif Bjella og Hellbillies.",
+    rating: "5/6",
+  },
+  {
+    source: "Stavanger Aftenblad",
+    text: "Berggren er en mester når det kommer til det hverdagslige!",
+    rating: "5/6",
+  },
+  {
+    source: "Musikknyheter.no",
+
+    text: "Med «Ei hytte foran loven» har Johan Berggren lagd ei plate som er så god at jeg alt nå vil si at det er en skandale om den ikke nomineres i Spellemannprisens countrykategori for 2021!",
+    rating: "8/10",
+  },
+  {
+    source: "BluesNews",
+    text: "Alltid ekte. Alltid til å stole på. Alltid usminka og upolert.",
+    rating: "8/10",
+  },
+]
 
 export default function Home({
   concerts,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-  const sortedConcerts = concerts.sort((a, b) =>
-    dayjs(a.date).isBefore(b.date) ? -1 : 1
-  );
-  const [shownConcerts, setShownConcerts] = useState(
-    sortedConcerts.slice(0, 5)
-  );
+  const [shownConcerts, setShownConcerts] = useState(concerts.slice(0, 5))
+  const [activeQuote, setActiveQuote] = useState(QUOTES[1])
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const index = QUOTES.indexOf(activeQuote)
+
+      if (index === QUOTES.length - 1) {
+        setActiveQuote(QUOTES[0])
+      } else setActiveQuote(QUOTES[index + 1])
+    }, 5000)
+
+    return () => clearInterval(interval)
+  })
 
   return (
     <div>
-      <div className="h-screen w-screen relative flex max-w-full ">
-        <div className="m-auto z-30 flex flex-col lg:flex-row space-x-6 space-y-6 lg:space-x-12 lg:space-y-12 p-8 max-h-[600px]">
+      <div className="h-screen w-screen relative flex max-w-full">
+        <div className="m-auto z-30 grid lg:grid-cols-2 gap-8 p-8 max-h-[600px] w-full">
           <Image
             src="/img/ehfl.png"
             layout="intrinsic"
             objectFit="contain"
             height={450}
             width={450}
+            priority
+            alt="Ei Hytte Foran Loven album cover"
           />
 
-          <div className="flex flex-col max-w-3xl lg:mt-0">
+          <div className="flex flex-col max-w-3xl lg:max-w-none lg:mt-0 ">
             <span className="text-[#c99b1e] uppercase mx-auto lg:mx-0 text-sm mb-2">
               Nytt album
             </span>
             <h2 className="text-white text-3xl text-center lg:text-left lg:text-5xl xl:text-6xl font-black">
               Ei hytte foran loven
             </h2>
-            <p className="text-white leading-tight mt-2 lg:mt-8 text-center lg:text-left ">
-              <q className="leading-relaxed font-light text-gray-300 italic">
-                Johan Berggren fra Lillehammer følger opp fjorårets album på
-                morsmålet med en ny fulltreffer,{" "}
-                <span className="whitespace-nowrap">
-                  &#171;Ei hytte foran loven&#187;.
-                </span>
-              </q>
-              <span className="block mt-2 font-medium text-lg">
-                - Dagbladet
-              </span>
-            </p>
+            <div className="h-32 w-full relative">
+              <AnimatePresence exitBeforeEnter>
+                <motion.div
+                  key={activeQuote.source}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.5 }}
+                >
+                  <p className="text-white leading-tight mt-2 lg:mt-8 text-center lg:text-left ">
+                    <q className="leading-relaxed font-light text-gray-300 italic">
+                      {activeQuote.text}
+                    </q>
+                    <span className="block mt-2 font-medium text-lg">
+                      - {activeQuote.source} {activeQuote.rating}
+                    </span>
+                  </p>
+                </motion.div>
+              </AnimatePresence>
+            </div>
             <a
-              className="z-50 bg-[#c99b1e]  w-max mt-12 py-4 px-10 rounded-sm uppercase text-white transition-colors hover:bg-gray-200 mx-auto lg:mx-0 text-sm"
+              className="z-50 bg-[#c99b1e]  w-max mt-12 py-3.5 px-8  font-medium uppercase text-white transition-colors hover:bg-gray-200 mx-auto lg:mx-0 text-sm"
               href="https://songwhip.com/johanberggren/eihytteforanloven"
               target="_blank"
               rel="noreferrer noopener"
@@ -90,7 +147,7 @@ export default function Home({
         </video>
       </div>
 
-      <Container>
+      <Container className="mt-20">
         <h2 className="font-bold text-2xl leading-relaxed mb-6">Konserter</h2>
         {concerts.length > 0 ? (
           <ul className="divide-y">
@@ -117,7 +174,7 @@ export default function Home({
                   href={concert.ticketLink}
                   className="items-center gap-1 underline font-medium transition-opacity hover:opacity-50 flex-1 ml-auto text-right"
                 >
-                  Billetter <BiLinkExternal className="inline" />
+                  Info <BiLinkExternal className="inline" />
                 </a>
               </li>
             ))}
@@ -128,11 +185,7 @@ export default function Home({
         {concerts.length > shownConcerts.length && (
           <button
             className="text-sm underline text-gray-600"
-            onClick={() =>
-              setShownConcerts((s) => {
-                return [...s, ...sortedConcerts.slice(5)];
-              })
-            }
+            onClick={() => setShownConcerts(concerts)}
           >
             Vis alle konserter
           </button>
@@ -155,9 +208,10 @@ export default function Home({
                 layout="intrinsic"
                 height={300}
                 width={300}
+                alt={album.alt}
               />
 
-              <span className="uppercase  text-sm text-gray-900 group-hover:underline block">
+              <span className="font-medium text-gray-900 group-hover:underline block">
                 {album.name} <BiLinkExternal className="inline" />
               </span>
             </a>
@@ -165,19 +219,24 @@ export default function Home({
         </div>
       </Container>
     </div>
-  );
+  )
 }
 
 export async function getStaticProps() {
-  const response = await fetch(CMS_URL + "/concerts");
+  const response = await fetch(CMS_URL + "/concerts?_sort=date:ASC,venue:DESC")
 
   if (!response.ok) {
-    throw new Error(await response.text());
+    throw new Error(await response.text())
   }
 
-  const concerts: Concert[] = await response.json();
+  const concerts: Concert[] = await response.json()
+
   return {
-    props: { concerts },
+    props: {
+      concerts: concerts.filter(
+        (concert) => new Date(concert.date) >= new Date()
+      ),
+    },
     revalidate: 10,
-  };
+  }
 }

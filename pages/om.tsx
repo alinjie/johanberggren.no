@@ -10,7 +10,7 @@ export default function Om() {
           src={AboutBanner}
           layout="fill"
           objectFit="cover"
-          className="xl:object-top 2xl:object-about-banner "
+          className="xl:object-[50%-30%] 2xl:object-[50%_40%]"
           priority
           placeholder="blur"
           alt="Johan Berggren spiller gitar i en bar"

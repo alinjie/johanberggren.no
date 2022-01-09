@@ -1,7 +1,7 @@
-import Container from "components/Container";
-import { SOCIAL_ICONS } from "components/Header";
-import Image from "next/image";
-import ContactBanner from "public/img/contact-banner.jpg";
+import Container from "components/Container"
+import { SOCIAL_ICONS } from "components/Header"
+import Image from "next/image"
+import ContactBanner from "public/img/contact-banner.jpg"
 
 export default function Kontakt() {
   return (
@@ -13,7 +13,7 @@ export default function Kontakt() {
           objectFit="cover"
           priority
           placeholder="blur"
-          className="2xl:object-contact-banner"
+          className="2xl:object-[50%_40%]"
           alt="Johan Berggren avbildet i sofa"
         />
       </div>
@@ -128,5 +128,5 @@ export default function Kontakt() {
         </div>
       </Container>
     </div>
-  );
+  )
 }

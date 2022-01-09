@@ -1,8 +1,18 @@
-import "tailwindcss/tailwind.css";
-import Head from "next/head";
-import Header from "components/Header";
-import Footer from "components/Footer";
-import { AppProps } from "next/app";
+import "tailwindcss/tailwind.css"
+import Head from "next/head"
+import Header from "components/Header"
+import Footer from "components/Footer"
+import { AppProps } from "next/app"
+
+const KEYWORDS = [
+  "Johan Berggren",
+  "Country",
+  "Americana",
+  "Køntri",
+  "Lilyhamericana",
+  "For Now I'm Good Right Here",
+  "Ei hytte foran loven",
+]
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -30,5 +40,5 @@ export default function App({ Component, pageProps }: AppProps) {
       </div>
       <Footer />
     </div>
-  );
+  )
 }

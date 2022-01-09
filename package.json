@@ -10,6 +10,7 @@
     "@tailwindcss/typography": "^0.5.0",
     "classnames": "^2.3.1",
     "dayjs": "^1.10.7",
+    "formik": "^2.2.9",
     "framer-motion": "^5.3.1",
     "front-matter": "^4.0.2",
     "mailgun-js": "^0.22.0",
@@ -19,7 +20,8 @@
     "react-dom": "^17.0.2",
     "react-icons": "^4.3.1",
     "remark": "^14.0.2",
-    "slugify": "^1.6.5"
+    "slugify": "^1.6.5",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@types/classnames": "^2.3.1",
@@ -27,6 +29,7 @@
     "@types/marked": "^4.0.1",
     "@types/react": "^17.0.35",
     "@types/react-icons": "^3.0.0",
+    "@types/yup": "^0.29.13",
     "autoprefixer": "^10.4.2",
     "postcss": "^8.4.5",
     "tailwindcss": "^3.0.12",

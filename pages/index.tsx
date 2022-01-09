@@ -87,18 +87,18 @@ export default function Home({
   return (
     <div>
       <div className="h-screen w-screen relative flex max-w-full">
-        <div className="m-auto z-30 grid lg:grid-cols-2 gap-8 p-8 max-h-[600px] w-full">
-          <Image
-            src="/img/ehfl.png"
-            layout="intrinsic"
-            objectFit="contain"
-            height={450}
-            width={450}
-            priority
-            alt="Ei Hytte Foran Loven album cover"
-          />
+        <div className="m-auto z-30 grid lg:grid-cols-2 gap-8 p-8 max-h-[600px] w-full max-w-[1000px]">
+          <div className="relative h-96 w-96 mx-auto lg:ml-auto">
+            <Image
+              src="/img/ehfl.png"
+              layout="fill"
+              objectFit="contain"
+              priority
+              alt="Ei Hytte Foran Loven album cover"
+            />
+          </div>
 
-          <div className="flex flex-col max-w-3xl lg:max-w-none lg:mt-0 ">
+          <div className="flex flex-col max-w-3xl lg:max-w-none mx-auto lg:mt-0 ">
             <span className="text-[#c99b1e] uppercase mx-auto lg:mx-0 text-sm mb-2">
               Nytt album
             </span>

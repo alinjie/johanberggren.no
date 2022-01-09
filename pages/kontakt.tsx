@@ -1,7 +1,49 @@
 import Container from "components/Container"
 import { SOCIAL_ICONS } from "components/Header"
+import { Formik, Form, Field, FormikHelpers } from "formik"
 import Image from "next/image"
 import ContactBanner from "public/img/contact-banner.jpg"
+import * as yup from "yup"
+import cx from "classnames"
+
+export const validationSchema = yup.object({
+  firstname: yup.string().required(),
+  lastname: yup.string().required(),
+  email: yup.string().email().required(),
+  message: yup.string().required(),
+})
+
+type FormValues = yup.InferType<typeof validationSchema>
+
+const INITIAL_VALUES: FormValues = {
+  email: "",
+  firstname: "",
+  lastname: "",
+  message: "",
+}
+
+async function onSubmit(
+  values: FormValues,
+  helpers: FormikHelpers<FormValues>
+) {
+  const response = await fetch("/api/contact", {
+    method: "POST",
+    body: JSON.stringify(values),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+
+  if (!response.ok) {
+    return helpers.setStatus({
+      error:
+        "Ops! En uventet feil oppsto ved sending. Vennlig forsøk igjen senere eller kontakt Johan igjennom andre plattformer (Instagram, Facebook, etc.)",
+    })
+  }
+
+  helpers.resetForm()
+  helpers.setStatus({ message: "Meldingen ble sendt!" })
+}
 
 export default function Kontakt() {
   return (
@@ -60,71 +102,97 @@ export default function Kontakt() {
               </div>
             </div>
           </div>
-
-          <form className="flex flex-col space-y-4">
-            <div className="flex space-x-4">
-              <div className="flex-1">
-                <label
-                  className="text-gray-700 mb-2 block font-medium text-sm"
-                  htmlFor="given-name"
+          {/* <Formik
+            initialValues={INITIAL_VALUES}
+            onSubmit={onSubmit}
+            validationSchema={validationSchema}
+          >
+            {({ errors, status, isSubmitting, touched }) => (
+              <Form className="flex flex-col space-y-4">
+                <div className="flex space-x-4">
+                  <div className="flex-1">
+                    <label
+                      className="text-gray-700 mb-2 block font-medium text-sm"
+                      htmlFor="given-name"
+                    >
+                      Fornavn
+                    </label>
+                    <Field
+                      type="text"
+                      name="firstname"
+                      c
+                      className={cx("w-full border-gray-300 rounded-sm", {
+                        "ring-1 ring-red-500":
+                          errors.firstname && touched.firstname,
+                      })}
+                      autoComplete="given-name"
+                    />
+                  </div>
+                  <div className="flex-1">
+                    <label
+                      className="text-gray-700 mb-2 block font-medium text-sm"
+                      htmlFor="family-name"
+                    >
+                      Etternavn
+                    </label>
+                    <Field
+                      type="text"
+                      name="lastname"
+                      autoComplete="family-name"
+                      className={cx("w-full border-gray-300 rounded-sm", {
+                        "ring-1 ring-red-500":
+                          errors.lastname && touched.lastname,
+                      })}
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label
+                    className="text-gray-700 mb-2 block font-medium text-sm"
+                    htmlFor="email"
+                  >
+                    E-post
+                  </label>
+                  <Field
+                    type="text"
+                    name="email"
+                    autoComplete="email"
+                    className={cx("w-full border-gray-300 rounded-sm", {
+                      "ring-1 ring-red-500": errors.email && touched.email,
+                    })}
+                  />
+                </div>
+                <div>
+                  <label
+                    className="text-gray-700 mb-2 block font-medium text-sm"
+                    htmlFor="message"
+                  >
+                    Melding
+                  </label>
+                  <Field
+                    as="textarea"
+                    name="message"
+                    className={cx("w-full border-gray-300 rounded-sm", {
+                      "ring-1 ring-red-500": errors.message && touched.message,
+                    })}
+                  />
+                </div>
+                <button
+                  className="rounded bg-gray-900 text-white  py-3 px-8 hover:bg-gray-700 transition-colors disabled:bg-gray-700"
+                  type="submit"
+                  disabled={isSubmitting}
                 >
-                  Fornavn
-                </label>
-                <input
-                  type="text"
-                  id="given-name"
-                  className="w-full border-gray-300 rounded-sm"
-                  autoComplete="given-name"
-                />
-              </div>
-              <div className="flex-1">
-                <label
-                  className="text-gray-700 mb-2 block font-medium text-sm"
-                  htmlFor="family-name"
-                >
-                  Etternavn
-                </label>
-                <input
-                  type="text"
-                  id="family-name"
-                  autoComplete="family-name"
-                  className="w-full border-gray-300 rounded-sm"
-                />
-              </div>
-            </div>
-            <div>
-              <label
-                className="text-gray-700 mb-2 block font-medium text-sm"
-                htmlFor="email"
-              >
-                E-post
-              </label>
-              <input
-                type="text"
-                id="email"
-                autoComplete="email"
-                className="w-full border-gray-300 rounded-sm"
-              />
-            </div>
-            <div>
-              <label
-                className="text-gray-700 mb-2 block font-medium text-sm"
-                htmlFor="message"
-              >
-                Melding
-              </label>
-              <textarea
-                id="message"
-                className="w-full border-gray-300 rounded-sm"
-              />
-            </div>
-            <button
-              className="rounded bg-gray-900 text-white  py-3 px-8 hover:bg-gray-600 transition-colors"
-              type="submit"
-            >
-              Send
-            </button>
-          </form>
+                  {isSubmitting ? "Sender" : "Send"}
+                </button>
+                {status?.error && !status.message && (
+                  <span className="text-red-500">{status.error}</span>
+                )}
+                {status?.message && (
+                  <span className="text-gray-500">{status.message}</span>
+                )}
+              </Form>
+            )}
+          </Formik> */}
         </div>
       </Container>
     </div>

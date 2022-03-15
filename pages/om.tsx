@@ -20,19 +20,17 @@ export default function Om() {
         <h2>Om Johan Berggren</h2>
 
         <p className="!mt-0">
-          Berggren gjør norsk køntrimusikk. Nei, forresten - Berggren gjør
-          køntri på sitt eget vis. Og synger på norsk. Visst forstår man at han
-          har ei Merle Haggard-plate eller to, men han imiterer aldri.
-          <br />
-          <br />
-          Intuitivt har Berggren forstått køntriens sjel og hjerte. Han
-          behersker både det musikalske uttrykket og låtskriverkunsten fullt ut.
-          Musikken i seg selv er like behagelig som et par gode, inngåtte boots.
-          Han finner kanskje ikke opp hjulet på nytt, men trenger man det når
-          det køntrihjulet allerede ruller så bra?
+          Spellemannsnominerte Johan Berggren har siden debuten i 2019 vokst til
+          å bli en av de mest folkekjære artistene på den norske
+          visesangerfronten. <br /> <br /> “Ei hytte foran loven” er Berggrens
+          tredje utgivelse og med den kritikerroste forgjengeren
+          “Lilyhamericana” etablerte han seg raskt som en av de med aller mest
+          pondus og autoritet innenfor den stadig voksende Americana-bølgen.
+          Dabladet mente han var “Arven etter Prøysen” og Stavanger Aftenblad
+          kalte han “Lillehammers svar på Bjella og Hellbillies”.
         </p>
 
-        <div className="grid lg:grid-cols-2 gap-8 my-10">
+        <div className="grid lg:grid-cols-2 gap-8 my-8">
           <div className="relative h-[500px]">
             <Image
               src="/img/about-image-1.jpg"
@@ -47,24 +45,16 @@ export default function Om() {
               layout="fill"
               objectFit="cover"
               alt="Johan Berggren stemmer utstyr mellom låter"
+              className="object-top"
             />
           </div>
         </div>
 
         <p className="!mt-0">
-          Ei hytte foran loven” er Berggrens tredje album. Med den
-          spellemannsnominerte forgjengeren ”Lilyhamericana” etablerte
-          låtskriveren seg som et av de mest interessante navnene på den norske
-          musikkscenen og det ble trukket paralleller til både Stein Torleif
-          Bjella og John Prine.
-          <br />
-          <br />
-          På oppfølgeren tar Berggren ytterligere et steg fremover. Her er det
-          pondus og autoritet i kombinasjon med en gedigen musikalitet og sterk
-          låtskriving som gjør skiven til en usedvanlig kraftig plate.
-          Dagbladets Øyvind Rønning fant fram femmeren og ei helside og skrek
-          ”Arven etter Prøysen!” Stavanger Aftenblad gav også skiva en femmer og
-          sa ”Berggren er en mester når det kommer til det hverdagslige.
+          Berggren gjør køntri på sitt eget vis og har forstått dens sjel og
+          hjerte. Han behersker både det musikalske uttrykket og
+          låtskriverkunsten fullt ut. Musikken i seg selv er like behagelig som
+          et par gode, inngåtte boots.
         </p>
       </Container>
     </div>
